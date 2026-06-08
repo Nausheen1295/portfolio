@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Nausheen Haleelur Rahman — Computer Science graduate, AI & Software Development aspirant. Projects, services & blog." />
+  <title>Nausheen Haleelur Rahman — Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+</head>
+<body>
+  <!-- Scroll progress bar -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- Animated background blobs -->
+  <div class="bg-decor" aria-hidden="true">
+    <span class="blob blob-1"></span>
+    <span class="blob blob-2"></span>
+    <span class="blob blob-3"></span>
+  </div>
+
+  <!-- ===== NAVBAR ===== -->
+  <header class="navbar" id="navbar">
+    <a href="#home" class="logo">🌸 <span>Portfolio</span></a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      <a href="#skills" class="nav-link">Skills</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#products" class="nav-link">Products</a>
+      <a href="#services" class="nav-link">Services</a>
+      <a href="#blog" class="nav-link">Blog</a>
+      <a href="#contact" class="nav-link">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
+        <span class="theme-icon sun">☀️</span>
+        <span class="theme-icon moon">🌙</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ===== HERO / HOME ===== -->
+  <section class="hero section" id="home">
+    <div class="hero-content reveal">
+      <p class="hero-eyebrow">Hello, I'm 👋</p>
+      <h1 class="hero-name">Nausheen Haleelur Rahman</h1>
+      <h2 class="hero-role">
+        <span id="typed"></span><span class="cursor">|</span>
+      </h2>
+      <p class="hero-tagline">
+        Aspiring AI &amp; Software Developer dedicated to creating intelligent,
+        user-centered solutions. Welcome to my corner of the web.
+      </p>
+      <div class="hero-cta">
+        <a href="#projects" class="btn btn-primary">View My Work</a>
+        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-socials">
+        <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener" class="social-icon" title="GitHub">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+        </a>
+        <a href="mailto:naus2005official@gmail.com" class="social-icon" title="Email">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 13.06 1.5 6.36V18a1.5 1.5 0 0 0 1.5 1.5h18a1.5 1.5 0 0 0 1.5-1.5V6.36L12 13.06zM21 4.5H3a1.5 1.5 0 0 0-1.5 1.5v.06L12 11.25 22.5 6.06V6A1.5 1.5 0 0 0 21 4.5z"/></svg>
+        </a>
+      </div>
+    </div>
+    <div class="hero-art reveal">
+      <div class="avatar-frame">
+        <!-- Add a professional photo named profile.jpg in this folder to show it here.
+             Until then, your initials display. -->
+        <img src="profile.png" alt="Nausheen Haleelur Rahman" class="avatar-photo"
+             onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
+        <div class="avatar-initials" style="display:none;">NHR</div>
+      </div>
+      <div class="floating-card card-1">🤖 AI Developer</div>
+      <div class="floating-card card-2">🎨 UI/UX Designer</div>
+      <div class="floating-card card-3">📱 App Builder</div>
+    </div>
+    <a href="#about" class="scroll-down" aria-label="Scroll down">↓</a>
+  </section>
+
+  <!-- ===== ABOUT ===== -->
+  <section class="section" id="about">
+    <div class="section-head reveal">
+      <span class="section-tag">Get to know me</span>
+      <h2 class="section-title">About Me</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <p>
+          I'm an aspiring <strong>AI &amp; Software Developer</strong> and a
+          <strong>Computer Science (Hons)</strong> student, dedicated to creating
+          intelligent, user-centered solutions. I have hands-on experience across
+          software development, databases, UI/UX design, and technology-driven projects.
+        </p>
+        <p>
+          I'm committed to learning, innovating, and making a meaningful impact through
+          technology. As a <strong>Medulla intern</strong>, I rotated across Technical,
+          Database, and CSR &amp; Marketing functions — building expertise in IT support,
+          data management, and collaborating with multidisciplinary teams.
+        </p>
+        <div class="about-stats">
+          <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-label">Core Skills</span></div>
+          <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label">Languages</span></div>
+          <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-label">% Driven</span></div>
+        </div>
+        <a href="resume.pdf" class="btn btn-primary" download>⬇ Download Resume</a>
+      </div>
+      <div class="about-card reveal">
+        <h3>🎓 Education</h3>
+        <div class="edu-item">
+          <h4>BSc (Hons) Computer Science</h4>
+          <p class="edu-school">University of West London (UWL)</p>
+          <span class="edu-year">2023 – 2026</span>
+          <p>Coursework: Software Engineering, AI &amp; Automation, Databases,
+             Computer Networks, App Development, UI/UX Design.</p>
+        </div>
+        <div class="edu-item" style="margin-top:1rem;">
+          <h4>Higher Secondary — Science</h4>
+          <p class="edu-school">The Central School</p>
+          <span class="edu-year">2023 · 87%</span>
+        </div>
+        <h3 style="margin-top:1.4rem;">🌟 Quick Facts</h3>
+        <ul class="facts">
+          <li>📍 Based in Dubai, United Arab Emirates</li>
+          <li>💬 Languages: English, Tamil, Hindi, Urdu</li>
+          <li>🤖 Passionate about AI &amp; automation</li>
+          <li>🎯 Open to opportunities</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== SKILLS & EXPERTISE ===== -->
+  <section class="section alt" id="skills">
+    <div class="section-head reveal">
+      <span class="section-tag">What I can offer</span>
+      <h2 class="section-title">Skills & Areas of Expertise</h2>
+    </div>
+
+    <div class="expertise-grid">
+      <div class="expertise-card reveal">
+        <div class="exp-icon">🤖</div>
+        <h3>AI & Automation</h3>
+        <p>Building AI agents, workflow automation, and autonomous tools with prompt engineering.</p>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="exp-icon">📱</div>
+        <h3>App Development</h3>
+        <p>Android apps built in Android Studio with clean UI and smooth user experiences.</p>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="exp-icon">🎨</div>
+        <h3>UI / UX Design</h3>
+        <p>Wireframing, prototyping and user-centered design in Figma that's intuitive and beautiful.</p>
+      </div>
+      <div class="expertise-card reveal">
+        <div class="exp-icon">🗄️</div>
+        <h3>Databases & Networks</h3>
+        <p>Oracle SQL database design plus networking with Cisco Packet Tracer & IP configuration.</p>
+      </div>
+    </div>
+
+    <h3 class="skills-subtitle reveal">Technical Skills</h3>
+    <div class="skills-bars">
+      <div class="skill reveal" data-level="90">
+        <div class="skill-top"><span>UI/UX Design (Figma)</span><span class="skill-pct">90%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="90">
+        <div class="skill-top"><span>Technical Documentation & Presentations</span><span class="skill-pct">90%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill-top"><span>Artificial Intelligence & AI Tools</span><span class="skill-pct">85%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill-top"><span>Android App Development</span><span class="skill-pct">85%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill-top"><span>Web Development</span><span class="skill-pct">85%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="85">
+        <div class="skill-top"><span>Git & GitHub</span><span class="skill-pct">85%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="80">
+        <div class="skill-top"><span>Python Programming</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="80">
+        <div class="skill-top"><span>Software Development</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="80">
+        <div class="skill-top"><span>Database Management (Oracle SQL)</span><span class="skill-pct">80%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+      <div class="skill reveal" data-level="75">
+        <div class="skill-top"><span>Networking & Cisco Packet Tracer</span><span class="skill-pct">75%</span></div>
+        <div class="skill-track"><div class="skill-fill"></div></div>
+      </div>
+    </div>
+
+    <div class="tags reveal">
+      <span class="tag">Python</span><span class="tag">Java</span><span class="tag">JavaScript</span>
+      <span class="tag">TypeScript</span><span class="tag">Android Studio</span><span class="tag">Figma</span>
+      <span class="tag">Oracle SQL</span><span class="tag">REST APIs</span><span class="tag">Cisco Packet Tracer</span>
+      <span class="tag">AI Agents</span><span class="tag">Prompt Engineering</span><span class="tag">Git & GitHub</span>
+      <span class="tag">Linux</span><span class="tag">Wireframing</span><span class="tag">Video Editing</span>
+    </div>
+  </section>
+
+  <!-- ===== PROJECTS (GITHUB) ===== -->
+  <section class="section" id="projects">
+    <div class="section-head reveal">
+      <span class="section-tag">My GitHub work</span>
+      <h2 class="section-title">Projects</h2>
+      <p class="section-sub">A selection of things I've built. Live data pulled from my GitHub.</p>
+    </div>
+
+    <div class="projects-toolbar reveal">
+      <input type="text" id="projectSearch" class="search-input" placeholder="🔍 Search projects..." />
+      <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener" class="btn btn-ghost small">View all on GitHub →</a>
+    </div>
+
+    <div class="projects-grid" id="projectsGrid">
+      <!-- Projects injected by JS (GitHub API + fallback) -->
+      <div class="project-skeleton"></div>
+      <div class="project-skeleton"></div>
+      <div class="project-skeleton"></div>
+    </div>
+  </section>
+
+  <!-- ===== PRODUCTS ===== -->
+  <section class="section alt" id="products">
+    <div class="section-head reveal">
+      <span class="section-tag">Shop</span>
+      <h2 class="section-title">Products</h2>
+      <p class="section-sub">Digital products I'm crafting — launching soon. Tap "Notify Me" to be the first to know!</p>
+    </div>
+
+    <div class="products-grid">
+      <article class="product-card reveal">
+        <div class="product-media">🎨<span class="badge">Coming Soon</span></div>
+        <div class="product-body">
+          <h3>Figma UI Kit</h3>
+          <p>A clean, reusable UI component kit to design beautiful apps faster.</p>
+          <div class="product-foot">
+            <span class="price">Soon</span>
+            <button class="btn btn-primary small buy-btn" data-product="Figma UI Kit">Notify Me</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-media">🤖<span class="badge">Coming Soon</span></div>
+        <div class="product-body">
+          <h3>AI Prompt Pack</h3>
+          <p>Ready-to-use prompts & automation templates for everyday productivity.</p>
+          <div class="product-foot">
+            <span class="price">Soon</span>
+            <button class="btn btn-primary small buy-btn" data-product="AI Prompt Pack">Notify Me</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-media">📱<span class="badge">Coming Soon</span></div>
+        <div class="product-body">
+          <h3>App Starter Template</h3>
+          <p>An Android app starter with clean architecture to kickstart your build.</p>
+          <div class="product-foot">
+            <span class="price">Soon</span>
+            <button class="btn btn-primary small buy-btn" data-product="App Starter Template">Notify Me</button>
+          </div>
+        </div>
+      </article>
+
+      <article class="product-card reveal">
+        <div class="product-media">📄<span class="badge">Coming Soon</span></div>
+        <div class="product-body">
+          <h3>Resume & Portfolio Template</h3>
+          <p>A modern, ATS-friendly resume plus a portfolio template like this one.</p>
+          <div class="product-foot">
+            <span class="price">Soon</span>
+            <button class="btn btn-primary small buy-btn" data-product="Resume & Portfolio Template">Notify Me</button>
+          </div>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- ===== SERVICES ===== -->
+  <section class="section" id="services">
+    <div class="section-head reveal">
+      <span class="section-tag">Work with me</span>
+      <h2 class="section-title">Services I Provide</h2>
+      <p class="section-sub">Need something built? Here's how I can help.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal featured">
+        <span class="ribbon">Popular</span>
+        <div class="service-num">01</div>
+        <h3>UI/UX Design</h3>
+        <p>User-focused interface design in Figma — wireframes, prototypes, and
+           polished visuals that make your product shine.</p>
+        <ul><li>✓ Wireframing</li><li>✓ Prototyping</li><li>✓ User-centered design</li></ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">02</div>
+        <h3>App & Web Development</h3>
+        <p>Android apps and responsive websites built with modern tools,
+           clean code, and a smooth user experience.</p>
+        <ul><li>✓ Android (Android Studio)</li><li>✓ Responsive websites</li><li>✓ REST API integration</li></ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">03</div>
+        <h3>AI Automation & Tools</h3>
+        <p>Save time with AI agents, workflow automation, and prompt-engineered
+           tools tailored to your needs.</p>
+        <ul><li>✓ AI agents</li><li>✓ Workflow automation</li><li>✓ Prompt engineering</li></ul>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-num">04</div>
+        <h3>Design & Editing</h3>
+        <p>Eye-catching content — from video & photo editing to professional
+           documents and presentations.</p>
+        <ul><li>✓ Video & photo editing</li><li>✓ Presentations</li><li>✓ Technical documentation</li></ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== BLOG ===== -->
+  <section class="section alt" id="blog">
+    <div class="section-head reveal">
+      <span class="section-tag">Thoughts & writing</span>
+      <h2 class="section-title">Blog</h2>
+      <p class="section-sub">I write about tech, learning, and projects. Add your own posts below — they're saved in your browser.</p>
+    </div>
+
+    <div class="blog-actions reveal">
+      <button class="btn btn-primary" id="newPostBtn">✍️ Write New Post</button>
+    </div>
+
+    <!-- New post form (hidden by default) -->
+    <form class="blog-form" id="blogForm" hidden>
+      <h3>New Blog Post</h3>
+      <input type="text" id="postTitle" placeholder="Post title" required />
+      <input type="text" id="postTags" placeholder="Tags (comma separated)" />
+      <textarea id="postBody" rows="6" placeholder="Write your post here..." required></textarea>
+      <div class="form-row">
+        <button type="submit" class="btn btn-primary">Publish</button>
+        <button type="button" class="btn btn-ghost" id="cancelPost">Cancel</button>
+      </div>
+    </form>
+
+    <div class="blog-grid" id="blogGrid"><!-- Posts injected by JS --></div>
+  </section>
+
+  <!-- ===== CONTACT ===== -->
+  <section class="section" id="contact">
+    <div class="section-head reveal">
+      <span class="section-tag">Let's connect</span>
+      <h2 class="section-title">Get In Touch</h2>
+      <p class="section-sub">Have a project, question, or just want to say hi? Reach out!</p>
+    </div>
+
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <a href="mailto:naus2005official@gmail.com" class="contact-item">
+          <span class="ci-icon">✉️</span>
+          <div><strong>Email</strong><p>naus2005official@gmail.com</p></div>
+        </a>
+        <a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener" class="contact-item">
+          <span class="ci-icon">💼</span>
+          <div><strong>LinkedIn</strong><p>Nausheen Haleelur Rahman</p></div>
+        </a>
+        <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener" class="contact-item">
+          <span class="ci-icon">🐙</span>
+          <div><strong>GitHub</strong><p>github.com/Nausheen1295</p></div>
+        </a>
+        <a href="tel:+971558481981" class="contact-item">
+          <span class="ci-icon">📞</span>
+          <div><strong>Phone</strong><p>+971 55 848 1981</p></div>
+        </a>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <div class="field">
+          <input type="text" id="cName" required placeholder=" " />
+          <label for="cName">Your Name</label>
+        </div>
+        <div class="field">
+          <input type="email" id="cEmail" required placeholder=" " />
+          <label for="cEmail">Your Email</label>
+        </div>
+        <div class="field">
+          <textarea id="cMessage" rows="5" required placeholder=" "></textarea>
+          <label for="cMessage">Your Message</label>
+        </div>
+        <button type="submit" class="btn btn-primary full">Send Message 🚀</button>
+        <p class="form-note" id="formNote"></p>
+      </form>
+    </div>
+  </section>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <a href="#home" class="logo">🌸 <span>Portfolio</span></a>
+      <p>Designed & built with 💖 — © <span id="year"></span> Nausheen Haleelur Rahman. All rights reserved.</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener">GitHub</a>
+        <a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="mailto:naus2005official@gmail.com">Email</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to top -->
+  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+
+  <!-- Toast -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
