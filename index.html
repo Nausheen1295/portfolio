@@ -403,16 +403,17 @@
       </div>
 
       <form class="contact-form reveal" id="contactForm">
+        <input type="hidden" name="_subject" value="New message from your portfolio!" />
         <div class="field">
-          <input type="text" id="cName" required placeholder=" " />
+          <input type="text" id="cName" name="name" required placeholder=" " />
           <label for="cName">Your Name</label>
         </div>
         <div class="field">
-          <input type="email" id="cEmail" required placeholder=" " />
+          <input type="email" id="cEmail" name="email" required placeholder=" " />
           <label for="cEmail">Your Email</label>
         </div>
         <div class="field">
-          <textarea id="cMessage" rows="5" required placeholder=" "></textarea>
+          <textarea id="cMessage" name="message" rows="5" required placeholder=" "></textarea>
           <label for="cMessage">Your Message</label>
         </div>
         <button type="submit" class="btn btn-primary full">Send Message 🚀</button>

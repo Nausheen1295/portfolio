@@ -5,6 +5,7 @@
 /* ---------- CONFIG: edit these ---------- */
 const CONFIG = {
   githubUsername: "Nausheen1295",   // ← your GitHub username (live projects pull from here)
+  formspreeId: "xwvjbokz",          // ← your Formspree form ID — messages go straight to your inbox.
   typedRoles: [
     "Computer Science Graduate 🎓",
     "AI & Software Developer 🤖",
@@ -290,13 +291,37 @@ renderBlog();
    ============================================================ */
 const contactForm = document.getElementById("contactForm");
 const formNote = document.getElementById("formNote");
-contactForm.addEventListener("submit", (e) => {
+
+contactForm.addEventListener("submit", async (e) => {
   e.preventDefault();
   const name = document.getElementById("cName").value.trim();
-  formNote.textContent = `Thanks, ${name}! Your message is ready — opening your email app...`;
-  // Opens the user's mail client pre-filled (no backend needed)
   const email = document.getElementById("cEmail").value.trim();
   const msg = document.getElementById("cMessage").value.trim();
+
+  // If a Formspree ID is configured, send the message straight to the inbox.
+  if (CONFIG.formspreeId) {
+    formNote.textContent = "Sending... ✉️";
+    try {
+      const res = await fetch(`https://formspree.io/f/${CONFIG.formspreeId}`, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: new FormData(contactForm),
+      });
+      if (res.ok) {
+        formNote.textContent = `Thank you, ${name}! Your message has been sent. 💖`;
+        contactForm.reset();
+        showToast("✅ Message sent successfully!");
+      } else {
+        formNote.textContent = "Oops — something went wrong. Please email me directly.";
+      }
+    } catch {
+      formNote.textContent = "Network error. Please email me directly.";
+    }
+    return;
+  }
+
+  // Fallback (no Formspree set): open the visitor's email app pre-filled.
+  formNote.textContent = `Thanks, ${name}! Opening your email app...`;
   const subject = encodeURIComponent(`Portfolio contact from ${name}`);
   const bodyText = encodeURIComponent(`${msg}\n\n— ${name} (${email})`);
   setTimeout(() => {
