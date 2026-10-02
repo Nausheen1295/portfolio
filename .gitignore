@@ -1,0 +1,12 @@
+# dependencies & local environments
+node_modules/
+.venv/
+__pycache__/
+.pytest_cache/
+# secrets
+.env
+# test output
+tests/test-results/
+tests/playwright-report/
+# not published (large / personal)
+profile.png

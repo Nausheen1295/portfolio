@@ -1,446 +1,439 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" data-theme="dark">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Nausheen Haleelur Rahman — Computer Science graduate, AI & Software Development aspirant. Projects, services & blog." />
-  <title>Nausheen Haleelur Rahman — Portfolio</title>
+  <title>Nausheen Haleelur Rahman — AI &amp; Software Developer · NEXUS Universe</title>
+  <meta name="description" content="Nausheen Haleelur Rahman — AI & Software Developer and Computer Science (Hons) student at UWL. Explore NEXUS Universe: research labs, projects like SecureVault AI, and engineering case studies." />
+  <meta name="author" content="Nausheen Haleelur Rahman" />
+  <link rel="canonical" href="https://nausheen1295.github.io/portfolio/" />
+  <meta name="theme-color" content="#07080d" />
+
+  <!-- Open Graph / social previews -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://nausheen1295.github.io/portfolio/" />
+  <meta property="og:title" content="Nausheen Haleelur Rahman — NEXUS Universe" />
+  <meta property="og:description" content="AI & Software Developer. One Workspace. Infinite Intelligence." />
+  <meta property="og:site_name" content="NEXUS — Nausheen Haleelur Rahman" />
+  <meta property="og:locale" content="en_GB" />
+  <meta property="og:image" content="https://nausheen1295.github.io/portfolio/assets/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="NEXUS — Nausheen Haleelur Rahman, AI & Software Developer" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:image" content="https://nausheen1295.github.io/portfolio/assets/og-image.png" />
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Nausheen Haleelur Rahman",
+    "jobTitle": "AI & Software Developer",
+    "url": "https://nausheen1295.github.io/portfolio/",
+    "address": { "@type": "PostalAddress", "addressLocality": "Dubai", "addressCountry": "AE" },
+    "alumniOf": { "@type": "CollegeOrUniversity", "name": "University of West London" },
+    "sameAs": ["https://github.com/Nausheen1295", "https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/"]
+  }
+  </script>
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2322d3ee'/><stop offset='1' stop-color='%238b7bff'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='17' text-anchor='middle' fill='%2305060a'>N</text></svg>" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌸</text></svg>" />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/nexus/tokens.css" />
+  <link rel="stylesheet" href="css/nexus/base.css" />
+  <link rel="stylesheet" href="css/nexus/components.css" />
+  <link rel="stylesheet" href="css/nexus/sections.css" />
+  <link rel="stylesheet" href="css/nexus/universe.css" />
+  <link rel="stylesheet" href="css/nexus/journey.css" />
+  <link rel="stylesheet" href="css/nexus/nexa.css" />
+  <link rel="stylesheet" href="css/nexus/command.css" />
+
+  <!-- Theme + boot decision before first paint (no flash) -->
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add("nx-js");
+      // failsafes: if the app script never starts (e.g. opened via file://),
+      // show all content and never let the boot screen block the page
+      setTimeout(function () { if (!d.classList.contains("nx-ready")) d.classList.remove("nx-js", "nx-booting"); }, 2500);
+      setTimeout(function () { d.classList.remove("nx-booting"); }, 6000);
+      try { var t = localStorage.getItem("nx-theme"); if (t) d.setAttribute("data-theme", t); } catch (e) {}
+      var seen = false;
+      try { seen = sessionStorage.getItem("nx-booted") === "1"; } catch (e) {}
+      var reduced = window.matchMedia && matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!seen && !reduced && !location.hash) d.classList.add("nx-booting");
+    })();
+  </script>
+  <script type="module" src="js/main.js"></script>
+  <!-- modulepreload:start (generated by tools/update-preloads.mjs) -->
+  <link rel="modulepreload" href="js/core/achievements.js" />
+  <link rel="modulepreload" href="js/core/boot.js" />
+  <link rel="modulepreload" href="js/core/command-center.js" />
+  <link rel="modulepreload" href="js/core/contact.js" />
+  <link rel="modulepreload" href="js/core/nav.js" />
+  <link rel="modulepreload" href="js/core/reveal.js" />
+  <link rel="modulepreload" href="js/core/search.js" />
+  <link rel="modulepreload" href="js/core/theme.js" />
+  <link rel="modulepreload" href="js/data/profile.js" />
+  <link rel="modulepreload" href="js/data/projects.js" />
+  <link rel="modulepreload" href="js/data/store.js" />
+  <link rel="modulepreload" href="js/nexa/client.js" />
+  <link rel="modulepreload" href="js/nexa/config.js" />
+  <link rel="modulepreload" href="js/nexa/ui.js" />
+  <link rel="modulepreload" href="js/sections/journey.js" />
+  <link rel="modulepreload" href="js/sections/render.js" />
+  <link rel="modulepreload" href="js/sections/universe.js" />
+  <link rel="modulepreload" href="js/ui/components.js" />
+  <link rel="modulepreload" href="js/ui/icons.js" />
+  <link rel="modulepreload" href="js/ui/project-modal.js" />
+  <link rel="modulepreload" href="js/ui/toast.js" />
+  <!-- modulepreload:end -->
 </head>
 <body>
-  <!-- Scroll progress bar -->
-  <div class="scroll-progress" id="scrollProgress"></div>
+  <a class="nx-skip-link" href="#main">Skip to content</a>
 
-  <!-- Animated background blobs -->
-  <div class="bg-decor" aria-hidden="true">
-    <span class="blob blob-1"></span>
-    <span class="blob blob-2"></span>
-    <span class="blob blob-3"></span>
+  <!-- ===== BOOT SEQUENCE (first visit per session; skippable) ===== -->
+  <div class="nx-boot" id="boot">
+    <div class="nx-boot-inner">
+      <span class="nx-orb" style="--_size:44px" aria-hidden="true"></span>
+      <ol class="nx-boot-log" id="bootLog" aria-hidden="true"><li>INITIALIZING NEXUS…</li></ol>
+      <div class="nx-boot-bar" aria-hidden="true"><span id="bootBar"></span></div>
+    </div>
+    <button class="nx-btn nx-btn--quiet nx-btn--sm nx-boot-skip" id="bootSkip" type="button">Skip intro ↵</button>
   </div>
 
-  <!-- ===== NAVBAR ===== -->
-  <header class="navbar" id="navbar">
-    <a href="#home" class="logo">🌸 <span>Portfolio</span></a>
+  <div class="nx-ambient" aria-hidden="true"></div>
 
-    <nav class="nav-links" id="navLinks">
-      <a href="#home" class="nav-link">Home</a>
-      <a href="#about" class="nav-link">About</a>
-      <a href="#skills" class="nav-link">Skills</a>
-      <a href="#projects" class="nav-link">Projects</a>
-      <a href="#products" class="nav-link">Products</a>
-      <a href="#services" class="nav-link">Services</a>
-      <a href="#blog" class="nav-link">Blog</a>
-      <a href="#contact" class="nav-link">Contact</a>
+  <!-- ===== NAVIGATION ===== -->
+  <header class="nx-nav" id="nav">
+    <a class="nx-brand" href="#top"><span class="nx-brand-mark" aria-hidden="true">N</span> NEXUS</a>
+    <nav aria-label="Primary">
+      <ul class="nx-nav-links" id="navLinks">
+        <li><a href="#universe">Universe</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#journey">Journey</a></li>
+        <li><a href="#nexa">NEXA</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#journal">Journal</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
     </nav>
-
-    <div class="nav-actions">
-      <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle theme">
-        <span class="theme-icon sun">☀️</span>
-        <span class="theme-icon moon">🌙</span>
+    <div class="nx-nav-actions">
+      <button class="nx-btn nx-btn--sm nx-cmd-trigger" type="button" data-cmd-open aria-label="Search and commands" aria-keyshortcuts="Control+K Meta+K /">
+        <span data-icon="search"></span><span class="nx-cmd-trigger-label">Search</span><kbd>Ctrl K</kbd>
       </button>
-      <button class="hamburger" id="hamburger" aria-label="Open menu">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="nx-btn nx-btn--sm nx-hide-sm" href="resume.pdf" download>Résumé</a>
+      <button class="nx-btn nx-btn--icon nx-btn--sm" id="themeBtn" type="button" aria-label="Switch to light theme" data-icon="sun"></button>
+      <button class="nx-btn nx-btn--icon nx-btn--sm nx-nav-toggle" id="navToggle" type="button"
+              aria-label="Open menu" aria-expanded="false" aria-controls="navLinks" data-icon="menu"></button>
     </div>
   </header>
 
-  <!-- ===== HERO / HOME ===== -->
-  <section class="hero section" id="home">
-    <div class="hero-content reveal">
-      <p class="hero-eyebrow">Hello, I'm 👋</p>
-      <h1 class="hero-name">Nausheen Haleelur Rahman</h1>
-      <h2 class="hero-role">
-        <span id="typed"></span><span class="cursor">|</span>
-      </h2>
-      <p class="hero-tagline">
-        Aspiring AI &amp; Software Developer dedicated to creating intelligent,
-        user-centered solutions. Welcome to my corner of the web.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-ghost">Get In Touch</a>
-      </div>
-      <div class="hero-socials">
-        <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener" class="social-icon" title="GitHub">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 .5C5.7.5.5 5.7.5 12c0 5.1 3.3 9.4 7.9 10.9.6.1.8-.2.8-.5v-2c-3.2.7-3.9-1.4-3.9-1.4-.5-1.3-1.3-1.7-1.3-1.7-1.1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.6-.3-5.3-1.3-5.3-5.7 0-1.3.5-2.3 1.2-3.1-.1-.3-.5-1.5.1-3.1 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0C17 4.6 18 4.9 18 4.9c.6 1.6.2 2.8.1 3.1.8.8 1.2 1.8 1.2 3.1 0 4.4-2.7 5.4-5.3 5.7.4.4.8 1.1.8 2.2v3.3c0 .3.2.6.8.5 4.6-1.5 7.9-5.8 7.9-10.9C23.5 5.7 18.3.5 12 .5z"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener" class="social-icon" title="LinkedIn">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.34V9h3.42v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.07 2.07 0 1 1 0-4.14 2.07 2.07 0 0 1 0 4.14zM7.12 20.45H3.55V9h3.57v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.22.79 24 1.77 24h20.45c.98 0 1.78-.78 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
-        </a>
-        <a href="mailto:naus2005official@gmail.com" class="social-icon" title="Email">
-          <svg viewBox="0 0 24 24" width="22" height="22" fill="currentColor"><path d="M12 13.06 1.5 6.36V18a1.5 1.5 0 0 0 1.5 1.5h18a1.5 1.5 0 0 0 1.5-1.5V6.36L12 13.06zM21 4.5H3a1.5 1.5 0 0 0-1.5 1.5v.06L12 11.25 22.5 6.06V6A1.5 1.5 0 0 0 21 4.5z"/></svg>
-        </a>
-      </div>
-    </div>
-    <div class="hero-art reveal">
-      <div class="avatar-frame">
-        <!-- Add a professional photo named profile.jpg in this folder to show it here.
-             Until then, your initials display. -->
-        <img src="profile.png" alt="Nausheen Haleelur Rahman" class="avatar-photo"
-             onerror="this.style.display='none'; this.nextElementSibling.style.display='grid';" />
-        <div class="avatar-initials" style="display:none;">NHR</div>
-      </div>
-      <div class="floating-card card-1">🤖 AI Developer</div>
-      <div class="floating-card card-2">🎨 UI/UX Designer</div>
-      <div class="floating-card card-3">📱 App Builder</div>
-    </div>
-    <a href="#about" class="scroll-down" aria-label="Scroll down">↓</a>
-  </section>
+  <main id="main">
+    <!-- ===== HERO ===== -->
+    <section class="nx-hero" id="top" aria-labelledby="heroName">
+      <div class="nx-container nx-hero-grid">
+        <div class="nx-hero-copy">
+          <p class="nx-hero-status nx-rise"><span class="nx-live-dot" aria-hidden="true"></span> Open to opportunities · Dubai, UAE</p>
+          <span class="nx-kicker nx-rise" style="--nx-delay:60ms">NEXUS Universe · One Workspace. Infinite Intelligence.</span>
+          <h1 class="nx-hero-name nx-rise" id="heroName" style="--nx-delay:120ms">Nausheen<br>Haleelur Rahman</h1>
+          <p class="nx-hero-role nx-rise" style="--nx-delay:180ms"><span class="nx-grad-text">AI &amp; Software Developer</span></p>
+          <p class="nx-hero-lede nx-rise" style="--nx-delay:240ms">Building intelligent, secure, and user-centered software experiences.</p>
 
-  <!-- ===== ABOUT ===== -->
-  <section class="section" id="about">
-    <div class="section-head reveal">
-      <span class="section-tag">Get to know me</span>
-      <h2 class="section-title">About Me</h2>
-    </div>
-    <div class="about-grid">
-      <div class="about-text reveal">
-        <p>
-          I'm an aspiring <strong>AI &amp; Software Developer</strong> and a
-          <strong>Computer Science (Hons)</strong> student, dedicated to creating
-          intelligent, user-centered solutions. I have hands-on experience across
-          software development, databases, UI/UX design, and technology-driven projects.
-        </p>
-        <p>
-          I'm committed to learning, innovating, and making a meaningful impact through
-          technology. As a <strong>Medulla intern</strong>, I rotated across Technical,
-          Database, and CSR &amp; Marketing functions — building expertise in IT support,
-          data management, and collaborating with multidisciplinary teams.
-        </p>
-        <div class="about-stats">
-          <div class="stat"><span class="stat-num" data-count="10">0</span><span class="stat-label">Core Skills</span></div>
-          <div class="stat"><span class="stat-num" data-count="4">0</span><span class="stat-label">Languages</span></div>
-          <div class="stat"><span class="stat-num" data-count="100">0</span><span class="stat-label">% Driven</span></div>
-        </div>
-        <a href="resume.pdf" class="btn btn-primary" download>⬇ Download Resume</a>
-      </div>
-      <div class="about-card reveal">
-        <h3>🎓 Education</h3>
-        <div class="edu-item">
-          <h4>BSc (Hons) Computer Science</h4>
-          <p class="edu-school">University of West London (UWL)</p>
-          <span class="edu-year">2023 – 2026</span>
-          <p>Coursework: Software Engineering, AI &amp; Automation, Databases,
-             Computer Networks, App Development, UI/UX Design.</p>
-        </div>
-        <div class="edu-item" style="margin-top:1rem;">
-          <h4>Higher Secondary — Science</h4>
-          <p class="edu-school">The Central School</p>
-          <span class="edu-year">2023 · 87%</span>
-        </div>
-        <h3 style="margin-top:1.4rem;">🌟 Quick Facts</h3>
-        <ul class="facts">
-          <li>📍 Based in Dubai, United Arab Emirates</li>
-          <li>💬 Languages: English, Tamil, Hindi, Urdu</li>
-          <li>🤖 Passionate about AI &amp; automation</li>
-          <li>🎯 Open to opportunities</li>
-        </ul>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== SKILLS & EXPERTISE ===== -->
-  <section class="section alt" id="skills">
-    <div class="section-head reveal">
-      <span class="section-tag">What I can offer</span>
-      <h2 class="section-title">Skills & Areas of Expertise</h2>
-    </div>
-
-    <div class="expertise-grid">
-      <div class="expertise-card reveal">
-        <div class="exp-icon">🤖</div>
-        <h3>AI & Automation</h3>
-        <p>Building AI agents, workflow automation, and autonomous tools with prompt engineering.</p>
-      </div>
-      <div class="expertise-card reveal">
-        <div class="exp-icon">📱</div>
-        <h3>App Development</h3>
-        <p>Android apps built in Android Studio with clean UI and smooth user experiences.</p>
-      </div>
-      <div class="expertise-card reveal">
-        <div class="exp-icon">🎨</div>
-        <h3>UI / UX Design</h3>
-        <p>Wireframing, prototyping and user-centered design in Figma that's intuitive and beautiful.</p>
-      </div>
-      <div class="expertise-card reveal">
-        <div class="exp-icon">🗄️</div>
-        <h3>Databases & Networks</h3>
-        <p>Oracle SQL database design plus networking with Cisco Packet Tracer & IP configuration.</p>
-      </div>
-    </div>
-
-    <h3 class="skills-subtitle reveal">Technical Skills</h3>
-    <div class="skills-bars">
-      <div class="skill reveal" data-level="90">
-        <div class="skill-top"><span>UI/UX Design (Figma)</span><span class="skill-pct">90%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="90">
-        <div class="skill-top"><span>Technical Documentation & Presentations</span><span class="skill-pct">90%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="85">
-        <div class="skill-top"><span>Artificial Intelligence & AI Tools</span><span class="skill-pct">85%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="85">
-        <div class="skill-top"><span>Android App Development</span><span class="skill-pct">85%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="85">
-        <div class="skill-top"><span>Web Development</span><span class="skill-pct">85%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="85">
-        <div class="skill-top"><span>Git & GitHub</span><span class="skill-pct">85%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="80">
-        <div class="skill-top"><span>Python Programming</span><span class="skill-pct">80%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="80">
-        <div class="skill-top"><span>Software Development</span><span class="skill-pct">80%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="80">
-        <div class="skill-top"><span>Database Management (Oracle SQL)</span><span class="skill-pct">80%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-      <div class="skill reveal" data-level="75">
-        <div class="skill-top"><span>Networking & Cisco Packet Tracer</span><span class="skill-pct">75%</span></div>
-        <div class="skill-track"><div class="skill-fill"></div></div>
-      </div>
-    </div>
-
-    <div class="tags reveal">
-      <span class="tag">Python</span><span class="tag">Java</span><span class="tag">JavaScript</span>
-      <span class="tag">TypeScript</span><span class="tag">Android Studio</span><span class="tag">Figma</span>
-      <span class="tag">Oracle SQL</span><span class="tag">REST APIs</span><span class="tag">Cisco Packet Tracer</span>
-      <span class="tag">AI Agents</span><span class="tag">Prompt Engineering</span><span class="tag">Git & GitHub</span>
-      <span class="tag">Linux</span><span class="tag">Wireframing</span><span class="tag">Video Editing</span>
-    </div>
-  </section>
-
-  <!-- ===== PROJECTS (GITHUB) ===== -->
-  <section class="section" id="projects">
-    <div class="section-head reveal">
-      <span class="section-tag">My GitHub work</span>
-      <h2 class="section-title">Projects</h2>
-      <p class="section-sub">A selection of things I've built. Live data pulled from my GitHub.</p>
-    </div>
-
-    <div class="projects-toolbar reveal">
-      <input type="text" id="projectSearch" class="search-input" placeholder="🔍 Search projects..." />
-      <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener" class="btn btn-ghost small">View all on GitHub →</a>
-    </div>
-
-    <div class="projects-grid" id="projectsGrid">
-      <!-- Projects injected by JS (GitHub API + fallback) -->
-      <div class="project-skeleton"></div>
-      <div class="project-skeleton"></div>
-      <div class="project-skeleton"></div>
-    </div>
-  </section>
-
-  <!-- ===== PRODUCTS ===== -->
-  <section class="section alt" id="products">
-    <div class="section-head reveal">
-      <span class="section-tag">Shop</span>
-      <h2 class="section-title">Products</h2>
-      <p class="section-sub">Digital products I'm crafting — launching soon. Tap "Notify Me" to be the first to know!</p>
-    </div>
-
-    <div class="products-grid">
-      <article class="product-card reveal">
-        <div class="product-media">🎨<span class="badge">Coming Soon</span></div>
-        <div class="product-body">
-          <h3>Figma UI Kit</h3>
-          <p>A clean, reusable UI component kit to design beautiful apps faster.</p>
-          <div class="product-foot">
-            <span class="price">Soon</span>
-            <button class="btn btn-primary small buy-btn" data-product="Figma UI Kit">Notify Me</button>
+          <div class="nx-row nx-hero-cta nx-rise" style="--nx-delay:300ms">
+            <a class="nx-btn nx-btn--primary nx-btn--lg" href="#universe">Explore NEXUS <span data-icon="arrow"></span></a>
+            <a class="nx-btn nx-btn--lg" href="#nexa"><span class="nx-orb" style="--_size:18px" aria-hidden="true"></span> Meet NEXA</a>
           </div>
-        </div>
-      </article>
 
-      <article class="product-card reveal">
-        <div class="product-media">🤖<span class="badge">Coming Soon</span></div>
-        <div class="product-body">
-          <h3>AI Prompt Pack</h3>
-          <p>Ready-to-use prompts & automation templates for everyday productivity.</p>
-          <div class="product-foot">
-            <span class="price">Soon</span>
-            <button class="btn btn-primary small buy-btn" data-product="AI Prompt Pack">Notify Me</button>
+          <ul class="nx-quicklinks nx-rise" style="--nx-delay:360ms" aria-label="Quick links">
+            <li><a href="resume.pdf" download><span data-icon="file"></span>Résumé</a></li>
+            <li><a href="https://github.com/Nausheen1295" target="_blank" rel="noopener"><span data-icon="github"></span>GitHub</a></li>
+            <li><a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener"><span data-icon="linkedin"></span>LinkedIn</a></li>
+            <li><a href="#contact"><span data-icon="mail"></span>Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="nx-hero-visual nx-rise" style="--nx-delay:200ms">
+          <div class="nx-orbit" aria-hidden="true">
+            <div class="nx-orbit-ring nx-orbit-ring--outer" id="orbitDots"></div>
+            <div class="nx-orbit-ring nx-orbit-ring--inner"></div>
           </div>
+          <div id="heroAvatar"></div>
         </div>
-      </article>
+      </div>
 
-      <article class="product-card reveal">
-        <div class="product-media">📱<span class="badge">Coming Soon</span></div>
-        <div class="product-body">
-          <h3>App Starter Template</h3>
-          <p>An Android app starter with clean architecture to kickstart your build.</p>
-          <div class="product-foot">
-            <span class="price">Soon</span>
-            <button class="btn btn-primary small buy-btn" data-product="App Starter Template">Notify Me</button>
+      <div class="nx-container">
+        <dl class="nx-hero-meta nx-rise" id="heroMeta" style="--nx-delay:420ms"></dl>
+      </div>
+    </section>
+
+    <!-- ===== UNIVERSE (research labs) ===== -->
+    <section class="nx-section" id="universe" aria-labelledby="universeTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">The NEXUS Universe</span>
+          <h2 id="universeTitle">Seven research labs. One ecosystem.</h2>
+          <p>Every project lives in a lab, connected through the NEXUS Core. Select a lab to see what's been built there — and what's on the way.</p>
+        </div>
+        <div id="universeMap" class="nx-reveal"></div>
+      </div>
+    </section>
+
+    <!-- ===== PROJECTS ===== -->
+    <section class="nx-section nx-section--alt" id="projects" aria-labelledby="projectsTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">Projects</span>
+          <h2 id="projectsTitle">Shipped, in progress, and on the drawing board.</h2>
+          <p>Each project is labelled honestly: <strong>Live</strong> and <strong>Completed</strong> work is real and public;
+            <strong>Concept</strong> projects are designed but not built yet.</p>
+        </div>
+        <div class="nx-filter nx-reveal" role="group" aria-label="Filter projects by lab" id="projectFilter"></div>
+        <div class="nx-grid" id="projectGrid" style="--nx-grid-min:300px" aria-live="polite"></div>
+      </div>
+    </section>
+
+    <!-- ===== ENGINEERING JOURNEY ===== -->
+    <section class="nx-section" id="journey" aria-labelledby="journeyTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">Engineering Journey</span>
+          <h2 id="journeyTitle">From idea to iteration.</h2>
+          <p>Every project moves through the same nine stages. Pick a stage to see what it involves — and the documented
+            evidence from real projects. Follow a single project to trace how far it has come.</p>
+        </div>
+        <div id="journeyMount" class="nx-reveal"></div>
+      </div>
+    </section>
+
+    <!-- ===== NEXA ===== -->
+    <section class="nx-section nx-section--alt" id="nexa" aria-labelledby="nexaTitle">
+      <div class="nx-container nx-nexa">
+        <div class="nx-nexa-copy nx-reveal">
+          <span class="nx-kicker">AI Lab · Signature project</span>
+          <h2 id="nexaTitle" style="font-size:var(--nx-text-3xl)">Meet <span class="nx-grad-text">NEXA</span></h2>
+          <p class="nx-soft" style="font-size:var(--nx-text-lg)">NEXA is the AI assistant for this universe — built to answer questions about my projects
+            from their real documentation, in the voice you need: recruiter, developer, architect, or interviewer.</p>
+          <div class="nx-notice">
+            <span aria-hidden="true">ⓘ</span>
+            <span><strong>NEXA is in development.</strong> Its AI backend isn't connected yet. Until it is, questions run a
+              clearly-labelled <strong>documentation search</strong> over the project data — NEXA never invents an answer,
+              and says so when something isn't documented.</span>
           </div>
+          <ul class="nx-nexa-points">
+            <li><strong>5 modes</strong> — recruiter, developer, simple, architecture and interview.</li>
+            <li><strong>Grounded</strong> — answers will cite the documents they came from.</li>
+            <li><strong>Interview me</strong> — ask the questions you'd ask in a technical interview.</li>
+          </ul>
         </div>
-      </article>
+        <div id="nexaMount" class="nx-reveal" style="--nx-delay:120ms"></div>
+      </div>
+    </section>
 
-      <article class="product-card reveal">
-        <div class="product-media">📄<span class="badge">Coming Soon</span></div>
-        <div class="product-body">
-          <h3>Resume & Portfolio Template</h3>
-          <p>A modern, ATS-friendly resume plus a portfolio template like this one.</p>
-          <div class="product-foot">
-            <span class="price">Soon</span>
-            <button class="btn btn-primary small buy-btn" data-product="Resume & Portfolio Template">Notify Me</button>
+    <!-- ===== ABOUT ===== -->
+    <section class="nx-section" id="about" aria-labelledby="aboutTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">About</span>
+          <h2 id="aboutTitle">A curious mind at the intersection of AI and engineering.</h2>
+        </div>
+        <div class="nx-about">
+          <div class="nx-about-text nx-reveal">
+            <p>I'm an aspiring <strong>AI &amp; Software Developer</strong> and a <strong>BSc (Hons) Computer Science</strong> student at the
+              University of West London, dedicated to creating intelligent, user-centered solutions. I have hands-on experience across
+              software development, databases, UI/UX design and technology-driven projects.</p>
+            <p>As a <strong>Medulla intern</strong>, I rotated across Technical, Database, and CSR &amp; Marketing functions — building
+              expertise in IT support and data management, and collaborating with multidisciplinary teams.</p>
+            <p>Lately my focus is security and AI: <strong>SecureVault AI</strong> pairs local AES-256-GCM encryption with AI-powered threat
+              scanning, and NEXUS itself is my long-term build — an ecosystem of tools, each in its own lab.</p>
+
+            <div class="nx-timeline" aria-label="Education and experience">
+              <article class="nx-tl">
+                <span class="nx-tl-when">2023 – 2026</span>
+                <h3>BSc (Hons) Computer Science</h3>
+                <p class="nx-soft">University of West London — Software Engineering, AI &amp; Automation, Databases, Computer Networks, App Development, UI/UX Design.</p>
+              </article>
+              <article class="nx-tl">
+                <span class="nx-tl-when">Internship</span>
+                <h3>Rotational Intern · Medulla</h3>
+                <p class="nx-soft">Technical, Database, and CSR &amp; Marketing rotations — IT support, data management, cross-team collaboration.</p>
+              </article>
+              <article class="nx-tl">
+                <span class="nx-tl-when">2023</span>
+                <h3>Higher Secondary — Science</h3>
+                <p class="nx-soft">The Central School · 87%</p>
+              </article>
+            </div>
           </div>
+
+          <aside class="nx-card nx-facts nx-reveal" style="--nx-delay:120ms" aria-label="Quick facts">
+            <h3>Quick facts</h3>
+            <dl>
+              <div><dt>Based in</dt><dd>Dubai, UAE</dd></div>
+              <div><dt>Degree</dt><dd>BSc (Hons) Computer Science</dd></div>
+              <div><dt>University</dt><dd>UWL · 2023–2026</dd></div>
+              <div><dt>Focus</dt><dd>AI · Security · Software</dd></div>
+              <div><dt>Code</dt><dd>Python · Java · JS · TS</dd></div>
+              <div><dt>Speaks</dt><dd>English · Tamil · Hindi · Urdu</dd></div>
+              <div><dt>Open to</dt><dd>Roles, internships &amp; freelance</dd></div>
+            </dl>
+            <a class="nx-btn nx-btn--primary" href="resume.pdf" download><span data-icon="file"></span> Download résumé</a>
+          </aside>
         </div>
-      </article>
-    </div>
-  </section>
-
-  <!-- ===== SERVICES ===== -->
-  <section class="section" id="services">
-    <div class="section-head reveal">
-      <span class="section-tag">Work with me</span>
-      <h2 class="section-title">Services I Provide</h2>
-      <p class="section-sub">Need something built? Here's how I can help.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="service-card reveal featured">
-        <span class="ribbon">Popular</span>
-        <div class="service-num">01</div>
-        <h3>UI/UX Design</h3>
-        <p>User-focused interface design in Figma — wireframes, prototypes, and
-           polished visuals that make your product shine.</p>
-        <ul><li>✓ Wireframing</li><li>✓ Prototyping</li><li>✓ User-centered design</li></ul>
       </div>
-      <div class="service-card reveal">
-        <div class="service-num">02</div>
-        <h3>App & Web Development</h3>
-        <p>Android apps and responsive websites built with modern tools,
-           clean code, and a smooth user experience.</p>
-        <ul><li>✓ Android (Android Studio)</li><li>✓ Responsive websites</li><li>✓ REST API integration</li></ul>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">03</div>
-        <h3>AI Automation & Tools</h3>
-        <p>Save time with AI agents, workflow automation, and prompt-engineered
-           tools tailored to your needs.</p>
-        <ul><li>✓ AI agents</li><li>✓ Workflow automation</li><li>✓ Prompt engineering</li></ul>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-num">04</div>
-        <h3>Design & Editing</h3>
-        <p>Eye-catching content — from video & photo editing to professional
-           documents and presentations.</p>
-        <ul><li>✓ Video & photo editing</li><li>✓ Presentations</li><li>✓ Technical documentation</li></ul>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- ===== BLOG ===== -->
-  <section class="section alt" id="blog">
-    <div class="section-head reveal">
-      <span class="section-tag">Thoughts & writing</span>
-      <h2 class="section-title">Blog</h2>
-      <p class="section-sub">I write about tech, learning, and projects. Add your own posts below — they're saved in your browser.</p>
-    </div>
-
-    <div class="blog-actions reveal">
-      <button class="btn btn-primary" id="newPostBtn">✍️ Write New Post</button>
-    </div>
-
-    <!-- New post form (hidden by default) -->
-    <form class="blog-form" id="blogForm" hidden>
-      <h3>New Blog Post</h3>
-      <input type="text" id="postTitle" placeholder="Post title" required />
-      <input type="text" id="postTags" placeholder="Tags (comma separated)" />
-      <textarea id="postBody" rows="6" placeholder="Write your post here..." required></textarea>
-      <div class="form-row">
-        <button type="submit" class="btn btn-primary">Publish</button>
-        <button type="button" class="btn btn-ghost" id="cancelPost">Cancel</button>
-      </div>
-    </form>
-
-    <div class="blog-grid" id="blogGrid"><!-- Posts injected by JS --></div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
-  <section class="section" id="contact">
-    <div class="section-head reveal">
-      <span class="section-tag">Let's connect</span>
-      <h2 class="section-title">Get In Touch</h2>
-      <p class="section-sub">Have a project, question, or just want to say hi? Reach out!</p>
-    </div>
-
-    <div class="contact-grid">
-      <div class="contact-info reveal">
-        <a href="mailto:naus2005official@gmail.com" class="contact-item">
-          <span class="ci-icon">✉️</span>
-          <div><strong>Email</strong><p>naus2005official@gmail.com</p></div>
-        </a>
-        <a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener" class="contact-item">
-          <span class="ci-icon">💼</span>
-          <div><strong>LinkedIn</strong><p>Nausheen Haleelur Rahman</p></div>
-        </a>
-        <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener" class="contact-item">
-          <span class="ci-icon">🐙</span>
-          <div><strong>GitHub</strong><p>github.com/Nausheen1295</p></div>
-        </a>
-        <a href="tel:+971558481981" class="contact-item">
-          <span class="ci-icon">📞</span>
-          <div><strong>Phone</strong><p>+971 55 848 1981</p></div>
-        </a>
-      </div>
-
-      <form class="contact-form reveal" id="contactForm">
-        <input type="hidden" name="_subject" value="New message from your portfolio!" />
-        <div class="field">
-          <input type="text" id="cName" name="name" required placeholder=" " />
-          <label for="cName">Your Name</label>
+    <!-- ===== SKILLS ===== -->
+    <section class="nx-section nx-section--alt" id="skills" aria-labelledby="skillsTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">Skills</span>
+          <h2 id="skillsTitle">Skills, backed by the work.</h2>
+          <p>No self-rated percentages — each group links to the projects where those skills were actually used.</p>
         </div>
-        <div class="field">
-          <input type="email" id="cEmail" name="email" required placeholder=" " />
-          <label for="cEmail">Your Email</label>
-        </div>
-        <div class="field">
-          <textarea id="cMessage" name="message" rows="5" required placeholder=" "></textarea>
-          <label for="cMessage">Your Message</label>
-        </div>
-        <button type="submit" class="btn btn-primary full">Send Message 🚀</button>
-        <p class="form-note" id="formNote"></p>
-      </form>
-    </div>
-  </section>
-
-  <!-- ===== FOOTER ===== -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <a href="#home" class="logo">🌸 <span>Portfolio</span></a>
-      <p>Designed & built with 💖 — © <span id="year"></span> Nausheen Haleelur Rahman. All rights reserved.</p>
-      <div class="footer-socials">
-        <a href="https://github.com/Nausheen1295" target="_blank" rel="noopener">GitHub</a>
-        <a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener">LinkedIn</a>
-        <a href="mailto:naus2005official@gmail.com">Email</a>
+        <div class="nx-grid" id="skillGrid" style="--nx-grid-min:280px"></div>
       </div>
+    </section>
+
+    <!-- ===== CAPABILITIES (formerly Services) ===== -->
+    <section class="nx-section" id="capabilities" aria-labelledby="capTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">Capabilities</span>
+          <h2 id="capTitle">How I can help.</h2>
+        </div>
+        <div class="nx-grid" style="--nx-grid-min:250px">
+          <article class="nx-card nx-cap nx-reveal">
+            <span class="nx-cap-num">01</span><h3>UI / UX Design</h3>
+            <p class="nx-soft">User-focused interfaces in Figma — wireframes, prototypes and polished visuals.</p>
+            <div class="nx-tags"><span class="nx-tag">Wireframing</span><span class="nx-tag">Prototyping</span><span class="nx-tag">User-centered design</span></div>
+          </article>
+          <article class="nx-card nx-cap nx-reveal" style="--nx-delay:80ms">
+            <span class="nx-cap-num">02</span><h3>App &amp; Web Development</h3>
+            <p class="nx-soft">Android apps and responsive websites built with modern tools and clean code.</p>
+            <div class="nx-tags"><span class="nx-tag">Android Studio</span><span class="nx-tag">Responsive web</span><span class="nx-tag">REST APIs</span></div>
+          </article>
+          <article class="nx-card nx-cap nx-reveal" style="--nx-delay:160ms">
+            <span class="nx-cap-num">03</span><h3>AI Automation &amp; Tools</h3>
+            <p class="nx-soft">AI agents, workflow automation and prompt-engineered tools tailored to your needs.</p>
+            <div class="nx-tags"><span class="nx-tag">AI agents</span><span class="nx-tag">Automation</span><span class="nx-tag">Prompt engineering</span></div>
+          </article>
+          <article class="nx-card nx-cap nx-reveal" style="--nx-delay:240ms">
+            <span class="nx-cap-num">04</span><h3>Design &amp; Editing</h3>
+            <p class="nx-soft">Video &amp; photo editing, presentations and technical documentation.</p>
+            <div class="nx-tags"><span class="nx-tag">Video &amp; photo</span><span class="nx-tag">Presentations</span><span class="nx-tag">Tech docs</span></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== STORE (formerly Products) ===== -->
+    <section class="nx-section nx-section--alt" id="store" aria-labelledby="storeTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">NEXUS Store</span>
+          <h2 id="storeTitle">Digital products — launching soon.</h2>
+          <p>Want early access? Hit “Notify me” and I'll email you when it's ready.</p>
+        </div>
+        <div class="nx-grid" id="storeGrid" style="--nx-grid-min:240px"></div>
+      </div>
+    </section>
+
+    <!-- ===== JOURNAL (formerly Blog) ===== -->
+    <section class="nx-section" id="journal" aria-labelledby="journalTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">NEXUS Journal</span>
+          <h2 id="journalTitle">Notes on building, learning and design.</h2>
+        </div>
+        <div class="nx-grid" style="--nx-grid-min:280px">
+          <article class="nx-card nx-post nx-reveal">
+            <span class="nx-post-meta">Jan 2026 · AI</span>
+            <h3>Why I'm passionate about AI</h3>
+            <p class="nx-soft">Artificial Intelligence is reshaping how we build software. Here's why I chose to centre my journey around AI-driven, user-focused solutions.</p>
+            <span class="nx-badge" data-status="in-development">Full post soon</span>
+          </article>
+          <article class="nx-card nx-post nx-reveal" style="--nx-delay:80ms">
+            <span class="nx-post-meta">Dec 2025 · UI/UX</span>
+            <h3>Designing with the user in mind</h3>
+            <p class="nx-soft">Good design isn't just about looks — it's about how it feels to use. My favourite principles for user-centered design in Figma.</p>
+            <span class="nx-badge" data-status="in-development">Full post soon</span>
+          </article>
+          <article class="nx-card nx-post nx-reveal" style="--nx-delay:160ms">
+            <span class="nx-post-meta">Nov 2025 · Career</span>
+            <h3>Lessons from my Medulla internship</h3>
+            <p class="nx-soft">Rotating across Technical, Database, and CSR &amp; Marketing taught me more than code — teamwork, data integrity and real-world problem solving.</p>
+            <span class="nx-badge" data-status="in-development">Full post soon</span>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section class="nx-section nx-section--alt" id="contact" aria-labelledby="contactTitle">
+      <div class="nx-container">
+        <div class="nx-contact">
+          <div class="nx-reveal">
+            <span class="nx-kicker">Contact</span>
+            <h2 id="contactTitle" style="font-size:var(--nx-text-3xl);margin-top:var(--nx-space-4)">Have a project or an opportunity?</h2>
+            <p class="nx-soft" style="margin-top:var(--nx-space-4);font-size:var(--nx-text-lg)">I'm open to roles, internships, freelance work and collaborations. Email is the fastest way to reach me.</p>
+            <ul class="nx-contact-links">
+              <li><a href="mailto:naus2005official@gmail.com"><span data-icon="mail"></span><span><strong>Email</strong>naus2005official@gmail.com</span></a></li>
+              <li><a href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener"><span data-icon="linkedin"></span><span><strong>LinkedIn</strong>Nausheen Haleelur Rahman</span></a></li>
+              <li><a href="https://github.com/Nausheen1295" target="_blank" rel="noopener"><span data-icon="github"></span><span><strong>GitHub</strong>github.com/Nausheen1295</span></a></li>
+              <li><a href="resume.pdf" download><span data-icon="file"></span><span><strong>Résumé</strong>Download PDF</span></a></li>
+            </ul>
+          </div>
+
+          <form class="nx-card nx-contact-form nx-reveal" style="--nx-delay:120ms" id="contactForm"
+                action="https://formspree.io/f/xwvjbokz" method="POST">
+            <input type="hidden" name="_subject" value="New message from your NEXUS portfolio" />
+            <div class="nx-field">
+              <label class="nx-label" for="cName">Name</label>
+              <input class="nx-input" id="cName" name="name" autocomplete="name" required />
+            </div>
+            <div class="nx-field">
+              <label class="nx-label" for="cEmail">Email</label>
+              <input class="nx-input" id="cEmail" name="email" type="email" autocomplete="email" required />
+            </div>
+            <div class="nx-field">
+              <label class="nx-label" for="cMessage">Message</label>
+              <textarea class="nx-input" id="cMessage" name="message" rows="5" required></textarea>
+            </div>
+            <button class="nx-btn nx-btn--primary nx-btn--lg" type="submit">Send message <span data-icon="send"></span></button>
+            <p class="nx-form-note" id="formNote" role="status" aria-live="polite"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="nx-footer">
+    <div class="nx-container nx-footer-inner">
+      <a class="nx-brand" href="#top"><span class="nx-brand-mark" aria-hidden="true">N</span> NEXUS</a>
+      <p class="nx-mute">© <span id="year">2026</span> Nausheen Haleelur Rahman · Designed &amp; built from scratch — no frameworks.</p>
+      <ul class="nx-row" style="list-style:none">
+        <li><a class="nx-btn nx-btn--quiet nx-btn--sm" href="https://github.com/Nausheen1295" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a class="nx-btn nx-btn--quiet nx-btn--sm" href="https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/" target="_blank" rel="noopener">LinkedIn</a></li>
+        <li><a class="nx-btn nx-btn--quiet nx-btn--sm" href="mailto:naus2005official@gmail.com">Email</a></li>
+      </ul>
     </div>
   </footer>
 
-  <!-- Back to top -->
-  <button class="back-top" id="backTop" aria-label="Back to top">↑</button>
+  <!-- Project quick view -->
+  <dialog class="nx-modal" id="projectModal" aria-labelledby="pmTitle">
+    <div class="nx-modal-head">
+      <div><span class="nx-kicker" id="pmLab"></span><h2 id="pmTitle" style="font-size:var(--nx-text-2xl);margin-top:6px"></h2></div>
+      <button class="nx-btn nx-btn--icon nx-btn--sm" type="button" data-close aria-label="Close" data-icon="close"></button>
+    </div>
+    <div class="nx-modal-body" id="pmBody"></div>
+  </dialog>
 
-  <!-- Toast -->
-  <div class="toast" id="toast"></div>
-
-  <script src="script.js"></script>
+  <div class="nx-toast" id="toast" role="status" aria-live="polite"></div>
 </body>
 </html>
