@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Petal Snake — a classic snake game built from scratch with HTML Canvas and vanilla JavaScript by Nausheen Haleelur Rahman." />
+  <title>Petal Snake — Nausheen's Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/nexus/tokens.css" />
+  <link rel="stylesheet" href="../css/nexus/base.css" />
+  <link rel="stylesheet" href="../css/nexus/components.css" />
+  <link rel="stylesheet" href="play.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🐍</text></svg>" />
+  <script>
+    try { var t = localStorage.getItem("nx-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <style>
+    #board { display: block; width: min(480px, calc(100vw - 62px)); aspect-ratio: 1; border-radius: 12px; touch-action: none; }
+    .dpad { display: none; grid-template-columns: repeat(3, 58px); grid-template-rows: repeat(2, 52px); gap: 6px; }
+    .dpad button {
+      border: 1px solid var(--border); border-radius: 14px; background: var(--surface); color: var(--accent-strong);
+      font-size: 1.3rem; cursor: pointer; box-shadow: var(--shadow-sm);
+    }
+    .dpad button:active { background: var(--surface-2); transform: scale(.95); }
+    .dpad [data-dir="up"] { grid-column: 2; }
+    .dpad [data-dir="left"] { grid-column: 1; grid-row: 2; }
+    .dpad [data-dir="down"] { grid-column: 2; grid-row: 2; }
+    .dpad [data-dir="right"] { grid-column: 3; grid-row: 2; }
+    @media (pointer: coarse) { .dpad { display: grid; } }
+  </style>
+</head>
+<body class="pg-page">
+  <div class="nx-ambient" aria-hidden="true"></div>
+
+  <header class="pg-bar">
+    <a href="./" class="nx-btn nx-btn--sm">← <span class="pg-back-label">Playground</span></a>
+    <h1 class="pg-title">🐍 <span>Petal Snake</span></h1>
+    <button class="nx-btn nx-btn--icon nx-btn--sm pg-theme" id="themeToggle" type="button" aria-label="Switch theme"></button>
+  </header>
+
+  <main class="pg-main">
+    <div class="pg-stats">
+      <div class="pg-stat"><small>Score</small><b id="score">0</b></div>
+      <div class="pg-stat"><small>Best</small><b id="best">0</b></div>
+      <div class="pg-stat"><small>Speed</small><b id="speed">1</b></div>
+    </div>
+
+    <div class="pg-board">
+      <canvas id="board" aria-label="Snake game board"></canvas>
+      <div class="pg-overlay" id="overlay">
+        <h2 id="ovTitle">🐍 Petal Snake</h2>
+        <p id="ovText">Eat the 🌸 petals to grow. Don't hit the walls — or yourself!</p>
+        <button class="nx-btn nx-btn--primary" id="startBtn">Start Game</button>
+      </div>
+    </div>
+
+    <div class="dpad" aria-label="Direction pad">
+      <button data-dir="up" aria-label="Up">▲</button>
+      <button data-dir="left" aria-label="Left">◀</button>
+      <button data-dir="down" aria-label="Down">▼</button>
+      <button data-dir="right" aria-label="Right">▶</button>
+    </div>
+
+    <p class="pg-help"><kbd class="k">←</kbd> <kbd class="k">↑</kbd> <kbd class="k">↓</kbd> <kbd class="k">→</kbd> or <kbd class="k">WASD</kbd> to move ·
+      <kbd class="k">Space</kbd> to pause · swipe on mobile</p>
+  </main>
+
+  <footer class="pg-foot">Built with vanilla JS &amp; Canvas by <a href="../index.html">Nausheen Haleelur Rahman</a> · <a href="../project.html?id=playground">Case study</a></footer>
+
+  <script src="shared.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const N = 20, SIZE = 480, C = SIZE / N;
+    const canvas = $("board"), ctx = canvas.getContext("2d");
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    canvas.width = canvas.height = SIZE * dpr;
+    ctx.scale(dpr, dpr);
+
+    const DIRS = { up: { x: 0, y: -1 }, down: { x: 0, y: 1 }, left: { x: -1, y: 0 }, right: { x: 1, y: 0 } };
+    const START_MS = 140, MIN_MS = 65;
+    let snake, dir, queue, food, score, tickMs, acc = 0, last = 0, state = "idle", sparks = [], colors = {};
+
+    const rand = (n) => (Math.random() * n) | 0;
+    function readColors() {
+      colors = { a: PG.css("--pink-400"), b: PG.css("--pink-600"), bg1: PG.css("--surface"), bg2: PG.css("--surface-2") };
+    }
+
+    function reset() {
+      snake = [{ x: 9, y: 10 }, { x: 8, y: 10 }, { x: 7, y: 10 }];
+      dir = DIRS.right; queue = []; score = 0; tickMs = START_MS; sparks = [];
+      placeFood(); updateHud();
+    }
+    function placeFood() {
+      do { food = { x: rand(N), y: rand(N) }; } while (snake.some((s) => s.x === food.x && s.y === food.y));
+    }
+    function updateHud(bump) {
+      $("score").textContent = score;
+      $("best").textContent = Math.max(score, PG.get("snake") || 0);
+      $("speed").textContent = Math.round((START_MS - tickMs) / 4) + 1;
+      if (bump) { $("score").classList.remove("bump"); void $("score").offsetWidth; $("score").classList.add("bump"); }
+    }
+
+    // Queue up to two turns so quick key presses aren't lost; never allow a 180° reversal.
+    function turn(name) {
+      const d = DIRS[name];
+      const lastDir = queue.length ? queue[queue.length - 1] : dir;
+      if (d === lastDir || (d.x === -lastDir.x && d.y === -lastDir.y)) return;
+      if (queue.length < 2) queue.push(d);
+    }
+
+    function step() {
+      if (queue.length) dir = queue.shift();
+      const head = { x: snake[0].x + dir.x, y: snake[0].y + dir.y };
+      const eating = head.x === food.x && head.y === food.y;
+      const body = eating ? snake : snake.slice(0, -1); // the tail moves out of the way unless we grow
+      if (head.x < 0 || head.y < 0 || head.x >= N || head.y >= N || body.some((s) => s.x === head.x && s.y === head.y)) {
+        return gameOver();
+      }
+      snake.unshift(head);
+      if (eating) {
+        score++;
+        tickMs = Math.max(MIN_MS, tickMs - 4);
+        burst(food.x * C + C / 2, food.y * C + C / 2);
+        placeFood();
+        updateHud(true);
+      } else {
+        snake.pop();
+      }
+    }
+
+    function burst(x, y) {
+      for (let i = 0; i < 14; i++) {
+        const a = Math.random() * Math.PI * 2, v = 1 + Math.random() * 2.5;
+        sparks.push({ x, y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: 1 });
+      }
+    }
+
+    function roundRect(x, y, w, h, r) {
+      ctx.beginPath();
+      if (ctx.roundRect) ctx.roundRect(x, y, w, h, r); else ctx.rect(x, y, w, h);
+      ctx.fill();
+    }
+
+    function draw(t) {
+      for (let y = 0; y < N; y++) for (let x = 0; x < N; x++) {
+        ctx.fillStyle = (x + y) % 2 ? colors.bg1 : colors.bg2;
+        ctx.fillRect(x * C, y * C, C, C);
+      }
+
+      // food (gently pulsing)
+      const pulse = 1 + Math.sin(t / 180) * 0.1;
+      ctx.save();
+      ctx.translate(food.x * C + C / 2, food.y * C + C / 2);
+      ctx.scale(pulse, pulse);
+      ctx.font = `${C * 0.9}px serif`;
+      ctx.textAlign = "center"; ctx.textBaseline = "middle";
+      ctx.fillText("🌸", 0, 1);
+      ctx.restore();
+
+      // snake: tail fades towards the head colour
+      for (let i = snake.length - 1; i >= 0; i--) {
+        const s = snake[i], k = i / Math.max(1, snake.length - 1);
+        ctx.globalAlpha = 1 - k * 0.45;
+        ctx.fillStyle = i === 0 ? colors.b : colors.a;
+        const pad = i === 0 ? 1 : 2;
+        roundRect(s.x * C + pad, s.y * C + pad, C - pad * 2, C - pad * 2, 7);
+      }
+      ctx.globalAlpha = 1;
+
+      // eyes look where we're heading
+      const h = snake[0], cx = h.x * C + C / 2, cy = h.y * C + C / 2;
+      const ox = dir.y !== 0 ? 5 : 0, oy = dir.x !== 0 ? 5 : 0;
+      for (const sgn of [-1, 1]) {
+        const ex = cx + ox * sgn + dir.x * 4, ey = cy + oy * sgn + dir.y * 4;
+        ctx.fillStyle = "#fff"; ctx.beginPath(); ctx.arc(ex, ey, 3.6, 0, Math.PI * 2); ctx.fill();
+        ctx.fillStyle = "#2a1a24"; ctx.beginPath(); ctx.arc(ex + dir.x * 1.3, ey + dir.y * 1.3, 1.8, 0, Math.PI * 2); ctx.fill();
+      }
+
+      // sparks
+      sparks = sparks.filter((p) => (p.life -= 0.035) > 0);
+      for (const p of sparks) {
+        p.x += p.vx; p.y += p.vy;
+        ctx.globalAlpha = p.life;
+        ctx.fillStyle = colors.a;
+        ctx.beginPath(); ctx.arc(p.x, p.y, 3 * p.life + 1, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.globalAlpha = 1;
+    }
+
+    function frame(t) {
+      if (state === "playing") {
+        acc += t - last;
+        while (acc >= tickMs && state === "playing") { acc -= tickMs; step(); }
+      }
+      last = t;
+      draw(t);
+      requestAnimationFrame(frame);
+    }
+
+    function showOverlay(title, text, btn) {
+      $("ovTitle").textContent = title;
+      $("ovText").innerHTML = text;
+      $("startBtn").textContent = btn;
+      $("overlay").classList.remove("hidden");
+    }
+
+    function start() {
+      reset();
+      state = "playing"; acc = 0;
+      $("overlay").classList.add("hidden");
+    }
+    function togglePause() {
+      if (state === "playing") { state = "paused"; showOverlay("⏸ Paused", "Take a breather.", "Resume"); }
+      else if (state === "paused") { state = "playing"; acc = 0; $("overlay").classList.add("hidden"); }
+    }
+    function gameOver() {
+      state = "over";
+      const isBest = score > 0 && PG.record("snake", score);
+      updateHud();
+      if (isBest) PG.confetti();
+      showOverlay(isBest ? "🏆 New High Score!" : "💥 Game Over",
+        `You scored <b>${score}</b>. ${isBest ? "That's your best yet!" : `Best: ${PG.get("snake") || 0}`}`, "Play Again");
+    }
+
+    $("startBtn").addEventListener("click", () => (state === "paused" ? togglePause() : start()));
+
+    const KEYMAP = { ArrowUp: "up", ArrowDown: "down", ArrowLeft: "left", ArrowRight: "right", w: "up", s: "down", a: "left", d: "right" };
+    document.addEventListener("keydown", (e) => {
+      const key = e.key.length === 1 ? e.key.toLowerCase() : e.key;
+      if (KEYMAP[key]) {
+        e.preventDefault();
+        if (state === "playing") turn(KEYMAP[key]);
+      } else if (key === " " || key === "Enter") {
+        e.preventDefault();
+        if (state === "playing" || state === "paused") togglePause(); else start();
+      }
+    });
+    document.querySelectorAll(".dpad button").forEach((b) =>
+      b.addEventListener("click", () => { if (state === "playing") turn(b.dataset.dir); }));
+    PG.onSwipe(canvas, (d) => { if (state === "playing") turn(d); });
+
+    document.addEventListener("themechange", readColors);
+    readColors();
+    reset();
+    requestAnimationFrame((t) => { last = t; frame(t); });
+  </script>
+</body>
+</html>

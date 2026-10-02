@@ -1,0 +1,619 @@
+{
+  "version": 1,
+  "site": "https://nausheen1295.github.io/portfolio/",
+  "generatedFrom": [
+    "js/data/projects.js",
+    "js/data/profile.js",
+    "GitHub READMEs"
+  ],
+  "chunks": [
+    {
+      "projectId": null,
+      "id": "profile:about",
+      "title": "About Nausheen Haleelur Rahman",
+      "section": "about",
+      "url": "https://nausheen1295.github.io/portfolio/#about",
+      "text": "Nausheen Haleelur Rahman — AI & Software Developer.\nBuilding intelligent, secure, and user-centered software experiences.\nBased in Dubai, United Arab Emirates. Status: Open to opportunities.\nSpoken languages: English, Tamil, Hindi, Urdu."
+    },
+    {
+      "projectId": null,
+      "id": "profile:education",
+      "title": "Education",
+      "section": "about",
+      "url": "https://nausheen1295.github.io/portfolio/#about",
+      "text": "BSc (Hons) Computer Science, University of West London (UWL) (2023 – 2026). Software Engineering, AI & Automation, Databases, Computer Networks, App Development, UI/UX Design.\nHigher Secondary — Science, The Central School (2023). Graduated with 87%."
+    },
+    {
+      "projectId": null,
+      "id": "profile:experience",
+      "title": "Experience",
+      "section": "about",
+      "url": "https://nausheen1295.github.io/portfolio/#about",
+      "text": "Rotational Intern at Medulla (dates not documented). Rotated across Technical, Database, and CSR & Marketing functions — IT support, data management, and collaborating with multidisciplinary teams."
+    },
+    {
+      "projectId": null,
+      "id": "profile:skills",
+      "title": "Skills",
+      "section": "skills",
+      "url": "https://nausheen1295.github.io/portfolio/#skills",
+      "text": "AI & Machine Learning: AI Agents, Workflow Automation, Prompt Engineering, AI threat detection. Evidence: SecureVault AI, NEXA.\nSoftware Development: Python, Java, JavaScript, TypeScript, REST APIs, Android Studio. Evidence: SecureVault AI, NR Playfair Cipher, NEXUS Playground.\nWeb Development: React, Vite, HTML, CSS, Canvas, Responsive design. Evidence: SecureVault AI, NEXUS Playground.\nCybersecurity: AES-256-GCM, PBKDF2, WebAuthn, Cryptography, Packet analysis (Scapy), Phishing awareness. Evidence: SecureVault AI, NR Playfair Cipher, Packet Sniffer.\nDatabases & Data: Oracle SQL, Database design, Data analysis, Jupyter. Evidence: NorthStar Mobility Analysis.\nUI / UX: Figma, Wireframing, Prototyping, User-centered design. Evidence: SecureVault AI.\nCloud & Deployment: Vercel, GitHub Pages, Ethereum testnet (Sepolia). Evidence: SecureVault AI.\nDeveloper Tools: Git & GitHub, VS Code, Linux, Cisco Packet Tracer."
+    },
+    {
+      "projectId": null,
+      "id": "profile:contact",
+      "title": "Contact",
+      "section": "contact",
+      "url": "https://nausheen1295.github.io/portfolio/#contact",
+      "text": "Email: naus2005official@gmail.com. GitHub: https://github.com/Nausheen1295. LinkedIn: https://www.linkedin.com/in/nausheen-haleelur-rahman-45a55a234/. Résumé: https://nausheen1295.github.io/portfolio/resume.pdf."
+    },
+    {
+      "projectId": null,
+      "id": "nexus:labs",
+      "title": "NEXUS research labs",
+      "section": "universe",
+      "url": "https://nausheen1295.github.io/portfolio/#universe",
+      "text": "LAB-01 Security Lab: Encryption, threat detection and privacy-first software. Projects: SecureVault AI (Live), NR Playfair Cipher (Completed), Packet Sniffer (Completed).\nLAB-02 AI Lab: Assistants and agents grounded in real knowledge. Projects: NEXA (Concept).\nLAB-03 Knowledge Lab: Tools for thinking, remembering and connecting ideas. Projects: MindScape AI (Concept).\nLAB-04 Data Lab: Turning raw data into decisions and clear visuals. Projects: InsightForge (Concept), NorthStar Mobility Analysis (Completed).\nLAB-05 Earth Lab: Climate and geospatial intelligence from live data. Projects: EarthPulse (Concept).\nLAB-06 Bio Lab: Computer vision for the living world. Projects: FloraMind AI (Concept).\nLAB-07 Experimental Lab: Games, mini-apps and ideas that don't fit anywhere else — yet. Projects: NEXUS Playground (Experimental)."
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:overview",
+      "title": "SecureVault AI — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nNext-gen cloud security platform. File encryption meets AI-powered threat detection — AES-256-GCM encryption that runs locally, an AI threat scanner, biometric login, a blockchain key vault and zero-knowledge sharing.\nSource code: https://github.com/Nausheen1295/securevault-ai\nLive demo: https://securevaultai-brown.vercel.app"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:problem-solution",
+      "title": "SecureVault AI — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#solution",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nSolution: Encrypt files on the user's own device so they never leave it, and pair that with automated threat scanning, passwordless biometric login and auditable key storage."
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:features",
+      "title": "SecureVault AI — features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#features",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nFeatures:\n- AES-256-GCM file encryption with PBKDF2 key derivation (310k iterations)\n- Random salt & IV per file; batch file processing; 100% local — files never leave your device\n- AI threat scanner: Shannon entropy analysis, file-signature matching, confidence scoring\n- VirusTotal API integration\n- Biometric authentication via WebAuthn (fingerprint / platform authenticators) — zero biometric data stored\n- Blockchain key vault on the Ethereum Sepolia testnet with MetaMask, immutable audit trail and key revocation\n- Zero-knowledge sharing: password never in the share URL, expiring links, max view count, one-click revocation, checksum verification\n- Security analytics: real-time security score, threat history charts, event audit log, risk dashboard"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:stack",
+      "title": "SecureVault AI — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#stack",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nTechnologies used: React 18, Vite 5, JavaScript, AES-256-GCM, PBKDF2, WebAuthn, Ethereum (Sepolia), MetaMask, VirusTotal API, Vercel."
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:ai",
+      "title": "SecureVault AI — AI components",
+      "section": "ai",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#ai",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nAI / ML components:\n- Threat scanning using Shannon entropy analysis and file-signature matching\n- Confidence scoring for detected threats"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:security",
+      "title": "SecureVault AI — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#security",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nSecurity:\n- AES-256-GCM authenticated encryption\n- PBKDF2 key derivation, 310,000 iterations\n- Unique random salt and IV per file\n- Client-side processing — plaintext files never uploaded\n- WebAuthn biometrics with no biometric data stored\n- Share links never contain the password; expiry, view limits and revocation"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:architecture",
+      "title": "SecureVault AI — architecture",
+      "section": "architecture",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#architecture",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nArchitecture components:\n- User (client): Signs in with a password or a WebAuthn platform authenticator (fingerprint / face). No biometric data is stored by the app.\n- React + Vite app (frontend): Single-page app built with React 18 and Vite 5, deployed on Vercel. Hosts the dashboard, scanner, vault and sharing UI.\n- Encryption engine (ai): AES-256-GCM with keys derived through PBKDF2 (310k iterations) and a random salt + IV per file. Runs locally, so files never leave the device.\n- AI threat scanner (ai): Analyses files with Shannon entropy and signature matching, produces a confidence score, and can cross-check with the VirusTotal API.\n- Serverless API (api): The repository contains an api/ directory alongside the Vercel config. Its exact responsibilities are not documented yet.\n- Blockchain key vault (data): Key records are stored on the Ethereum Sepolia testnet through MetaMask, giving an immutable audit trail with support for key revocation.\n- VirusTotal (external): External threat-intelligence service used by the scanner for additional verification.\nData flow: user → frontend; frontend → crypto; frontend → scanner; frontend → api; scanner → virustotal; frontend → chain."
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:timeline",
+      "title": "SecureVault AI — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai#timeline",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nDocumented development stages:\n- Development (2026-05): Repository created on GitHub — May 2026.\n- Deployment: Deployed on Vercel with a public live demo."
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:undocumented",
+      "title": "SecureVault AI — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai",
+      "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for SecureVault AI: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:overview",
+      "title": "NEXA — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI portfolio assistant & digital twin. An assistant that answers questions about Nausheen's projects using retrieval over real project documentation — with recruiter, developer, architecture and interview modes. It must never invent facts."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:problem-solution",
+      "title": "NEXA — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#problem",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nProblem: Portfolios are static: visitors can't ask follow-up questions about how or why something was built.\nSolution: Retrieval-augmented generation over READMEs, architecture notes and decisions, answering only from documented sources."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:features",
+      "title": "NEXA — planned features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#features",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Modes: Recruiter, Developer, Simple, Architecture, Interview\n- Answers grounded in indexed project documentation, with sources\n- Says when information isn't documented instead of guessing\n- Mock technical interview about the portfolio"
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:stack",
+      "title": "NEXA — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#stack",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, FastAPI, RAG, Vector database, LLM API."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:ai",
+      "title": "NEXA — AI components",
+      "section": "ai",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#ai",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Retrieval-augmented generation\n- Persona / mode-conditioned answers\n- Interview simulation"
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:security",
+      "title": "NEXA — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#security",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nSecurity:\n- API keys kept server-side only\n- Rate limiting and input validation on the API"
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:architecture",
+      "title": "NEXA — architecture",
+      "section": "architecture",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#architecture",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned architecture components:\n- NEXA chat UI (frontend): The chat interface on this portfolio (GitHub Pages). It only talks to the NEXA API.\n- NEXA API (api): Planned separately-hosted backend (GitHub Pages can't run servers). Handles auth, validation and rate limiting.\n- RAG pipeline (ai): Embeds the question, retrieves the most relevant documentation chunks and builds a grounded prompt.\n- Project knowledge base (data): Indexed READMEs, architecture docs, decisions and project metadata — including this site's project data file.\n- LLM (external): Generates the final answer from retrieved context only, citing sources.\nData flow: ui → api; api → rag; rag → kb; rag → llm."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:timeline",
+      "title": "NEXA — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#timeline",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined: purpose, modes and a planned RAG architecture."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:undocumented",
+      "title": "NEXA — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa",
+      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for NEXA: Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:overview",
+      "title": "MindScape AI — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI-powered second brain. A knowledge-management platform that captures notes, links related ideas automatically and lets you query your own knowledge."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:features",
+      "title": "MindScape AI — planned features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#features",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Note capture\n- Automatic linking of related ideas\n- Semantic search across your knowledge"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:stack",
+      "title": "MindScape AI — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#stack",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, Embeddings, Graph visualisation."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:ai",
+      "title": "MindScape AI — AI components",
+      "section": "ai",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#ai",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Semantic search\n- Idea linking"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:timeline",
+      "title": "MindScape AI — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#timeline",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:undocumented",
+      "title": "MindScape AI — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for MindScape AI: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:overview",
+      "title": "InsightForge — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge",
+      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI data analytics & visualisation. Upload a dataset, get automatic profiling, charts and plain-language insights."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:features",
+      "title": "InsightForge — planned features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#features",
+      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Dataset upload & profiling\n- Automatic chart suggestions\n- Natural-language insights"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:stack",
+      "title": "InsightForge — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#stack",
+      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, Pandas, SQL, Data visualisation."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:ai",
+      "title": "InsightForge — AI components",
+      "section": "ai",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#ai",
+      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Insight generation\n- Chart recommendation"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:timeline",
+      "title": "InsightForge — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#timeline",
+      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:undocumented",
+      "title": "InsightForge — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge",
+      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for InsightForge: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:overview",
+      "title": "EarthPulse — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse",
+      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nClimate & geospatial intelligence. A platform that brings real-time earth and climate data together on interactive maps."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:features",
+      "title": "EarthPulse — planned features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#features",
+      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Real-time climate data feeds\n- Geospatial map visualisation\n- Trend and anomaly views"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:stack",
+      "title": "EarthPulse — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#stack",
+      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): JavaScript, Mapping library, Public climate APIs."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:timeline",
+      "title": "EarthPulse — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#timeline",
+      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:undocumented",
+      "title": "EarthPulse — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse",
+      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for EarthPulse: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:overview",
+      "title": "FloraMind AI — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nComputer-vision plant intelligence. Identify plants and spot signs of plant disease from a photo using computer vision."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:features",
+      "title": "FloraMind AI — planned features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#features",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Plant identification from photos\n- Plant-health / disease indicators\n- Care guidance"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:stack",
+      "title": "FloraMind AI — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#stack",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, Computer vision, Image classification."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:ai",
+      "title": "FloraMind AI — AI components",
+      "section": "ai",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#ai",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Image classification"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:timeline",
+      "title": "FloraMind AI — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#timeline",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:undocumented",
+      "title": "FloraMind AI — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for FloraMind AI: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "playground",
+      "id": "playground:overview",
+      "title": "NEXUS Playground — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground",
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nBrowser games & mini-apps, zero libraries. Small games and tools built from scratch in vanilla JavaScript — Canvas rendering, CSS 3D transforms and local high scores."
+    },
+    {
+      "projectId": "playground",
+      "id": "playground:features",
+      "title": "NEXUS Playground — features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground#features",
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nFeatures:\n- Petal Snake (Canvas, swipe + keyboard)\n- Memory Match (CSS 3D card flips, two difficulties)\n- More experiments in progress"
+    },
+    {
+      "projectId": "playground",
+      "id": "playground:stack",
+      "title": "NEXUS Playground — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground#stack",
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nTechnologies used: JavaScript, HTML Canvas, CSS."
+    },
+    {
+      "projectId": "playground",
+      "id": "playground:role",
+      "title": "NEXUS Playground — role",
+      "section": "role",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground#role",
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nRole: Designed and built solo."
+    },
+    {
+      "projectId": "playground",
+      "id": "playground:timeline",
+      "title": "NEXUS Playground — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground#timeline",
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nDocumented development stages:\n- Development: Petal Snake (Canvas) and Memory Match (CSS 3D) built from scratch in vanilla JavaScript."
+    },
+    {
+      "projectId": "playground",
+      "id": "playground:undocumented",
+      "title": "NEXUS Playground — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground",
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nNOT YET DOCUMENTED for NEXUS Playground: the problem it solves; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "playfair-cipher",
+      "id": "playfair-cipher:overview",
+      "title": "NR Playfair Cipher — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playfair-cipher",
+      "text": "Project: NR Playfair Cipher (Security Lab). Status: Completed — Finished project with public source code.\nExtended classical cipher. A modified Playfair cipher supporting uppercase and lowercase letters, numbers and special characters.\nSource code: https://github.com/Nausheen1295/NR-Playfair-Cipher"
+    },
+    {
+      "projectId": "playfair-cipher",
+      "id": "playfair-cipher:stack",
+      "title": "NR Playfair Cipher — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playfair-cipher#stack",
+      "text": "Project: NR Playfair Cipher (Security Lab). Status: Completed — Finished project with public source code.\nTechnologies used: Python."
+    },
+    {
+      "projectId": "playfair-cipher",
+      "id": "playfair-cipher:security",
+      "title": "NR Playfair Cipher — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playfair-cipher#security",
+      "text": "Project: NR Playfair Cipher (Security Lab). Status: Completed — Finished project with public source code.\nSecurity:\n- Classical cryptography"
+    },
+    {
+      "projectId": "playfair-cipher",
+      "id": "playfair-cipher:undocumented",
+      "title": "NR Playfair Cipher — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=playfair-cipher",
+      "text": "Project: NR Playfair Cipher (Security Lab). Status: Completed — Finished project with public source code.\nNOT YET DOCUMENTED for NR Playfair Cipher: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics; development timeline. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "packet-sniffer",
+      "id": "packet-sniffer:overview",
+      "title": "Packet Sniffer — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=packet-sniffer",
+      "text": "Project: Packet Sniffer (Security Lab). Status: Completed — Finished project with public source code.\nCodeAlpha cybersecurity task. A basic network packet sniffer built with Python and Scapy, plus a phishing-awareness video.\nSource code: https://github.com/Nausheen1295/CodeAlpha_CyberSecurity"
+    },
+    {
+      "projectId": "packet-sniffer",
+      "id": "packet-sniffer:stack",
+      "title": "Packet Sniffer — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=packet-sniffer#stack",
+      "text": "Project: Packet Sniffer (Security Lab). Status: Completed — Finished project with public source code.\nTechnologies used: Python, Scapy."
+    },
+    {
+      "projectId": "packet-sniffer",
+      "id": "packet-sniffer:security",
+      "title": "Packet Sniffer — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=packet-sniffer#security",
+      "text": "Project: Packet Sniffer (Security Lab). Status: Completed — Finished project with public source code.\nSecurity:\n- Network traffic analysis"
+    },
+    {
+      "projectId": "packet-sniffer",
+      "id": "packet-sniffer:undocumented",
+      "title": "Packet Sniffer — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=packet-sniffer",
+      "text": "Project: Packet Sniffer (Security Lab). Status: Completed — Finished project with public source code.\nNOT YET DOCUMENTED for Packet Sniffer: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics; development timeline. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "northstar-analysis",
+      "id": "northstar-analysis:overview",
+      "title": "NorthStar Mobility Analysis — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=northstar-analysis",
+      "text": "Project: NorthStar Mobility Analysis (Data Lab). Status: Completed — Finished project with public source code.\nUrban mobility & logistics data analysis. Coursework analysing NorthStar urban mobility and logistics data in Jupyter notebooks.\nSource code: https://github.com/Nausheen1295/NorthStar-Coursework"
+    },
+    {
+      "projectId": "northstar-analysis",
+      "id": "northstar-analysis:stack",
+      "title": "NorthStar Mobility Analysis — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=northstar-analysis#stack",
+      "text": "Project: NorthStar Mobility Analysis (Data Lab). Status: Completed — Finished project with public source code.\nTechnologies used: Python, Jupyter Notebook."
+    },
+    {
+      "projectId": "northstar-analysis",
+      "id": "northstar-analysis:undocumented",
+      "title": "NorthStar Mobility Analysis — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=northstar-analysis",
+      "text": "Project: NorthStar Mobility Analysis (Data Lab). Status: Completed — Finished project with public source code.\nNOT YET DOCUMENTED for NorthStar Mobility Analysis: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics; development timeline. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:0",
+      "title": "SecureVault AI — README: Military-grade file encryption meets AI-powered threat detection",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### 🔐 Military-grade file encryption meets AI-powered threat detection\n**[🌐 Live Demo](https://securevaultai-brown.vercel.app)** · **[📖 Documentation](#features)** · **[🐛 Report Bug](https://github.com/Nausheen1295/securevault-ai/issues)**\n---"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:1",
+      "title": "SecureVault AI — README: Screenshots",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n## 📸 Screenshots\n| Login Page | Dashboard |\n|:---:|:---:|\n|   |   |\n| AI Scanner | Blockchain Vault |\n|:---:|:---:|\n|   |   |\n---"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:2",
+      "title": "SecureVault AI — README: AES-256-GCM Encryption",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### 🔐 AES-256-GCM Encryption\n- Military-grade file encryption\n- PBKDF2 key derivation (310k iterations)\n- Random salt & IV per file\n- 100% local — files never leave your device\n- Batch file processing"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:3",
+      "title": "SecureVault AI — README: AI Threat Scanner",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### 🤖 AI Threat Scanner\n- Real-time malware detection\n- Shannon entropy analysis\n- File signature matching\n- Confidence scoring system\n- VirusTotal API integration"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:4",
+      "title": "SecureVault AI — README: Biometric Authentication",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### 👆 Biometric Authentication\n- WebAuthn fingerprint login\n- Face ID via camera API\n- Platform authenticator support\n- Zero biometric data stored\n- Works on all modern devices"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:5",
+      "title": "SecureVault AI — README: Blockchain Key Vault",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### ⛓️ Blockchain Key Vault\n- Decentralized key storage\n- Ethereum Sepolia testnet\n- MetaMask wallet integration\n- Immutable audit trail\n- Key revocation support"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:6",
+      "title": "SecureVault AI — README: Zero-Knowledge Sharing",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### 🔗 Zero-Knowledge Sharing\n- Password never in share URL\n- Time-limited expiry links\n- Max view count control\n- One-click revocation\n- Checksum verification"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:7",
+      "title": "SecureVault AI — README: Security Analytics",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n### 📊 Security Analytics\n- Real-time security score\n- Threat history charts\n- Event audit log\n- Risk assessment dashboard\n- Encryption statistics\n---"
+    },
+    {
+      "projectId": "securevault-ai",
+      "id": "securevault-ai:readme:8",
+      "title": "SecureVault AI — README: Live Demo",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/securevault-ai#readme",
+      "text": "Project: SecureVault AI. Status: Live. Source: project README.\n## 🚀 Live Demo\n> 🌐 **[https://securevaultai-brown.vercel.app](https://securevaultai-brown.vercel.app)**"
+    },
+    {
+      "projectId": "packet-sniffer",
+      "id": "packet-sniffer:readme:0",
+      "title": "Packet Sniffer — README: CodeAlpha_CyberSecurity",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/CodeAlpha_CyberSecurity#readme",
+      "text": "Project: Packet Sniffer. Status: Completed. Source: project README.\n# CodeAlpha_CyberSecurity\nBasic packet sniffer using Python and Scapy"
+    },
+    {
+      "projectId": "packet-sniffer",
+      "id": "packet-sniffer:readme:1",
+      "title": "Packet Sniffer — README: Phishing Awareness Video",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/CodeAlpha_CyberSecurity#readme",
+      "text": "Project: Packet Sniffer. Status: Completed. Source: project README.\n## 🎥 Phishing Awareness Video\n[ ](https://youtu.be/XPkP0C46a4I)"
+    },
+    {
+      "projectId": "northstar-analysis",
+      "id": "northstar-analysis:readme:0",
+      "title": "NorthStar Mobility Analysis — README: NorthStar-Coursework",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/NorthStar-Coursework#readme",
+      "text": "Project: NorthStar Mobility Analysis. Status: Completed. Source: project README.\n# NorthStar-Coursework\nCoursework repository for NorthStar Urban Mobility and Logistics data analysis."
+    }
+  ]
+}

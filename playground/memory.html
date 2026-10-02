@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Memory Match — a card-matching game with CSS 3D flips, built in vanilla JavaScript by Nausheen Haleelur Rahman." />
+  <title>Memory Match — Nausheen's Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/nexus/tokens.css" />
+  <link rel="stylesheet" href="../css/nexus/base.css" />
+  <link rel="stylesheet" href="../css/nexus/components.css" />
+  <link rel="stylesheet" href="play.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🧠</text></svg>" />
+  <script>
+    try { var t = localStorage.getItem("nx-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <style>
+    .mem-grid { display: grid; gap: 10px; width: min(520px, calc(100vw - 60px)); }
+    .mem-grid.easy { grid-template-columns: repeat(4, 1fr); }
+    .mem-grid.hard { grid-template-columns: repeat(6, 1fr); gap: 7px; }
+    .card { aspect-ratio: 1; perspective: 700px; border: none; background: none; padding: 0; cursor: pointer; }
+    .card-inner {
+      display: block;
+      position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
+      transition: transform .5s cubic-bezier(.4, 1.6, .5, 1);
+    }
+    .card.flipped .card-inner, .card.matched .card-inner { transform: rotateY(180deg); }
+    .card-face {
+      position: absolute; inset: 0; display: grid; place-items: center; border-radius: 14px; backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+    }
+    .card-front {
+      background: var(--grad); color: rgba(255, 255, 255, .85); font-size: 1.4rem; box-shadow: var(--shadow-sm);
+      background-image: radial-gradient(circle at 30% 25%, rgba(255,255,255,.35), transparent 45%), var(--grad);
+    }
+    .card:hover:not(.flipped):not(.matched) .card-front { filter: brightness(1.08); transform: translateY(-2px); }
+    .card-back {
+      background: var(--surface-2); border: 2px solid var(--border); transform: rotateY(180deg);
+      font-size: clamp(1.4rem, 7vw, 2.4rem);
+    }
+    .hard .card-back { font-size: clamp(1rem, 4.6vw, 1.7rem); }
+    .hard .card-front { font-size: .95rem; }
+    .card.matched .card-back { border-color: var(--accent); animation: matchPop .5s ease; box-shadow: 0 0 0 4px rgba(var(--accent-rgb), .18); }
+    .card.shake .card-inner { animation: shake .4s ease; }
+    @keyframes matchPop { 50% { transform: rotateY(180deg) scale(1.12); } }
+    @keyframes shake {
+      0%, 100% { transform: rotateY(180deg) translateX(0); }
+      25% { transform: rotateY(180deg) translateX(-6px); }
+      75% { transform: rotateY(180deg) translateX(6px); }
+    }
+  </style>
+</head>
+<body class="pg-page">
+  <div class="nx-ambient" aria-hidden="true"></div>
+
+  <header class="pg-bar">
+    <a href="./" class="nx-btn nx-btn--sm">← <span class="pg-back-label">Playground</span></a>
+    <h1 class="pg-title">🧠 <span>Memory Match</span></h1>
+    <button class="nx-btn nx-btn--icon nx-btn--sm pg-theme" id="themeToggle" type="button" aria-label="Switch theme"></button>
+  </header>
+
+  <main class="pg-main">
+    <div class="pg-controls">
+      <div class="seg" id="levelSeg">
+        <button data-level="easy" class="active">Easy · 4×4</button>
+        <button data-level="hard">Hard · 6×6</button>
+      </div>
+      <button class="nx-btn nx-btn--sm" id="restartBtn">↻ Restart</button>
+    </div>
+
+    <div class="pg-stats">
+      <div class="pg-stat"><small>Moves</small><b id="moves">0</b></div>
+      <div class="pg-stat"><small>Time</small><b id="time">0:00</b></div>
+      <div class="pg-stat"><small>Pairs</small><b id="pairs">0/8</b></div>
+      <div class="pg-stat"><small>Best</small><b id="best">–</b></div>
+    </div>
+
+    <div class="pg-board">
+      <div class="mem-grid easy" id="grid"></div>
+      <div class="pg-overlay hidden" id="overlay">
+        <h2 id="ovTitle">🎉 You did it!</h2>
+        <p id="ovText"></p>
+        <button class="nx-btn nx-btn--primary" id="againBtn">Play Again</button>
+      </div>
+    </div>
+
+    <p class="pg-help">Flip two cards at a time. Matching pairs stay face-up. Find every pair in as few moves as you can.</p>
+  </main>
+
+  <footer class="pg-foot">Built with vanilla JS &amp; CSS 3D transforms by <a href="../index.html">Nausheen Haleelur Rahman</a> · <a href="../project.html?id=playground">Case study</a></footer>
+
+  <script src="shared.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const EMOJIS = ["🌸", "🦄", "🍓", "🐱", "🌈", "🍩", "🎀", "🦋", "🌙", "⭐", "🍒", "🐼", "🎨", "🍉", "🌻", "🐬", "🍭", "🪐"];
+    const LEVELS = { easy: { pairs: 8 }, hard: { pairs: 18 } };
+
+    let level = "easy", first = null, lock = false, moves = 0, matched = 0, startTime = 0, timer = null;
+
+    const shuffle = (arr) => {
+      for (let i = arr.length - 1; i > 0; i--) { const j = (Math.random() * (i + 1)) | 0; [arr[i], arr[j]] = [arr[j], arr[i]]; }
+      return arr;
+    };
+    const fmt = (ms) => { const s = Math.floor(ms / 1000); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`; };
+    const bestKey = () => `memory-${level}`;
+
+    function newGame() {
+      const pairs = LEVELS[level].pairs;
+      const deck = shuffle(shuffle([...EMOJIS]).slice(0, pairs).flatMap((e) => [e, e]));
+      first = null; lock = false; moves = 0; matched = 0; startTime = 0;
+      clearInterval(timer);
+      $("grid").className = `mem-grid ${level}`;
+      $("grid").innerHTML = deck.map((e, i) => `
+        <button class="card" data-emoji="${e}" aria-label="Hidden card ${i + 1}">
+          <span class="card-inner">
+            <span class="card-face card-front">🌸</span>
+            <span class="card-face card-back">${e}</span>
+          </span>
+        </button>`).join("");
+      $("overlay").classList.add("hidden");
+      updateHud();
+    }
+
+    function updateHud() {
+      $("moves").textContent = moves;
+      $("pairs").textContent = `${matched}/${LEVELS[level].pairs}`;
+      $("time").textContent = startTime ? fmt(Date.now() - startTime) : "0:00";
+      $("best").textContent = PG.get(bestKey()) ?? "–";
+    }
+
+    function flip(card) {
+      if (lock || card === first || card.classList.contains("matched")) return;
+      if (!startTime) { startTime = Date.now(); timer = setInterval(updateHud, 500); }
+      card.classList.add("flipped");
+      card.setAttribute("aria-label", `Card showing ${card.dataset.emoji}`);
+      if (!first) { first = card; return; }
+
+      moves++;
+      const second = card;
+      if (first.dataset.emoji === second.dataset.emoji) {
+        first.classList.add("matched"); second.classList.add("matched");
+        first = null; matched++;
+        updateHud();
+        if (matched === LEVELS[level].pairs) win();
+      } else {
+        lock = true;
+        const a = first;
+        setTimeout(() => { a.classList.add("shake"); second.classList.add("shake"); }, 350);
+        setTimeout(() => {
+          [a, second].forEach((c) => { c.classList.remove("flipped", "shake"); c.setAttribute("aria-label", "Hidden card"); });
+          first = null; lock = false;
+        }, 950);
+        updateHud();
+      }
+    }
+
+    function win() {
+      clearInterval(timer);
+      const time = fmt(Date.now() - startTime);
+      const isBest = PG.record(bestKey(), moves, true);
+      updateHud();
+      PG.confetti();
+      $("ovTitle").textContent = isBest ? "🏆 New Best!" : "🎉 You did it!";
+      $("ovText").innerHTML = `All pairs found in <b>${moves}</b> moves and <b>${time}</b>.` +
+        (isBest ? " That's your fewest moves yet!" : ` Your best is ${PG.get(bestKey())} moves.`);
+      setTimeout(() => $("overlay").classList.remove("hidden"), 600);
+    }
+
+    $("grid").addEventListener("click", (e) => { const c = e.target.closest(".card"); if (c) flip(c); });
+    $("restartBtn").addEventListener("click", newGame);
+    $("againBtn").addEventListener("click", newGame);
+    $("levelSeg").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      level = b.dataset.level;
+      $("levelSeg").querySelectorAll("button").forEach((x) => x.classList.toggle("active", x === b));
+      newGame();
+    });
+
+    newGame();
+  </script>
+</body>
+</html>
