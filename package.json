@@ -1,0 +1,14 @@
+{
+  "name": "nexus-portfolio",
+  "private": true,
+  "type": "module",
+  "description": "NEXUS Universe — portfolio of Nausheen Haleelur Rahman. Static site; no build step. This file only declares ES modules and tool shortcuts.",
+  "scripts": {
+    "serve": "node tests/serve.mjs",
+    "test": "cd tests && npm test",
+    "test:data": "node --test \"tests/unit/*.test.mjs\"",
+    "knowledge": "node tools/export-knowledge.mjs --readmes",
+    "sitemap": "node tools/build-sitemap.mjs",
+    "preloads": "node tools/update-preloads.mjs"
+  }
+}

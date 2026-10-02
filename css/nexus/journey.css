@@ -1,0 +1,80 @@
+/* ==========================================================================
+   NEXUS — Engineering Journey (stage rail + evidence panel)
+   ========================================================================== */
+
+.nx-jr-follow { display: flex; align-items: center; gap: var(--nx-space-4); margin-bottom: var(--nx-space-8); min-width: 0; }
+.nx-jr-follow > .nx-filter { min-width: 0; }
+.nx-jr-follow-label { flex: none; font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--nx-text-mute); }
+
+/* --- stage rail ---------------------------------------------------------- */
+.nx-jr-rail {
+  position: relative; display: grid; grid-template-columns: repeat(9, minmax(0, 1fr));
+  margin-bottom: var(--nx-space-6);
+}
+.nx-jr-rail::before {
+  content: ""; position: absolute; left: 5.5%; right: 5.5%; top: 41px; height: 2px;
+  background: linear-gradient(90deg, var(--nx-line-strong), var(--nx-line-strong));
+}
+.nx-jr-stage {
+  position: relative; display: grid; justify-items: center; align-content: start; gap: var(--nx-space-2);
+  padding: var(--nx-space-2) 2px var(--nx-space-3); border: 0; border-radius: var(--nx-radius-md);
+  background: transparent; color: var(--nx-text-mute); text-align: center;
+  transition: color var(--nx-dur-fast), background-color var(--nx-dur-fast);
+}
+.nx-jr-stage:hover { color: var(--nx-text); background: var(--nx-surface); }
+.nx-jr-num { font-family: var(--nx-font-mono); font-size: 10px; letter-spacing: .1em; }
+.nx-jr-dot {
+  position: relative; z-index: 1; width: 22px; height: 22px; border-radius: 50%; display: grid; place-items: center;
+  background: var(--nx-bg); border: 2px solid var(--nx-line-strong);
+  transition: transform var(--nx-dur-base) var(--nx-ease), background-color var(--nx-dur-base), border-color var(--nx-dur-base), box-shadow var(--nx-dur-base);
+}
+.nx-jr-count { font-family: var(--nx-font-mono); font-size: 10px; font-weight: 600; color: var(--nx-text-on-accent); }
+.nx-jr-label { font-size: var(--nx-text-xs); font-weight: 600; line-height: 1.3; }
+
+.nx-jr-stage.is-documented { color: var(--nx-text-soft); }
+.nx-jr-stage.is-documented .nx-jr-dot { background: var(--nx-accent); border-color: var(--nx-accent); }
+.nx-jr-stage[aria-selected="true"] { color: var(--nx-text); }
+.nx-jr-stage[aria-selected="true"] .nx-jr-dot { transform: scale(1.25); box-shadow: 0 0 0 6px rgba(var(--nx-accent-rgb), .18); border-color: var(--nx-accent); }
+.nx-jr-stage[aria-selected="true"]::after {
+  content: ""; position: absolute; left: 25%; right: 25%; bottom: 0; height: 2px; border-radius: 2px; background: var(--nx-accent);
+}
+
+/* --- panel ---------------------------------------------------------------- */
+.nx-jr-panel {
+  display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: var(--nx-space-10);
+  padding: var(--nx-space-8); animation: nx-panel-in var(--nx-dur-slow) var(--nx-ease);
+}
+.nx-jr-panel-head > * + * { margin-top: var(--nx-space-3); }
+.nx-jr-step { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); letter-spacing: .12em; text-transform: uppercase; color: var(--nx-accent); }
+.nx-jr-panel-head h3 { font-size: var(--nx-text-2xl); }
+.nx-jr-evidence h4 { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); font-weight: 500; letter-spacing: .12em; text-transform: uppercase; color: var(--nx-text-mute); margin-bottom: var(--nx-space-3); }
+.nx-jr-evidence ul { list-style: none; display: grid; gap: var(--nx-space-3); }
+.nx-jr-item {
+  display: grid; gap: var(--nx-space-2); padding: var(--nx-space-4); border-radius: var(--nx-radius-md);
+  background: var(--nx-surface-2); border: 1px solid var(--nx-line); border-left: 3px solid var(--_hue);
+}
+.nx-jr-item-top { display: flex; justify-content: space-between; align-items: center; gap: var(--nx-space-3); }
+.nx-jr-item-top a:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nx-jr-item p { font-size: var(--nx-text-sm); color: var(--nx-text-soft); }
+.nx-jr-date { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); color: var(--nx-text-mute); }
+.nx-jr-artifacts { display: flex; flex-wrap: wrap; gap: 6px; }
+.nx-jr-artifacts .nx-tag { gap: 6px; }
+.nx-jr-empty { padding: var(--nx-space-5); border-radius: var(--nx-radius-md); border: 1px dashed var(--nx-line-strong); font-size: var(--nx-text-sm); color: var(--nx-text-mute); }
+
+@keyframes nx-panel-in { from { opacity: .4; transform: translateY(6px); } }
+
+/* --- small screens: rail scrolls sideways, panel stacks ------------------- */
+@media (max-width: 900px) {
+  .nx-jr-follow { flex-direction: column; align-items: flex-start; gap: var(--nx-space-2); }
+  .nx-jr-follow > .nx-filter { max-width: 100%; }
+  .nx-jr-rail {
+    grid-template-columns: repeat(9, 92px); overflow-x: auto; scroll-snap-type: x proximity; scrollbar-width: none;
+    margin-inline: calc(-1 * var(--nx-gutter)); padding-inline: var(--nx-gutter);
+  }
+  .nx-jr-rail::-webkit-scrollbar { display: none; }
+  .nx-jr-rail::before { left: calc(var(--nx-gutter) + 46px); right: auto; width: calc(92px * 8); }
+  .nx-jr-stage { scroll-snap-align: center; }
+  .nx-jr-panel { grid-template-columns: minmax(0, 1fr); gap: var(--nx-space-6); padding: var(--nx-space-6); }
+}
+
+@media (prefers-reduced-motion: reduce) { .nx-jr-panel { animation: none; } }

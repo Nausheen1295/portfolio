@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Experimental Lab — NEXUS Playground</title>
+  <meta name="description" content="Browser games and mini-apps built from scratch in vanilla JavaScript by Nausheen Haleelur Rahman." />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2322d3ee'/><stop offset='1' stop-color='%238b7bff'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='17' text-anchor='middle' fill='%2305060a'>N</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/nexus/tokens.css" />
+  <link rel="stylesheet" href="../css/nexus/base.css" />
+  <link rel="stylesheet" href="../css/nexus/components.css" />
+  <script>try { var t = localStorage.getItem("nx-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}</script>
+  <style>
+    .pg-emoji { font-size: 2rem; width: 56px; height: 56px; display: grid; place-items: center; border-radius: var(--nx-radius-md); background: var(--nx-surface-2); border: 1px solid var(--nx-line); }
+    .pg-best { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); color: var(--nx-text-mute); }
+  </style>
+</head>
+<body>
+  <div class="nx-ambient" aria-hidden="true"></div>
+  <header class="nx-nav is-scrolled">
+    <a class="nx-brand" href="../index.html#universe"><span class="nx-brand-mark" aria-hidden="true">N</span> NEXUS</a>
+    <a class="nx-btn nx-btn--sm" href="../index.html#universe">← Back to the Universe</a>
+  </header>
+
+  <main class="nx-container" style="padding-top:128px;padding-bottom:96px">
+    <div class="nx-section-head">
+      <span class="nx-kicker" style="color:var(--nx-lab-experimental)">LAB-07 · Experimental Lab</span>
+      <h1 style="font-size:var(--nx-text-3xl)">NEXUS Playground</h1>
+      <p>Small games built from scratch in vanilla JavaScript — Canvas rendering, CSS 3D transforms, touch controls and
+        high scores saved on your device. More experiments are on the way.</p>
+    </div>
+
+    <div class="nx-grid" style="--nx-grid-min:260px">
+      <article class="nx-card nx-card--interactive">
+        <span class="pg-emoji" aria-hidden="true">🐍</span>
+        <h2 style="font-size:var(--nx-text-xl)"><a class="nx-stretch" href="snake.html">Petal Snake</a></h2>
+        <p class="nx-soft" style="font-size:var(--nx-text-sm)">Classic snake on HTML Canvas — keyboard, swipe or on-screen D-pad, speeding up as you grow.</p>
+        <div class="nx-tags"><span class="nx-tag">Canvas</span><span class="nx-tag">Game loop</span><span class="nx-tag">Touch</span></div>
+        <span class="pg-best" data-best="snake" data-label="Best score"></span>
+      </article>
+      <article class="nx-card nx-card--interactive">
+        <span class="pg-emoji" aria-hidden="true">🧠</span>
+        <h2 style="font-size:var(--nx-text-xl)"><a class="nx-stretch" href="memory.html">Memory Match</a></h2>
+        <p class="nx-soft" style="font-size:var(--nx-text-sm)">Find every pair in as few moves as possible. CSS 3D card flips, two difficulty levels.</p>
+        <div class="nx-tags"><span class="nx-tag">CSS 3D</span><span class="nx-tag">State</span><span class="nx-tag">Accessibility</span></div>
+        <span class="pg-best" data-best="memory-easy" data-label="Fewest moves (easy)"></span>
+      </article>
+    </div>
+  </main>
+
+  <script>
+    var scores = {};
+    try { scores = JSON.parse(localStorage.getItem("pg-scores")) || {}; } catch (e) {}
+    document.querySelectorAll("[data-best]").forEach(function (el) {
+      var v = scores[el.dataset.best];
+      el.textContent = v != null ? el.dataset.label + ": " + v : "Not played yet";
+    });
+  </script>
+</body>
+</html>

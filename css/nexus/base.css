@@ -1,0 +1,102 @@
+/* ==========================================================================
+   NEXUS BASE — reset, typography, focus, layout utilities
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 88px; -webkit-text-size-adjust: 100%; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+body {
+  min-height: 100vh;
+  background: var(--nx-bg);
+  color: var(--nx-text);
+  font-family: var(--nx-font-body);
+  font-size: var(--nx-text-md);
+  line-height: var(--nx-leading-body);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color var(--nx-dur-slow) var(--nx-ease), color var(--nx-dur-slow) var(--nx-ease);
+}
+
+/* film grain — gives flat dark surfaces some depth */
+body::before {
+  content: ""; position: fixed; inset: 0; z-index: 0; pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 240 240' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: var(--nx-grain-opacity);
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--nx-font-display);
+  font-weight: 600;
+  line-height: var(--nx-leading-tight);
+  letter-spacing: var(--nx-tracking-tight);
+  text-wrap: balance;
+}
+a { color: inherit; text-decoration: none; }
+img, svg, video, canvas { display: block; max-width: 100%; }
+button, input, textarea, select { font: inherit; color: inherit; }
+button { cursor: pointer; }
+code, kbd, samp { font-family: var(--nx-font-mono); font-size: .92em; }
+::selection { background: rgba(var(--nx-accent-rgb), .35); color: var(--nx-text); }
+
+/* --- Focus: always visible for keyboard users --------------------------- */
+:focus-visible {
+  outline: 2px solid var(--nx-accent);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+:focus:not(:focus-visible) { outline: none; }
+
+/* --- Layout utilities ---------------------------------------------------- */
+.nx-container {
+  position: relative; z-index: var(--nx-z-base);
+  width: 100%; max-width: var(--nx-container);
+  margin-inline: auto; padding-inline: var(--nx-gutter);
+}
+.nx-section { position: relative; padding-block: var(--nx-section-y); }
+.nx-stack > * + * { margin-top: var(--nx-stack-gap, var(--nx-space-4)); }
+.nx-grid {
+  display: grid; gap: var(--nx-grid-gap, var(--nx-space-6));
+  grid-template-columns: repeat(auto-fill, minmax(min(var(--nx-grid-min, 280px), 100%), 1fr));
+}
+.nx-row { display: flex; flex-wrap: wrap; align-items: center; gap: var(--nx-row-gap, var(--nx-space-3)); }
+
+.nx-mono  { font-family: var(--nx-font-mono); }
+.nx-soft  { color: var(--nx-text-soft); }
+.nx-mute  { color: var(--nx-text-mute); }
+.nx-grad-text {
+  background: var(--nx-grad); -webkit-background-clip: text; background-clip: text;
+  -webkit-text-fill-color: transparent; color: transparent;
+}
+
+.sr-only {
+  position: absolute !important; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+.nx-skip-link {
+  position: fixed; top: var(--nx-space-3); left: var(--nx-space-3); z-index: calc(var(--nx-z-boot) + 1);
+  padding: var(--nx-space-2) var(--nx-space-4); border-radius: var(--nx-radius-sm);
+  background: var(--nx-accent); color: var(--nx-text-on-accent); font-weight: 600;
+  transform: translateY(-200%); transition: transform var(--nx-dur-base) var(--nx-ease);
+}
+.nx-skip-link:focus { transform: none; }
+
+/* --- Scroll reveal (opacity/transform only) ------------------------------ */
+.nx-js .nx-reveal { opacity: 0; transform: translateY(24px); transition: opacity .8s var(--nx-ease), transform .8s var(--nx-ease); transition-delay: var(--nx-delay, 0ms); }
+.nx-js .nx-reveal.is-in { opacity: 1; transform: none; }
+@media (prefers-reduced-motion: reduce) { .nx-js .nx-reveal { opacity: 1; transform: none; } }
+
+/* Above-the-fold entrance: pure CSS, starts on first paint (no JS dependency) */
+.nx-rise { animation: nx-rise .9s var(--nx-ease) both; animation-delay: var(--nx-delay, 0ms); }
+@keyframes nx-rise { from { opacity: 0; transform: translateY(20px); } }
+@media (prefers-reduced-motion: reduce) { .nx-rise { animation: none; } }
+
+/* Ambient background glows (fixed, GPU-cheap) */
+.nx-ambient { position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden; }
+.nx-ambient::before, .nx-ambient::after {
+  content: ""; position: absolute; border-radius: 50%; opacity: .55; /* radial gradients are already soft — no blur filter needed */
+}
+.nx-ambient::before { width: 46vw; height: 46vw; top: -16vw; right: -10vw; background: radial-gradient(circle, rgba(34, 211, 238, .18), transparent 70%); }
+.nx-ambient::after  { width: 40vw; height: 40vw; bottom: -14vw; left: -10vw; background: radial-gradient(circle, rgba(139, 123, 255, .18), transparent 70%); }
+[data-theme="light"] .nx-ambient::before, [data-theme="light"] .nx-ambient::after { opacity: .7; }

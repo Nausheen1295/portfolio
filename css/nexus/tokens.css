@@ -1,0 +1,165 @@
+/* ==========================================================================
+   NEXUS DESIGN TOKENS
+   Single source of truth for colour, type, spacing, radius, elevation and
+   motion. Components must reference these variables — never raw values.
+   Dark is the default; light is opt-in via [data-theme="light"].
+   ========================================================================== */
+
+:root,
+[data-theme="dark"] {
+  color-scheme: dark;
+
+  /* --- Surfaces --------------------------------------------------------- */
+  --nx-bg:          #07080d;
+  --nx-bg-elev:     #0b0d14;
+  --nx-surface:     #10131c;
+  --nx-surface-2:   #161a26;
+  --nx-surface-3:   #1d2231;
+  --nx-overlay:     rgba(4, 5, 10, .72);
+
+  /* --- Lines ------------------------------------------------------------ */
+  --nx-line:        rgba(148, 163, 255, .10);
+  --nx-line-strong: rgba(148, 163, 255, .22);
+
+  /* --- Text (all ≥ 4.5:1 on --nx-bg) ------------------------------------ */
+  --nx-text:        #eef1f8;
+  --nx-text-soft:   #a3abc2;
+  --nx-text-mute:   #7d87a3;
+  --nx-text-on-accent: #05060a;
+
+  /* --- Brand ------------------------------------------------------------ */
+  --nx-cyan:        #22d3ee;
+  --nx-violet:      #8b7bff;
+  --nx-accent:      var(--nx-cyan);
+  --nx-accent-rgb:  34, 211, 238;
+  --nx-grad:        linear-gradient(120deg, #22d3ee 0%, #8b7bff 100%);
+  --nx-grad-soft:   linear-gradient(120deg, rgba(34, 211, 238, .14), rgba(139, 123, 255, .14));
+
+  /* --- Status (light-theme values are tuned for ≥ 4.5:1 on tinted badges) */
+  --nx-status-live:         #34d399;
+  --nx-status-complete:     #60a5fa;
+  --nx-status-development:  #fbbf24;
+  --nx-status-concept:      #a78bfa;
+  --nx-status-experimental: #f472b6;
+  --nx-danger:              #f87171;
+
+  /* --- Lab hues --------------------------------------------------------- */
+  --nx-lab-security:     #38bdf8;
+  --nx-lab-ai:           #8b7bff;
+  --nx-lab-knowledge:    #f472b6;
+  --nx-lab-data:         #fbbf24;
+  --nx-lab-earth:        #34d399;
+  --nx-lab-bio:          #a3e635;
+  --nx-lab-experimental: #fb7185;
+
+  /* --- Elevation & glow ------------------------------------------------- */
+  --nx-shadow-sm: 0 1px 2px rgba(0, 0, 0, .4);
+  --nx-shadow-md: 0 12px 32px -12px rgba(0, 0, 0, .6);
+  --nx-shadow-lg: 0 30px 70px -24px rgba(0, 0, 0, .75);
+  --nx-glow:      0 0 0 1px rgba(var(--nx-accent-rgb), .28), 0 10px 40px -12px rgba(var(--nx-accent-rgb), .45);
+  --nx-grain-opacity: .045;
+}
+
+[data-theme="light"] {
+  color-scheme: light;
+
+  --nx-bg:          #f6f7fb;
+  --nx-bg-elev:     #eef0f6;
+  --nx-surface:     #ffffff;
+  --nx-surface-2:   #f1f3f9;
+  --nx-surface-3:   #e6e9f2;
+  --nx-overlay:     rgba(15, 18, 32, .45);
+
+  --nx-line:        rgba(13, 17, 32, .10);
+  --nx-line-strong: rgba(13, 17, 32, .20);
+
+  --nx-text:        #0d1120;
+  --nx-text-soft:   #46506b;
+  --nx-text-mute:   #5d6784;
+  --nx-text-on-accent: #ffffff;
+
+  --nx-cyan:        #0e7490;
+  --nx-violet:      #6d5bf0;
+  --nx-accent-rgb:  14, 116, 144;
+  --nx-grad:        linear-gradient(120deg, #0e7490 0%, #6d5bf0 100%);
+  --nx-grad-soft:   linear-gradient(120deg, rgba(14, 116, 144, .10), rgba(109, 91, 240, .10));
+
+  --nx-status-live:         #065f46;
+  --nx-status-complete:     #1d4ed8;
+  --nx-status-development:  #92400e;
+  --nx-status-concept:      #6d28d9;
+  --nx-status-experimental: #be185d;
+  --nx-danger:              #dc2626;
+
+  --nx-lab-security:     #0369a1;
+  --nx-lab-ai:           #5b47d6;
+  --nx-lab-knowledge:    #be185d;
+  --nx-lab-data:         #92400e;
+  --nx-lab-earth:        #047857;
+  --nx-lab-bio:          #3f6212;
+  --nx-lab-experimental: #be123c;
+
+  --nx-shadow-sm: 0 1px 2px rgba(13, 17, 32, .06);
+  --nx-shadow-md: 0 12px 32px -14px rgba(13, 17, 32, .18);
+  --nx-shadow-lg: 0 30px 70px -28px rgba(13, 17, 32, .28);
+  --nx-glow:      0 0 0 1px rgba(var(--nx-accent-rgb), .25), 0 10px 36px -14px rgba(var(--nx-accent-rgb), .35);
+  --nx-grain-opacity: .025;
+}
+
+:root {
+  /* --- Typography ------------------------------------------------------- */
+  --nx-font-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+  --nx-font-body:    'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --nx-font-mono:    'JetBrains Mono', ui-monospace, 'Cascadia Code', Consolas, monospace;
+
+  --nx-text-xs:   .75rem;
+  --nx-text-sm:   .875rem;
+  --nx-text-md:   1rem;
+  --nx-text-lg:   1.125rem;
+  --nx-text-xl:   1.375rem;
+  --nx-text-2xl:  clamp(1.6rem, 2.6vw, 2rem);
+  --nx-text-3xl:  clamp(2rem, 4.4vw, 3.25rem);
+  --nx-text-hero: clamp(2.6rem, 7.4vw, 5.75rem);
+
+  --nx-leading-tight: 1.08;
+  --nx-leading-snug:  1.3;
+  --nx-leading-body:  1.65;
+  --nx-tracking-tight: -.03em;
+  --nx-tracking-label: .16em;
+
+  /* --- Spacing (4px base) ----------------------------------------------- */
+  --nx-space-1: 4px;   --nx-space-2: 8px;   --nx-space-3: 12px;  --nx-space-4: 16px;
+  --nx-space-5: 20px;  --nx-space-6: 24px;  --nx-space-8: 32px;  --nx-space-10: 40px;
+  --nx-space-12: 48px; --nx-space-16: 64px; --nx-space-20: 80px; --nx-space-24: 96px;
+  --nx-section-y: clamp(72px, 11vw, 136px);
+  --nx-gutter: 16px;
+  --nx-container: 1180px;
+
+  /* --- Radius ----------------------------------------------------------- */
+  --nx-radius-sm: 8px;
+  --nx-radius-md: 12px;
+  --nx-radius-lg: 18px;
+  --nx-radius-xl: 28px;
+  --nx-radius-pill: 999px;
+
+  /* --- Motion ----------------------------------------------------------- */
+  --nx-ease:      cubic-bezier(.16, 1, .3, 1);
+  --nx-ease-in-out: cubic-bezier(.65, 0, .35, 1);
+  --nx-dur-fast:  150ms;
+  --nx-dur-base:  250ms;
+  --nx-dur-slow:  600ms;
+
+  /* --- Layers ----------------------------------------------------------- */
+  --nx-z-base: 1;
+  --nx-z-nav: 100;
+  --nx-z-overlay: 500;
+  --nx-z-modal: 600;
+  --nx-z-toast: 700;
+  --nx-z-boot: 900;
+}
+
+@media (min-width: 640px) { :root { --nx-gutter: 28px; } }
+
+@media (prefers-reduced-motion: reduce) {
+  :root { --nx-dur-fast: 0ms; --nx-dur-base: 0ms; --nx-dur-slow: 0ms; }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "nexus-tests",
+  "private": true,
+  "type": "module",
+  "description": "Tests for the NEXUS portfolio. Not part of the website.",
+  "scripts": {
+    "test": "npm run test:data && npm run test:e2e",
+    "test:data": "node --test \"unit/*.test.mjs\"",
+    "test:e2e": "playwright test",
+    "serve": "node serve.mjs"
+  },
+  "devDependencies": {
+    "@axe-core/playwright": "^4.13.0",
+    "@playwright/test": "^1.63.0"
+  }
+}

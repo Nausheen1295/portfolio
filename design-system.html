@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEXUS Design System</title>
+  <meta name="robots" content="noindex" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%2322d3ee'/><stop offset='1' stop-color='%238b7bff'/></linearGradient></defs><rect width='32' height='32' rx='8' fill='url(%23g)'/><text x='16' y='22' font-family='Arial' font-weight='700' font-size='17' text-anchor='middle' fill='%2305060a'>N</text></svg>" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="css/nexus/tokens.css" />
+  <link rel="stylesheet" href="css/nexus/base.css" />
+  <link rel="stylesheet" href="css/nexus/components.css" />
+  <script>
+    try { var t = localStorage.getItem("nx-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <style>
+    /* page-only layout for the specimen sheet */
+    .ds-block { padding-block: var(--nx-space-12); border-top: 1px solid var(--nx-line); }
+    .ds-block > h2 { font-size: var(--nx-text-2xl); margin-bottom: var(--nx-space-6); }
+    .ds-swatches { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: var(--nx-space-3); }
+    .ds-swatch { border-radius: var(--nx-radius-md); border: 1px solid var(--nx-line); overflow: hidden; background: var(--nx-surface); }
+    .ds-swatch i { display: block; height: 64px; }
+    .ds-swatch span { display: block; padding: var(--nx-space-2) var(--nx-space-3); font: 12px var(--nx-font-mono); color: var(--nx-text-soft); }
+    .ds-type > * + * { margin-top: var(--nx-space-4); }
+  </style>
+</head>
+<body>
+  <div class="nx-ambient" aria-hidden="true"></div>
+
+  <header class="nx-nav is-scrolled">
+    <a class="nx-brand" href="index.html"><span class="nx-brand-mark">N</span> NEXUS</a>
+    <div class="nx-nav-actions">
+      <span class="nx-mono nx-mute" style="font-size:var(--nx-text-xs)">DESIGN SYSTEM · v0.1</span>
+      <button class="nx-btn nx-btn--icon nx-btn--sm" id="themeBtn" aria-label="Toggle light/dark theme"></button>
+    </div>
+  </header>
+
+  <main class="nx-container" style="padding-top:120px;padding-bottom:96px">
+    <div class="nx-section-head">
+      <span class="nx-kicker">Phase 2 · Foundations</span>
+      <h1 style="font-size:var(--nx-text-3xl)">NEXUS <span class="nx-grad-text">Design System</span></h1>
+      <p>Tokens and components every NEXUS page is built from. Project and lab cards below render live from <code>js/data/projects.js</code>.</p>
+    </div>
+
+    <section class="ds-block" aria-labelledby="ds-color">
+      <h2 id="ds-color">Colour</h2>
+      <div class="ds-swatches" id="swatches"></div>
+    </section>
+
+    <section class="ds-block ds-type" aria-labelledby="ds-type">
+      <h2 id="ds-type">Typography</h2>
+      <span class="nx-kicker">Kicker · JetBrains Mono</span>
+      <p style="font:600 var(--nx-text-hero)/var(--nx-leading-tight) var(--nx-font-display);letter-spacing:var(--nx-tracking-tight)">One Workspace.<br><span class="nx-grad-text">Infinite Intelligence.</span></p>
+      <h3 style="font-size:var(--nx-text-3xl)">Section title — Space Grotesk</h3>
+      <p class="nx-soft" style="font-size:var(--nx-text-lg);max-width:640px">Body copy is set in Inter for long-form readability. Secondary text uses the soft tone and still meets WCAG AA contrast in both themes.</p>
+      <p class="nx-mono nx-mute">&gt; mono / system text — JetBrains Mono</p>
+    </section>
+
+    <section class="ds-block" aria-labelledby="ds-buttons">
+      <h2 id="ds-buttons">Buttons, badges &amp; tags</h2>
+      <div class="nx-row" style="margin-bottom:var(--nx-space-6)">
+        <button class="nx-btn nx-btn--primary nx-btn--lg">Explore NEXUS</button>
+        <button class="nx-btn nx-btn--lg"><span class="nx-orb" style="--_size:18px"></span> Meet NEXA</button>
+        <button class="nx-btn nx-btn--ghost">Ghost</button>
+        <button class="nx-btn nx-btn--quiet">Quiet</button>
+        <button class="nx-btn nx-btn--sm">Small</button>
+        <button class="nx-btn" disabled>Disabled</button>
+      </div>
+      <div class="nx-row" id="badges" style="margin-bottom:var(--nx-space-4)"></div>
+      <div class="nx-tags"><span class="nx-tag">Python</span><span class="nx-tag">AES-256-GCM</span><span class="nx-tag">React</span><button class="nx-tag" type="button">clickable tag</button></div>
+    </section>
+
+    <section class="ds-block" aria-labelledby="ds-inputs">
+      <h2 id="ds-inputs">Inputs &amp; search</h2>
+      <div class="nx-grid" style="--nx-grid-min:300px">
+        <div class="nx-field">
+          <label class="nx-label" for="dsName">Your name</label>
+          <input class="nx-input" id="dsName" placeholder="Ada Lovelace" />
+        </div>
+        <div class="nx-field">
+          <label class="nx-label" for="dsSearch">Search the universe</label>
+          <div class="nx-search" id="dsSearchWrap">
+            <input class="nx-input" id="dsSearch" placeholder="Try “Python” or “cybersecurity”" />
+            <kbd>/</kbd>
+          </div>
+        </div>
+      </div>
+      <div class="nx-notice" style="margin-top:var(--nx-space-6)">
+        <span aria-hidden="true">ⓘ</span>
+        <span><strong>Honest-state notice.</strong> Used wherever something isn't available yet — e.g. “NEXA backend not connected.”</span>
+      </div>
+    </section>
+
+    <section class="ds-block" aria-labelledby="ds-labs">
+      <h2 id="ds-labs">Lab cards</h2>
+      <div class="nx-grid" id="labs" style="--nx-grid-min:250px"></div>
+    </section>
+
+    <section class="ds-block" aria-labelledby="ds-projects">
+      <h2 id="ds-projects">Project cards</h2>
+      <div class="nx-grid" id="projects" style="--nx-grid-min:300px"></div>
+    </section>
+
+    <section class="ds-block" aria-labelledby="ds-ai">
+      <h2 id="ds-ai">NEXA components &amp; avatar</h2>
+      <div class="nx-grid" style="--nx-grid-min:320px;align-items:center">
+        <div class="nx-chat">
+          <div class="nx-chat-head">
+            <span class="nx-orb"></span>
+            <div><strong>NEXA</strong><div class="nx-mono nx-mute" style="font-size:var(--nx-text-xs)">UI preview · backend not connected</div></div>
+          </div>
+          <div style="padding:var(--nx-space-4) var(--nx-space-5) 0">
+            <div class="nx-modes" role="group" aria-label="Answer mode">
+              <button aria-pressed="true">Recruiter</button><button aria-pressed="false">Developer</button>
+              <button aria-pressed="false">Simple</button><button aria-pressed="false">Architecture</button><button aria-pressed="false">Interview</button>
+            </div>
+          </div>
+          <div class="nx-chat-log">
+            <div class="nx-msg nx-msg--system">// sample layout — not a real conversation</div>
+            <div class="nx-msg nx-msg--user">Explain SecureVault AI.</div>
+            <div class="nx-msg nx-msg--nexa">Answers will appear here once the NEXA API is connected, grounded in project documentation with sources.</div>
+          </div>
+          <form class="nx-chat-form" onsubmit="return false">
+            <label class="sr-only" for="dsAsk">Ask NEXA</label>
+            <input class="nx-input" id="dsAsk" placeholder="Ask about a project…" />
+            <button class="nx-btn nx-btn--primary nx-btn--icon" aria-label="Send" id="dsSend"></button>
+          </form>
+        </div>
+        <div style="display:grid;place-items:center;gap:var(--nx-space-4);padding:var(--nx-space-8)" id="avatarSlot"></div>
+      </div>
+    </section>
+
+    <section class="ds-block" aria-labelledby="ds-modal">
+      <h2 id="ds-modal">Modal</h2>
+      <button class="nx-btn" id="openModal">Open dialog</button>
+      <dialog class="nx-modal" id="demoModal" aria-labelledby="demoModalTitle">
+        <div class="nx-modal-head">
+          <div><span class="nx-kicker">Case study</span><h3 id="demoModalTitle" style="font-size:var(--nx-text-2xl)">Native &lt;dialog&gt;</h3></div>
+          <button class="nx-btn nx-btn--icon nx-btn--sm" id="closeModal" aria-label="Close"></button>
+        </div>
+        <div class="nx-modal-body nx-stack">
+          <p class="nx-soft">Focus is trapped and restored by the browser, Esc closes it, and on phones it becomes a bottom sheet.</p>
+        </div>
+      </dialog>
+    </section>
+  </main>
+
+  <div class="nx-toast" id="toast" role="status" aria-live="polite"></div>
+
+  <script type="module">
+    import { LABS, PROJECTS, STATUS } from "./js/data/projects.js";
+    import { PROFILE } from "./js/data/profile.js";
+    import { labCard, projectCard, statusBadge, avatar } from "./js/ui/components.js";
+    import { icon } from "./js/ui/icons.js";
+
+    const $ = (s) => document.querySelector(s);
+    const root = document.documentElement;
+
+    // theme
+    const syncThemeIcon = () => { $("#themeBtn").innerHTML = icon(root.dataset.theme === "dark" ? "sun" : "moon", { size: 18 }); };
+    $("#themeBtn").addEventListener("click", () => {
+      root.dataset.theme = root.dataset.theme === "dark" ? "light" : "dark";
+      try { localStorage.setItem("nx-theme", root.dataset.theme); } catch {}
+      syncThemeIcon();
+    });
+    syncThemeIcon();
+
+    // swatches straight from the tokens
+    const tokens = ["--nx-bg", "--nx-surface", "--nx-surface-2", "--nx-text", "--nx-text-soft", "--nx-accent", "--nx-violet",
+      "--nx-status-live", "--nx-status-development", "--nx-status-concept", "--nx-status-experimental",
+      "--nx-lab-security", "--nx-lab-ai", "--nx-lab-knowledge", "--nx-lab-data", "--nx-lab-earth", "--nx-lab-bio", "--nx-lab-experimental"];
+    $("#swatches").innerHTML = tokens.map((t) => `<div class="ds-swatch"><i style="background:var(${t})"></i><span>${t.replace("--nx-", "")}</span></div>`).join("");
+
+    $("#badges").innerHTML = Object.keys(STATUS).map(statusBadge).join("");
+    $("#labs").innerHTML = LABS.map(labCard).join("");
+    $("#projects").innerHTML = PROJECTS.filter((p) => p.featured).map(projectCard).join("");
+    $("#avatarSlot").innerHTML = avatar(PROFILE, 220) +
+      `<p class="nx-mono nx-mute" style="font-size:var(--nx-text-xs);text-align:center">Avatar slot — set PROFILE.avatar<br>to your animated image</p>`;
+
+    $("#dsSearchWrap").insertAdjacentHTML("afterbegin", icon("search"));
+    $("#dsSend").innerHTML = icon("send", { size: 18 });
+    $("#closeModal").innerHTML = icon("close", { size: 18 });
+
+    const modal = $("#demoModal");
+    $("#openModal").addEventListener("click", () => modal.showModal());
+    $("#closeModal").addEventListener("click", () => modal.close());
+    modal.addEventListener("click", (e) => { if (e.target === modal) modal.close(); });
+
+    // cards are only previews here
+    document.addEventListener("click", (e) => {
+      const t = e.target.closest("[data-open-project], [data-open-lab]");
+      if (!t) return;
+      e.preventDefault();
+      const toast = $("#toast");
+      toast.textContent = "Case-study view arrives in Phase 5.";
+      toast.classList.add("is-visible");
+      clearTimeout(toast._t); toast._t = setTimeout(() => toast.classList.remove("is-visible"), 2200);
+    });
+  </script>
+</body>
+</html>
