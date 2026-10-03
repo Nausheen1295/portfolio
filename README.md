@@ -97,7 +97,15 @@ cd ../nexa-backend && pytest   # 34 backend tests
 - **Lighthouse (desktop):** Performance 95–100, Accessibility 100, Best Practices 100, SEO 100.
 - **Responsive:** no horizontal overflow at 320 / 375 / 768 / 1024 / 1440 px.
 
-## Deploying to GitHub Pages
-Copy the site into the `portfolio` repo, but **leave out** `nexa-backend/.venv/` (it's huge; deploy the backend separately)
-and `profile.png` (4 MB and no longer used — the avatar slot is for your illustrated image).
-GitHub Pages only reads `robots.txt` at the domain root, so instead submit `sitemap.xml` in Google Search Console.
+## Publishing changes
+This folder is a git clone of `github.com/Nausheen1295/portfolio`. GitHub Pages serves the `main` branch root,
+and `.nojekyll` makes it serve files as-is.
+
+```bash
+npm run test:data        # quick guardrails (and `npm test` for the full suite)
+git add -A
+git commit -m "Describe the change"
+git push                 # to a branch, then merge a pull request into main to go live
+```
+Local-only files (`profile.png`, `node_modules/`, `nexa-backend/.venv/`, `.env`) are git-ignored, so they're never published.
+Search engines ignore `robots.txt` on a `/portfolio/` site, so submit `sitemap.xml` in Google Search Console instead.
