@@ -142,3 +142,31 @@ test("knowledge export is up to date with projects.js", async () => {
     assert.ok(overview.text.includes(`Status: ${STATUS[p.status].label}`), `${p.id}: stale status in knowledge — re-export`);
   }
 });
+
+/* ---------------------------------------------------------------- certifications & products */
+const { CERTIFICATIONS, formatMonth } = await load("js/data/certificates.js");
+const { STORE, STORE_ROADMAP } = await load("js/data/store.js");
+
+test("certifications are sourced, dated and well-formed (newest first)", () => {
+  assert.ok(CERTIFICATIONS.length > 0);
+  const ids = CERTIFICATIONS.map((c) => c.id);
+  assert.equal(new Set(ids).size, ids.length);
+  for (const c of CERTIFICATIONS) {
+    assert.ok(c.title && c.issuer && c.source, `${c.id}: needs title, issuer and source`);
+    assert.match(c.date, /^\d{4}-(0[1-9]|1[0-2])$/, `${c.id}: date must be YYYY-MM`);
+    assert.ok(c.credentialUrl === null || /^https:\/\//.test(c.credentialUrl), `${c.id}: credential link must be https`);
+    for (const s of c.relatedSkills) assert.ok(SKILL_GROUPS.some((g) => g.id === s), `${c.id}: unknown skill group ${s}`);
+  }
+  const dates = CERTIFICATIONS.map((c) => c.date);
+  assert.deepEqual(dates, [...dates].sort().reverse(), "keep newest first");
+  assert.equal(formatMonth("2025-11"), "Nov 2025");
+});
+
+test("products stay a future enhancement until they're genuinely on sale", () => {
+  for (const p of STORE) {
+    assert.ok(["planned", "available"].includes(p.status), `${p.id}: unknown status`);
+    if (p.status === "planned") assert.ok(!p.price && !p.buyUrl, `${p.id}: a planned product can't have a price or buy link`);
+    if (p.status === "available") assert.match(p.buyUrl || "", /^https:\/\//, `${p.id}: available products need an https buy link`);
+  }
+  assert.ok(STORE_ROADMAP.length >= 1);
+});

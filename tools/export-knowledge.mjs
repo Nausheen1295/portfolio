@@ -24,6 +24,8 @@ const withReadmes = process.argv.includes("--readmes");
 const load = (rel) => import(pathToFileURL(path.join(ROOT, rel)).href);
 const { PROJECTS, LABS, STATUS, JOURNEY_STAGES } = await load("js/data/projects.js");
 const { PROFILE, SKILL_GROUPS } = await load("js/data/profile.js");
+const { CERTIFICATIONS, formatMonth } = await load("js/data/certificates.js");
+const { STORE } = await load("js/data/store.js");
 
 const chunks = [];
 const add = (c) => chunks.push({ projectId: null, ...c, text: c.text.replace(/\s+\n/g, "\n").trim() });
@@ -50,6 +52,17 @@ add({
     const ev = g.evidence.map((id) => PROJECTS.find((p) => p.id === id)?.name).filter(Boolean);
     return `${g.name}: ${g.items.join(", ")}.${ev.length ? ` Evidence: ${ev.join(", ")}.` : ""}`;
   }).join("\n"),
+});
+add({
+  id: "profile:certifications", title: "Certifications", section: "certifications", url: `${SITE}#certifications`,
+  text: "Certifications (source: résumé):\n" + CERTIFICATIONS.map((c) =>
+    `- ${c.title} — ${c.issuer}, ${formatMonth(c.date)}. Topics: ${c.topics.join(", ")}.${c.credentialUrl ? ` Verify: ${c.credentialUrl}` : ""}`).join("\n"),
+});
+add({
+  id: "profile:products", title: "Products I sell (future enhancement)", section: "store", url: `${SITE}#store`,
+  text: "Products I sell is a FUTURE ENHANCEMENT. Nothing is on sale yet and no prices exist. " +
+    "Visitors can register interest (\"Notify me\"). Planned products:\n" +
+    STORE.map((p) => `- ${p.name} (${p.status}): ${p.description}`).join("\n"),
 });
 add({
   id: "profile:contact", title: "Contact", section: "contact", url: `${SITE}#contact`,

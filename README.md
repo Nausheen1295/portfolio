@@ -33,7 +33,8 @@ js/
   project-page.js        Entry point (case studies)
   data/projects.js       ★ Single source of truth for labs and projects
   data/profile.js        Verified profile facts and skill groups
-  data/store.js          Store items
+  data/certificates.js   Certifications (from the résumé) — add credentialUrl to show "Verify credential"
+  data/store.js          "Products I sell" — future enhancement (planned items + storefront roadmap)
   core/                  boot, theme, nav, reveal, contact
   ui/                    icons, components, project-modal, architecture, toast
   sections/render.js     Renders data-driven sections
@@ -64,6 +65,10 @@ nexa-backend/            NEXA API (FastAPI + Claude). Deployed separately — se
 - **After editing project data:** run `node tools/export-knowledge.mjs --readmes` so NEXA's knowledge stays in sync.
 - **NEXA:** set `endpoint` in `js/nexa/config.js` (https only) once the backend is deployed. Until then NEXA runs
   in clearly-labelled documentation-search mode and never generates answers.
+- **Certifications:** add entries to `js/data/certificates.js` (newest first, date as `YYYY-MM`). Add a public
+  `credentialUrl` (https) to show a "Verify credential" link.
+- **Products I sell:** items in `js/data/store.js` stay `status: "planned"` (no price, "Notify me" only). When one
+  launches, set `status: "available"` with a `price` and an https `buyUrl` — tests block anything in between.
 - **Avatar:** put your animated or illustrated image in `assets/` and set `avatar: "assets/your-file.webp"` in `js/data/profile.js`.
 - **Contact form:** posts to Formspree (`action` on the form in `index.html`).
 
@@ -84,7 +89,7 @@ node tools/update-preloads.mjs              # only if you added/removed JS modul
 ```bash
 cd tests
 npm install            # once — uses your installed Chrome, no browser download
-npm test               # data guardrails + 85 end-to-end browser tests (~1 min)
+npm test               # data guardrails + 90 end-to-end browser tests (~1 min)
 npm run test:data      # just the content guardrails (instant)
 cd ../nexa-backend && pytest   # 34 backend tests
 ```

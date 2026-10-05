@@ -8,7 +8,7 @@ import { initNav } from "./core/nav.js";
 import { reveal } from "./core/reveal.js";
 import { initContact } from "./core/contact.js";
 import { initProjectModal } from "./ui/project-modal.js";
-import { renderHero, renderProjects, renderSkills, renderStore, hydrateIcons } from "./sections/render.js";
+import { renderHero, renderProjects, renderSkills, renderStore, renderCertifications, hydrateIcons } from "./sections/render.js";
 import { initUniverse } from "./sections/universe.js";
 import { initJourney } from "./sections/journey.js";
 import { initNexa } from "./nexa/ui.js";
@@ -30,6 +30,7 @@ const universe = initUniverse(document.getElementById("universeMap"), {
 });
 initJourney(document.getElementById("journeyMount"));
 const nexa = initNexa(document.getElementById("nexaMount"));
+renderCertifications();
 renderSkills();
 renderStore();
 hydrateIcons();

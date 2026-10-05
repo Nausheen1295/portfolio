@@ -21,7 +21,7 @@
       "title": "Education",
       "section": "about",
       "url": "https://nausheen1295.github.io/portfolio/#about",
-      "text": "BSc (Hons) Computer Science, University of West London (UWL) (2023 – 2026). Software Engineering, AI & Automation, Databases, Computer Networks, App Development, UI/UX Design.\nHigher Secondary — Science, The Central School (2023). Graduated with 87%."
+      "text": "BSc (Hons) Computer Science, University of West London (UWL) (Oct 2023 – May 2026). Software Engineering, AI & Automation, Databases, Computer Networks, App Development, UI/UX Design.\nHigher Secondary — Science, The Central School (2023). Graduated with 87%."
     },
     {
       "projectId": null,
@@ -29,7 +29,7 @@
       "title": "Experience",
       "section": "about",
       "url": "https://nausheen1295.github.io/portfolio/#about",
-      "text": "Rotational Intern at Medulla (dates not documented). Rotated across Technical, Database, and CSR & Marketing functions — IT support, data management, and collaborating with multidisciplinary teams."
+      "text": "Rotational Intern at Medulla (2025). Rotated across Technical, Database, and CSR & Marketing functions — IT support, data management, and collaborating with multidisciplinary teams."
     },
     {
       "projectId": null,
@@ -38,6 +38,22 @@
       "section": "skills",
       "url": "https://nausheen1295.github.io/portfolio/#skills",
       "text": "AI & Machine Learning: AI Agents, Workflow Automation, Prompt Engineering, AI threat detection. Evidence: SecureVault AI, NEXA.\nSoftware Development: Python, Java, JavaScript, TypeScript, REST APIs, Android Studio. Evidence: SecureVault AI, NR Playfair Cipher, NEXUS Playground.\nWeb Development: React, Vite, HTML, CSS, Canvas, Responsive design. Evidence: SecureVault AI, NEXUS Playground.\nCybersecurity: AES-256-GCM, PBKDF2, WebAuthn, Cryptography, Packet analysis (Scapy), Phishing awareness. Evidence: SecureVault AI, NR Playfair Cipher, Packet Sniffer.\nDatabases & Data: Oracle SQL, Database design, Data analysis, Jupyter. Evidence: NorthStar Mobility Analysis.\nUI / UX: Figma, Wireframing, Prototyping, User-centered design. Evidence: SecureVault AI.\nCloud & Deployment: Vercel, GitHub Pages, Ethereum testnet (Sepolia). Evidence: SecureVault AI.\nDeveloper Tools: Git & GitHub, VS Code, Linux, Cisco Packet Tracer."
+    },
+    {
+      "projectId": null,
+      "id": "profile:certifications",
+      "title": "Certifications",
+      "section": "certifications",
+      "url": "https://nausheen1295.github.io/portfolio/#certifications",
+      "text": "Certifications (source: résumé):\n- Be10x AI Tool Workshop — BE10x, Jan 2026. Topics: AI tools.\n- Software Design, AI Foundation, Python — LinkedIn Learning, Nov 2025. Topics: Software Design, AI Foundation, Python.\n- Digital Learning Training — Power Eagles, Jun 2025. Topics: Digital learning."
+    },
+    {
+      "projectId": null,
+      "id": "profile:products",
+      "title": "Products I sell (future enhancement)",
+      "section": "store",
+      "url": "https://nausheen1295.github.io/portfolio/#store",
+      "text": "Products I sell is a FUTURE ENHANCEMENT. Nothing is on sale yet and no prices exist. Visitors can register interest (\"Notify me\"). Planned products:\n- Figma UI Kit (planned): A clean, reusable UI component kit to design beautiful apps faster.\n- AI Prompt Pack (planned): Ready-to-use prompts and automation templates for everyday productivity.\n- App Starter Template (planned): An Android app starter with clean architecture to kickstart your build.\n- Resume & Portfolio Template (planned): A modern, ATS-friendly résumé plus a portfolio template."
     },
     {
       "projectId": null,
