@@ -78,6 +78,7 @@
   <link rel="modulepreload" href="js/core/reveal.js" />
   <link rel="modulepreload" href="js/core/search.js" />
   <link rel="modulepreload" href="js/core/theme.js" />
+  <link rel="modulepreload" href="js/data/certificates.js" />
   <link rel="modulepreload" href="js/data/profile.js" />
   <link rel="modulepreload" href="js/data/projects.js" />
   <link rel="modulepreload" href="js/data/store.js" />
@@ -118,6 +119,7 @@
         <li><a href="#journey">Journey</a></li>
         <li><a href="#nexa">NEXA</a></li>
         <li><a href="#about">About</a></li>
+        <li><a href="#certifications">Certifications</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#journal">Journal</a></li>
         <li><a href="#contact">Contact</a></li>
@@ -254,12 +256,12 @@
 
             <div class="nx-timeline" aria-label="Education and experience">
               <article class="nx-tl">
-                <span class="nx-tl-when">2023 – 2026</span>
+                <span class="nx-tl-when">Oct 2023 – May 2026</span>
                 <h3>BSc (Hons) Computer Science</h3>
                 <p class="nx-soft">University of West London — Software Engineering, AI &amp; Automation, Databases, Computer Networks, App Development, UI/UX Design.</p>
               </article>
               <article class="nx-tl">
-                <span class="nx-tl-when">Internship</span>
+                <span class="nx-tl-when">2025 · Internship</span>
                 <h3>Rotational Intern · Medulla</h3>
                 <p class="nx-soft">Technical, Database, and CSR &amp; Marketing rotations — IT support, data management, cross-team collaboration.</p>
               </article>
@@ -280,6 +282,7 @@
               <div><dt>Focus</dt><dd>AI · Security · Software</dd></div>
               <div><dt>Code</dt><dd>Python · Java · JS · TS</dd></div>
               <div><dt>Speaks</dt><dd>English · Tamil · Hindi · Urdu</dd></div>
+              <div><dt>Certifications</dt><dd><a href="#certifications" class="nx-facts-link" id="factsCertCount">See all</a></dd></div>
               <div><dt>Open to</dt><dd>Roles, internships &amp; freelance</dd></div>
             </dl>
             <a class="nx-btn nx-btn--primary" href="resume.pdf" download><span data-icon="file"></span> Download résumé</a>
@@ -288,8 +291,20 @@
       </div>
     </section>
 
+    <!-- ===== CERTIFICATIONS ===== -->
+    <section class="nx-section nx-section--alt" id="certifications" aria-labelledby="certTitle">
+      <div class="nx-container">
+        <div class="nx-section-head nx-reveal">
+          <span class="nx-kicker">Certifications</span>
+          <h2 id="certTitle">Certified learning, alongside the degree.</h2>
+          <p>Courses and workshops I've completed — each one linked to the skills it supports.</p>
+        </div>
+        <div class="nx-grid" id="certGrid" style="--nx-grid-min:280px"></div>
+      </div>
+    </section>
+
     <!-- ===== SKILLS ===== -->
-    <section class="nx-section nx-section--alt" id="skills" aria-labelledby="skillsTitle">
+    <section class="nx-section" id="skills" aria-labelledby="skillsTitle">
       <div class="nx-container">
         <div class="nx-section-head nx-reveal">
           <span class="nx-kicker">Skills</span>
@@ -301,7 +316,7 @@
     </section>
 
     <!-- ===== CAPABILITIES (formerly Services) ===== -->
-    <section class="nx-section" id="capabilities" aria-labelledby="capTitle">
+    <section class="nx-section nx-section--alt" id="capabilities" aria-labelledby="capTitle">
       <div class="nx-container">
         <div class="nx-section-head nx-reveal">
           <span class="nx-kicker">Capabilities</span>
@@ -332,20 +347,22 @@
       </div>
     </section>
 
-    <!-- ===== STORE (formerly Products) ===== -->
-    <section class="nx-section nx-section--alt" id="store" aria-labelledby="storeTitle">
+    <!-- ===== PRODUCTS I SELL (future enhancement) ===== -->
+    <section class="nx-section" id="store" aria-labelledby="storeTitle">
       <div class="nx-container">
         <div class="nx-section-head nx-reveal">
-          <span class="nx-kicker">NEXUS Store</span>
-          <h2 id="storeTitle">Digital products — launching soon.</h2>
-          <p>Want early access? Hit “Notify me” and I'll email you when it's ready.</p>
+          <span class="nx-kicker">Products I sell · Future enhancement</span>
+          <h2 id="storeTitle">Products I sell.</h2>
+          <p>A storefront for digital products is on the NEXUS roadmap. <strong>Nothing is on sale yet</strong> —
+            hit “Notify me” on anything you'd like and I'll email you when it launches.</p>
         </div>
+        <ol class="nx-store-roadmap nx-reveal" id="storeRoadmap" aria-label="Storefront roadmap"></ol>
         <div class="nx-grid" id="storeGrid" style="--nx-grid-min:240px"></div>
       </div>
     </section>
 
     <!-- ===== JOURNAL (formerly Blog) ===== -->
-    <section class="nx-section" id="journal" aria-labelledby="journalTitle">
+    <section class="nx-section nx-section--alt" id="journal" aria-labelledby="journalTitle">
       <div class="nx-container">
         <div class="nx-section-head nx-reveal">
           <span class="nx-kicker">NEXUS Journal</span>
@@ -375,7 +392,7 @@
     </section>
 
     <!-- ===== CONTACT ===== -->
-    <section class="nx-section nx-section--alt" id="contact" aria-labelledby="contactTitle">
+    <section class="nx-section" id="contact" aria-labelledby="contactTitle">
       <div class="nx-container">
         <div class="nx-contact">
           <div class="nx-reveal">
