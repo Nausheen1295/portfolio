@@ -183,3 +183,38 @@ span[data-icon] svg { width: 18px; height: 18px; }
 @media (prefers-reduced-motion: reduce) {
   .nx-orbit-ring--outer, .nx-live-dot { animation: none; }
 }
+
+/* --------------------------------------------------------------------------
+   Certifications
+   -------------------------------------------------------------------------- */
+.nx-cert { gap: var(--nx-space-3); scroll-margin-top: 96px; }
+.nx-cert-top { display: flex; justify-content: space-between; align-items: center; }
+.nx-cert-icon {
+  width: 42px; height: 42px; display: grid; place-items: center; border-radius: var(--nx-radius-md);
+  color: var(--nx-accent); background: rgba(var(--nx-accent-rgb), .1); border: 1px solid rgba(var(--nx-accent-rgb), .25);
+}
+.nx-cert-icon svg { width: 20px; height: 20px; }
+.nx-cert-date { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); color: var(--nx-text-mute); letter-spacing: .06em; }
+.nx-cert h3 { font-size: var(--nx-text-lg); }
+.nx-cert-issuer { font-size: var(--nx-text-sm); font-weight: 600; color: var(--nx-accent); }
+.nx-cert-verify { display: inline-flex; align-items: center; gap: 6px; margin-top: auto; font-size: var(--nx-text-sm); font-weight: 600; color: var(--nx-accent); }
+.nx-cert-verify:hover { text-decoration: underline; text-underline-offset: 3px; }
+.nx-cert:target { border-color: var(--nx-accent); box-shadow: var(--nx-glow); }
+.nx-facts-link { color: var(--nx-accent); text-decoration: underline; text-underline-offset: 3px; }
+
+/* --------------------------------------------------------------------------
+   Products I sell — roadmap strip (future enhancement)
+   -------------------------------------------------------------------------- */
+.nx-store-roadmap {
+  list-style: none; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--nx-space-3);
+  margin-bottom: var(--nx-space-8);
+}
+.nx-store-roadmap li {
+  display: grid; gap: 4px; padding: var(--nx-space-4) var(--nx-space-5); border-radius: var(--nx-radius-md);
+  border: 1px dashed var(--nx-line-strong); background: var(--nx-surface); font-size: var(--nx-text-sm); color: var(--nx-text-soft);
+}
+.nx-store-roadmap li:first-child { border-style: solid; border-color: rgba(var(--nx-accent-rgb), .45); }
+.nx-store-roadmap strong { color: var(--nx-text); }
+.nx-store-step { font-family: var(--nx-font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--nx-accent); }
+.nx-price { font-family: var(--nx-font-display); font-size: var(--nx-text-xl); font-weight: 600; }
+@media (max-width: 720px) { .nx-store-roadmap { grid-template-columns: minmax(0, 1fr); } }
