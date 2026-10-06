@@ -3,7 +3,8 @@
    ========================================================================== */
 import { LABS, PROJECTS, getProject } from "../data/projects.js";
 import { PROFILE, SKILL_GROUPS } from "../data/profile.js";
-import { STORE } from "../data/store.js";
+import { STORE, STORE_ROADMAP } from "../data/store.js";
+import { CERTIFICATIONS, formatMonth } from "../data/certificates.js";
 import { esc, projectCard, avatar } from "../ui/components.js";
 import { icon } from "../ui/icons.js";
 import { reveal } from "../core/reveal.js";
@@ -57,6 +58,12 @@ export function renderProjects() {
 }
 
 /* ---------- skills ---------- */
+const certs = (groupId) => {
+  const list = CERTIFICATIONS.filter((c) => c.relatedSkills.includes(groupId));
+  return list.length
+    ? `<div class="nx-evidence"><span>Certified:</span>${list.map((c) => `<a href="#cert-${esc(c.id)}">${esc(c.issuer)}</a>`).join("<span aria-hidden='true'>·</span>")}</div>`
+    : "";
+};
 export function renderSkills() {
   const grid = document.getElementById("skillGrid");
   grid.innerHTML = SKILL_GROUPS.map((g, i) => {
@@ -67,15 +74,41 @@ export function renderSkills() {
         <div class="nx-skill-head"><span class="nx-lab-icon">${icon(g.icon)}</span><h3>${esc(g.name)}</h3></div>
         <div class="nx-tags">${g.items.map((s) => `<span class="nx-tag">${esc(s)}</span>`).join("")}</div>
         ${evidence ? `<div class="nx-evidence"><span>Used in:</span>${evidence}</div>` : ""}
+        ${certs(g.id)}
       </article>`;
   }).join("");
   reveal(grid);
 }
 
-/* ---------- store ---------- */
+/* ---------- certifications ---------- */
+export function renderCertifications() {
+  const grid = document.getElementById("certGrid");
+  grid.innerHTML = CERTIFICATIONS.map((c, i) => `
+    <article class="nx-card nx-cert nx-reveal" id="cert-${esc(c.id)}" style="--nx-delay:${(i % 3) * 70}ms">
+      <div class="nx-cert-top">
+        <span class="nx-cert-icon" aria-hidden="true">${icon("award")}</span>
+        <time class="nx-cert-date" datetime="${esc(c.date)}">${esc(formatMonth(c.date))}</time>
+      </div>
+      <h3>${esc(c.title)}</h3>
+      <p class="nx-cert-issuer">${esc(c.issuer)}</p>
+      <div class="nx-tags">${c.topics.map((t) => `<span class="nx-tag">${esc(t)}</span>`).join("")}</div>
+      ${c.credentialUrl
+        ? `<a class="nx-cert-verify" href="${esc(c.credentialUrl)}" target="_blank" rel="noopener">Verify credential ${icon("external", { size: 14 })}</a>`
+        : ""}
+    </article>`).join("");
+  const facts = document.getElementById("factsCertCount");
+  if (facts) facts.textContent = `${CERTIFICATIONS.length} — see all`;
+  reveal(grid);
+}
+
+/* ---------- products I sell (future enhancement) ---------- */
 export function renderStore() {
+  document.getElementById("storeRoadmap").innerHTML = STORE_ROADMAP.map((r) => `
+    <li><span class="nx-store-step">${esc(r.step)}</span><strong>${esc(r.label)}</strong><span>${esc(r.detail)}</span></li>`).join("");
+
   const grid = document.getElementById("storeGrid");
   grid.innerHTML = STORE.map((item, i) => {
+    const available = item.status === "available" && item.buyUrl;
     const mail = `mailto:${PROFILE.links.email}?subject=${encodeURIComponent(`Notify me: ${item.name}`)}` +
       `&body=${encodeURIComponent(`Hi Nausheen,\n\nPlease let me know when "${item.name}" is available.\n`)}`;
     return `
@@ -84,8 +117,10 @@ export function renderStore() {
         <h3>${esc(item.name)}</h3>
         <p class="nx-soft">${esc(item.description)}</p>
         <div class="nx-product-foot">
-          <span class="nx-badge" data-status="in-development">Coming soon</span>
-          <a class="nx-btn nx-btn--sm" href="${esc(mail)}">Notify me</a>
+          ${available
+            ? `<span class="nx-price">${esc(item.price || "")}</span><a class="nx-btn nx-btn--sm nx-btn--primary" href="${esc(item.buyUrl)}" target="_blank" rel="noopener">Buy</a>`
+            : `<span class="nx-badge" data-status="concept" title="Planned — not on sale yet">Planned</span>
+               <a class="nx-btn nx-btn--sm" href="${esc(mail)}" aria-label="Notify me when ${esc(item.name)} launches">Notify me</a>`}
         </div>
       </article>`;
   }).join("");

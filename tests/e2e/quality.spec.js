@@ -63,9 +63,50 @@ test.describe("playground", () => {
     expect(best).toBe(8);
   });
 
-  test("hub links to both games and shows best scores", async ({ page }) => {
+  test("pixel studio draws, fills, undoes, and keeps the drawing after reload", async ({ page }) => {
+    await page.goto("playground/pixel.html");
+    const cells = page.locator(".px-cell");
+    await expect(cells).toHaveCount(256);
+    await page.getByRole("button", { name: "Color #ef4444" }).click();
+    await cells.nth(0).click();
+    await expect(cells.nth(0)).toHaveCSS("background-color", "rgb(239, 68, 68)");
+    await page.getByRole("button", { name: "🪣 Fill" }).click();
+    await page.getByRole("button", { name: "Color #22c55e" }).click();
+    await cells.nth(255).click();
+    await expect(cells.nth(1)).toHaveCSS("background-color", "rgb(34, 197, 94)");
+    await expect(cells.nth(0)).toHaveCSS("background-color", "rgb(239, 68, 68)"); // fill stops at other colours
+    await page.getByRole("button", { name: "↶ Undo" }).click();
+    await expect(cells.nth(1)).not.toHaveCSS("background-color", "rgb(34, 197, 94)");
+    await page.reload();
+    await expect(page.locator(".px-cell").nth(0)).toHaveCSS("background-color", "rgb(239, 68, 68)");
+  });
+
+  test("color by number: wrong squares are rejected and the picture can be completed", async ({ page }) => {
+    await page.goto("playground/pixel.html?mode=number");
+    const cells = page.locator(".px-cell");
+    await expect(cells).toHaveCount(144);
+    const nums = await cells.evaluateAll((els) => els.map((el) => +el.dataset.n));
+    const wrong = nums.findIndex((n) => n !== 1);
+    await cells.nth(wrong).click();
+    await expect(page.locator("#mistakes")).toHaveText("1");
+    for (const n of [...new Set(nums)].sort()) {
+      await page.locator(`.px-swatch[data-n="${n}"]`).click();
+      for (const i of nums.flatMap((v, i) => (v === n ? [i] : []))) await cells.nth(i).click();
+    }
+    await expect(page.locator("#painted")).toHaveText("100%");
+    await expect(page.locator("#overlay")).not.toHaveClass(/hidden/, { timeout: 3_000 });
+    const done = await page.evaluate(() => JSON.parse(localStorage.getItem("pg-scores"))["pixel-done"]);
+    expect(done).toBe(1);
+  });
+
+  test("hub links to every game and shows best scores", async ({ page }) => {
     await page.goto("playground/");
     await expect(page.getByRole("link", { name: "Petal Snake" })).toHaveAttribute("href", "snake.html");
     await expect(page.getByRole("link", { name: "Memory Match" })).toHaveAttribute("href", "memory.html");
+    await expect(page.getByRole("link", { name: "Pixel Studio" })).toHaveAttribute("href", "pixel.html");
+    await expect(page.getByRole("link", { name: "Certifications" })).toHaveAttribute("href", "../index.html#certifications");
+    await expect(page.getByRole("link", { name: "Products I sell" })).toHaveAttribute("href", "../index.html#store");
+    await expect(page.locator("#pgCerts")).toContainText("3 certifications");
+    await expect(page.locator("#pgProducts")).toContainText("not on sale yet");
   });
 });

@@ -50,6 +50,30 @@
         <div class="nx-tags"><span class="nx-tag">CSS 3D</span><span class="nx-tag">State</span><span class="nx-tag">Accessibility</span></div>
         <span class="pg-best" data-best="memory-easy" data-label="Fewest moves (easy)"></span>
       </article>
+      <article class="nx-card nx-card--interactive">
+        <span class="pg-emoji" aria-hidden="true">🎨</span>
+        <h2 style="font-size:var(--nx-text-xl)"><a class="nx-stretch" href="pixel.html">Pixel Studio</a></h2>
+        <p class="nx-soft" style="font-size:var(--nx-text-sm)">Draw pixel art on a blank canvas, or relax with color-by-number pictures — pick a number, paint its squares.</p>
+        <div class="nx-tags"><span class="nx-tag">CSS Grid</span><span class="nx-tag">Pointer events</span><span class="nx-tag">Flood fill</span></div>
+        <span class="pg-best" data-best="pixel-done" data-label="Pictures completed"></span>
+      </article>
+    </div>
+
+    <div class="nx-section-head" style="margin-top:var(--nx-space-16)">
+      <span class="nx-kicker">Also on NEXUS</span>
+      <h2 style="font-size:var(--nx-text-2xl)">Certifications &amp; products</h2>
+    </div>
+    <div class="nx-grid" style="--nx-grid-min:260px">
+      <article class="nx-card nx-card--interactive">
+        <span class="pg-emoji" aria-hidden="true">🏅</span>
+        <h3 style="font-size:var(--nx-text-xl)"><a class="nx-stretch" href="../index.html#certifications">Certifications</a></h3>
+        <p class="nx-soft" style="font-size:var(--nx-text-sm)" id="pgCerts">Courses and workshops completed alongside the degree.</p>
+      </article>
+      <article class="nx-card nx-card--interactive">
+        <span class="pg-emoji" aria-hidden="true">🛍️</span>
+        <h3 style="font-size:var(--nx-text-xl)"><a class="nx-stretch" href="../index.html#store">Products I sell</a></h3>
+        <p class="nx-soft" style="font-size:var(--nx-text-sm)" id="pgProducts">Digital products planned for the NEXUS storefront.</p>
+      </article>
     </div>
   </main>
 
@@ -60,6 +84,16 @@
       var v = scores[el.dataset.best];
       el.textContent = v != null ? el.dataset.label + ": " + v : "Not played yet";
     });
+  </script>
+  <script type="module">
+    import { CERTIFICATIONS } from "../js/data/certificates.js";
+    import { STORE } from "../js/data/store.js";
+    document.getElementById("pgCerts").textContent =
+      `${CERTIFICATIONS.length} certifications — ${[...new Set(CERTIFICATIONS.map((c) => c.issuer))].join(", ")}.`;
+    const live = STORE.filter((p) => p.status === "available").length;
+    document.getElementById("pgProducts").textContent = live
+      ? `${live} of ${STORE.length} products available now — ${STORE.map((p) => p.name).join(", ")}.`
+      : `${STORE.length} digital products coming soon (not on sale yet) — ${STORE.map((p) => p.name).join(", ")}.`;
   </script>
 </body>
 </html>
