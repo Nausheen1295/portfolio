@@ -27,4 +27,4 @@ export async function ready(page) {
   await page.waitForFunction(() => document.documentElement.classList.contains("nx-ready") && document.querySelector("dialog.nx-cmd"));
 }
 
-export const PAGES = ["./", "project.html?id=securevault-ai", "project.html?id=nexa", "playground/", "playground/snake.html", "playground/memory.html"];
+export const PAGES = ["./", "project.html?id=securevault-ai", "project.html?id=nexa", "playground/", "playground/snake.html", "playground/memory.html", "playground/pixel.html"];
