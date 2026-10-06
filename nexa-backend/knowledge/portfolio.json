@@ -413,7 +413,7 @@
       "title": "NEXUS Playground — features",
       "section": "features",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground#features",
-      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nFeatures:\n- Petal Snake (Canvas, swipe + keyboard)\n- Memory Match (CSS 3D card flips, two difficulties)\n- More experiments in progress"
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nFeatures:\n- Petal Snake (Canvas, swipe + keyboard)\n- Memory Match (CSS 3D card flips, two difficulties)\n- Pixel Studio (free-draw pixel art + color-by-number pictures)\n- More experiments in progress"
     },
     {
       "projectId": "playground",
@@ -437,7 +437,7 @@
       "title": "NEXUS Playground — development timeline",
       "section": "timeline",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=playground#timeline",
-      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nDocumented development stages:\n- Development: Petal Snake (Canvas) and Memory Match (CSS 3D) built from scratch in vanilla JavaScript."
+      "text": "Project: NEXUS Playground (Experimental Lab). Status: Experimental — Playful prototypes and experiments.\nDocumented development stages:\n- Development: Petal Snake (Canvas), Memory Match (CSS 3D) and Pixel Studio (CSS Grid pixel art) built from scratch in vanilla JavaScript."
     },
     {
       "projectId": "playground",

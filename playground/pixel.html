@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Pixel Studio — draw pixel art on a blank canvas or fill in color-by-number pictures, built in vanilla JavaScript by Nausheen Haleelur Rahman." />
+  <title>Pixel Studio — Nausheen's Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/nexus/tokens.css" />
+  <link rel="stylesheet" href="../css/nexus/base.css" />
+  <link rel="stylesheet" href="../css/nexus/components.css" />
+  <link rel="stylesheet" href="play.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎨</text></svg>" />
+  <script>
+    try { var t = localStorage.getItem("nx-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <style>
+    [hidden] { display: none !important; }
+    .px-grid {
+      --px-w: min(520px, calc(100vw - 64px));
+      display: grid; grid-template-columns: repeat(var(--n), 1fr); gap: 1px;
+      width: var(--px-w); aspect-ratio: 1;
+      background: var(--border); border: 1px solid var(--border);
+      touch-action: none; user-select: none; -webkit-user-select: none; cursor: crosshair;
+      font: 600 calc(var(--px-w) / var(--n) * .42) var(--nx-font-mono);
+    }
+    .px-cell {
+      display: grid; place-items: center; background: var(--surface-2); color: var(--text-soft);
+      line-height: 1; transition: background-color .12s;
+    }
+    .px-grid.no-lines { gap: 0; }
+    /* colour-by-number */
+    .px-cell.hl { background: color-mix(in srgb, var(--accent) 26%, var(--surface-2)); color: var(--text); }
+    .px-cell.done { color: transparent; }
+    .px-cell.wrong { animation: pxWrong .4s ease; }
+    @keyframes pxWrong { 0%, 100% { box-shadow: none; } 40% { box-shadow: inset 0 0 0 3px #ef4444; } }
+    .px-cell.pop { animation: pxPop .25s ease; }
+    @keyframes pxPop { 50% { transform: scale(1.25); } }
+
+    .px-palette { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; max-width: 560px; }
+    .px-swatch {
+      position: relative; width: 40px; height: 40px; border-radius: 12px; cursor: pointer; padding: 0;
+      border: 2px solid var(--border); background: var(--sw); box-shadow: var(--shadow-sm);
+      display: grid; place-items: center; font: 700 .95rem var(--nx-font-mono); color: var(--ink, #000);
+      transition: transform .15s, box-shadow .15s;
+    }
+    .px-swatch:hover { transform: translateY(-2px); }
+    .px-swatch.active { transform: scale(1.12); box-shadow: 0 0 0 3px var(--surface), 0 0 0 5px var(--accent); }
+    .px-swatch.complete::after {
+      content: "✓"; position: absolute; top: -7px; right: -7px; width: 18px; height: 18px; border-radius: 50%;
+      display: grid; place-items: center; font-size: .7rem; background: var(--accent); color: var(--nx-text-on-accent);
+    }
+    .px-custom { overflow: hidden; background: conic-gradient(#f43f5e, #f59e0b, #84cc16, #06b6d4, #6366f1, #d946ef, #f43f5e); }
+    .px-custom input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: 0; padding: 0; }
+    /* win card sits along the bottom so the finished picture stays visible */
+    #overlay { top: auto; padding: 1rem; gap: .5rem; border-radius: 0 0 var(--radius) var(--radius); }
+    .px-progress { width: var(--px-w, min(520px, calc(100vw - 64px))); height: 8px; border-radius: 8px; background: var(--surface-2); overflow: hidden; }
+    .px-progress span { display: block; height: 100%; width: 0; background: var(--grad); transition: width .25s; }
+  </style>
+</head>
+<body class="pg-page">
+  <div class="nx-ambient" aria-hidden="true"></div>
+
+  <header class="pg-bar">
+    <a href="./" class="nx-btn nx-btn--sm">← <span class="pg-back-label">Playground</span></a>
+    <h1 class="pg-title">🎨 <span>Pixel Studio</span></h1>
+    <button class="nx-btn nx-btn--icon nx-btn--sm pg-theme" id="themeToggle" type="button" aria-label="Switch theme"></button>
+  </header>
+
+  <main class="pg-main">
+    <div class="pg-controls">
+      <div class="seg" id="modeSeg" role="group" aria-label="Mode">
+        <button type="button" data-mode="draw" class="active" aria-pressed="true">🎨 Free Draw</button>
+        <button type="button" data-mode="number" aria-pressed="false">🔢 Color by Number</button>
+      </div>
+    </div>
+
+    <!-- Free draw controls -->
+    <div class="pg-controls" id="drawControls">
+      <div class="seg" id="sizeSeg" role="group" aria-label="Canvas size">
+        <button type="button" data-size="16" class="active">16×16</button>
+        <button type="button" data-size="24">24×24</button>
+        <button type="button" data-size="32">32×32</button>
+      </div>
+      <div class="seg" id="toolSeg" role="group" aria-label="Tool">
+        <button type="button" data-tool="pen" class="active" aria-pressed="true">✏️ Pen</button>
+        <button type="button" data-tool="eraser" aria-pressed="false">🧽 Eraser</button>
+        <button type="button" data-tool="fill" aria-pressed="false">🪣 Fill</button>
+      </div>
+    </div>
+
+    <!-- Colour-by-number controls -->
+    <div class="pg-controls" id="numberControls" hidden>
+      <div class="seg" id="picSeg" role="group" aria-label="Picture"></div>
+    </div>
+    <div class="pg-stats" id="numberStats" hidden>
+      <div class="pg-stat"><small>Painted</small><b id="painted">0%</b></div>
+      <div class="pg-stat"><small>Time</small><b id="time">0:00</b></div>
+      <div class="pg-stat"><small>Mistakes</small><b id="mistakes">0</b></div>
+      <div class="pg-stat"><small>Best</small><b id="best">–</b></div>
+    </div>
+
+    <div class="pg-board">
+      <div class="px-grid" id="grid" role="img" aria-label="Pixel canvas"></div>
+      <div class="pg-overlay hidden" id="overlay">
+        <h2 id="ovTitle">🎉 Masterpiece!</h2>
+        <p id="ovText"></p>
+        <div class="row">
+          <button type="button" class="nx-btn nx-btn--primary" id="nextBtn">Next Picture →</button>
+          <button type="button" class="nx-btn" id="againBtn">↻ Paint Again</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="px-progress" id="progress" hidden><span id="progressBar"></span></div>
+
+    <div class="px-palette" id="palette" role="group" aria-label="Colors"></div>
+
+    <div class="pg-controls" id="drawActions">
+      <button type="button" class="nx-btn nx-btn--sm" id="undoBtn">↶ Undo</button>
+      <button type="button" class="nx-btn nx-btn--sm" id="linesBtn" aria-pressed="true">▦ Grid lines</button>
+      <button type="button" class="nx-btn nx-btn--sm" id="clearBtn">🗑 Clear</button>
+      <button type="button" class="nx-btn nx-btn--sm nx-btn--primary" id="saveBtn">⬇ Download PNG</button>
+    </div>
+    <div class="pg-controls" id="numberActions" hidden>
+      <button type="button" class="nx-btn nx-btn--sm" id="restartBtn">↻ Restart picture</button>
+    </div>
+
+    <p class="pg-help" id="help"></p>
+  </main>
+
+  <footer class="pg-foot">Built with vanilla JS &amp; CSS Grid by <a href="../index.html">Nausheen Haleelur Rahman</a> · <a href="../project.html?id=playground">Case study</a></footer>
+
+  <script src="shared.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const grid = $("grid");
+
+    /* ------------------------------------------------------------ data */
+    const DRAW_COLORS = [
+      "#000000", "#ffffff", "#9ca3af", "#4b5563", "#ef4444", "#f97316", "#facc15", "#84cc16",
+      "#22c55e", "#14b8a6", "#06b6d4", "#3b82f6", "#6366f1", "#a855f7", "#ec4899", "#92400e",
+    ];
+
+    // Each picture: a colour key per character; numbers are assigned in key order (1, 2, 3 …).
+    const PICTURES = [
+      { id: "heart", name: "Heart", emoji: "❤️",
+        colors: { ".": "#fde2e4", R: "#e63946", D: "#9d0208", W: "#ffffff" },
+        rows: [
+          "............",
+          ".RRR....RRR.",
+          "RRWRR..RRRRR",
+          "RWWRRRRRRRRR",
+          "RWRRRRRRRRRD",
+          "RRRRRRRRRRRD",
+          ".RRRRRRRRRD.",
+          "..RRRRRRRD..",
+          "...RRRRRD...",
+          "....RRRD....",
+          ".....RD.....",
+          "............",
+        ] },
+      { id: "mushroom", name: "Mushroom", emoji: "🍄",
+        colors: { ".": "#bde0fe", R: "#d62828", W: "#ffffff", S: "#f6e7cb", K: "#1f2937", G: "#52b788" },
+        rows: [
+          "....RRRR....",
+          "..RRWWRRRR..",
+          ".RRWWWWRRWR.",
+          ".RRRWWRRWWR.",
+          "RRRRRRRRRRRR",
+          "RWWRRRRRRWWR",
+          ".RRRRRRRRRR.",
+          "...SSSSSS...",
+          "...SKSSKS...",
+          "...SSSSSS...",
+          "...SSSSSS...",
+          "GGGGGGGGGGGG",
+        ] },
+      { id: "kitty", name: "Kitty", emoji: "🐱",
+        colors: { ".": "#e0f2fe", O: "#f4a261", P: "#f9a8d4", K: "#1f2937", C: "#fff1e0" },
+        rows: [
+          ".O........O.",
+          ".OO......OO.",
+          ".OPO....OPO.",
+          ".OPPOOOOPPO.",
+          ".OOOOOOOOOO.",
+          "OOOOOOOOOOOO",
+          "OOKKOOOOKKOO",
+          "OOKKOOOOKKOO",
+          "OOOOOPPOOOOO",
+          "OOOOCKKCOOOO",
+          ".OOOCCCCOOO.",
+          "..OOOOOOOO..",
+        ] },
+      { id: "flower", name: "Flower", emoji: "🌸",
+        colors: { ".": "#fef9c3", P: "#f472b6", Y: "#facc15", G: "#16a34a", L: "#86efac" },
+        rows: [
+          "....PPPP....",
+          "..PPPPPPPP..",
+          ".PPPPYYPPPP.",
+          ".PPPYYYYPPP.",
+          ".PPPYYYYPPP.",
+          "..PPPYYPPP..",
+          "....PPPP....",
+          ".....GG.....",
+          ".LL..GG..LL.",
+          "..LL.GG.LL..",
+          "...LLGGLL...",
+          ".....GG.....",
+        ] },
+    ];
+
+    /* ------------------------------------------------------------ helpers */
+    const fmt = (s) => `${Math.floor(s / 60)}:${String(s % 60).padStart(2, "0")}`;
+    const inkFor = (hex) => {
+      const n = parseInt(hex.slice(1), 16), r = n >> 16, g = (n >> 8) & 255, b = n & 255;
+      return (r * 299 + g * 587 + b * 114) / 1000 > 140 ? "#000" : "#fff";
+    };
+    const setPressed = (seg, btn) => seg.querySelectorAll("button").forEach((x) => {
+      x.classList.toggle("active", x === btn);
+      if (x.hasAttribute("aria-pressed")) x.setAttribute("aria-pressed", String(x === btn));
+    });
+    const SAVE_KEY = "pg-pixel-art";
+
+    /* ------------------------------------------------------------ state */
+    let mode = "draw";
+    // free draw
+    let size = 16, cells = [], tool = "pen", color = DRAW_COLORS[11], history = [], lines = true;
+    // colour-by-number
+    let pic = PICTURES[0], target = [], filled = [], sel = 1, mistakes = 0, startTime = 0, timer = null;
+
+    let cellEls = [], painting = false, lastCell = -1;
+
+    function buildGrid(n) {
+      grid.style.setProperty("--n", n);
+      grid.innerHTML = "";
+      const frag = document.createDocumentFragment();
+      cellEls = Array.from({ length: n * n }, (_, i) => {
+        const d = document.createElement("div");
+        d.className = "px-cell";
+        d.dataset.i = i;
+        frag.appendChild(d);
+        return d;
+      });
+      grid.appendChild(frag);
+    }
+
+    /* ============================================================ FREE DRAW */
+    function loadDrawing() {
+      try {
+        const s = JSON.parse(localStorage.getItem(SAVE_KEY));
+        if (s && [16, 24, 32].includes(s.size) && s.cells.length === s.size * s.size) return s;
+      } catch {}
+      return null;
+    }
+    const saveDrawing = () => { try { localStorage.setItem(SAVE_KEY, JSON.stringify({ size, cells })); } catch {} };
+
+    function startDraw(newSize, keep) {
+      const saved = keep && loadDrawing();
+      size = saved ? saved.size : newSize;
+      cells = saved ? saved.cells : Array(size * size).fill(null);
+      history = [];
+      setPressed($("sizeSeg"), $("sizeSeg").querySelector(`[data-size="${size}"]`));
+      buildGrid(size);
+      grid.setAttribute("aria-label", `${size} by ${size} pixel canvas`);
+      grid.classList.toggle("no-lines", !lines);
+      cells.forEach((c, i) => paintEl(i, c));
+      renderDrawPalette();
+      saveDrawing();
+    }
+
+    function paintEl(i, c) { cellEls[i].style.background = c || ""; }
+
+    function renderDrawPalette() {
+      const isPreset = DRAW_COLORS.includes(color);
+      $("palette").innerHTML = DRAW_COLORS.map((c) =>
+        `<button type="button" class="px-swatch${c === color && tool !== "eraser" ? " active" : ""}" style="--sw:${c}" data-color="${c}" aria-label="Color ${c}" aria-pressed="${c === color}"></button>`
+      ).join("") +
+        `<label class="px-swatch px-custom${!isPreset && tool !== "eraser" ? " active" : ""}" title="Custom color"${!isPreset ? ` style="background:${color}"` : ""}>
+          <input type="color" id="customColor" value="${color}" aria-label="Pick a custom color" />
+        </label>`;
+    }
+
+    function pickColor(c) {
+      color = c;
+      if (tool === "eraser") setTool("pen");
+      renderDrawPalette();
+    }
+
+    function setTool(t) {
+      tool = t;
+      setPressed($("toolSeg"), $("toolSeg").querySelector(`[data-tool="${t}"]`));
+      renderDrawPalette();
+    }
+
+    function snapshot() {
+      history.push(cells.slice());
+      if (history.length > 60) history.shift();
+    }
+
+    function drawAt(i) {
+      if (tool === "fill") return floodFill(i, color);
+      const c = tool === "eraser" ? null : color;
+      if (cells[i] === c) return;
+      cells[i] = c;
+      paintEl(i, c);
+    }
+
+    function floodFill(start, c) {
+      const from = cells[start];
+      if (from === c) return;
+      const stack = [start];
+      while (stack.length) {
+        const i = stack.pop();
+        if (cells[i] !== from) continue;
+        cells[i] = c; paintEl(i, c);
+        const x = i % size, y = (i / size) | 0;
+        if (x > 0) stack.push(i - 1);
+        if (x < size - 1) stack.push(i + 1);
+        if (y > 0) stack.push(i - size);
+        if (y < size - 1) stack.push(i + size);
+      }
+    }
+
+    function undo() {
+      if (!history.length) return PG.toast("Nothing to undo");
+      cells = history.pop();
+      cells.forEach((c, i) => paintEl(i, c));
+      saveDrawing();
+    }
+
+    function downloadPng() {
+      if (!cells.some(Boolean)) return PG.toast("Draw something first ✏️");
+      const scale = Math.max(1, Math.floor(512 / size));
+      const c = document.createElement("canvas");
+      c.width = c.height = size * scale;
+      const ctx = c.getContext("2d");
+      cells.forEach((col, i) => {
+        if (!col) return;
+        ctx.fillStyle = col;
+        ctx.fillRect((i % size) * scale, ((i / size) | 0) * scale, scale, scale);
+      });
+      c.toBlob((blob) => {
+        const a = document.createElement("a");
+        a.href = URL.createObjectURL(blob);
+        a.download = `pixel-art-${size}x${size}.png`;
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        PG.toast("Saved your pixel art 🎨");
+      });
+    }
+
+    /* ============================================================ COLOUR BY NUMBER */
+    function startPicture(p) {
+      pic = p;
+      const keys = Object.keys(p.colors);
+      target = p.rows.join("").split("").map((ch) => keys.indexOf(ch) + 1);
+      filled = target.map(() => false);
+      mistakes = 0; startTime = 0; sel = 1;
+      clearInterval(timer);
+      setPressed($("picSeg"), $("picSeg").querySelector(`[data-pic="${p.id}"]`));
+      buildGrid(p.rows.length);
+      grid.classList.remove("no-lines");
+      grid.setAttribute("aria-label", `Color-by-number picture: ${p.name}`);
+      cellEls.forEach((el, i) => { el.textContent = target[i]; el.dataset.n = target[i]; });
+      $("overlay").classList.add("hidden");
+      renderNumberPalette();
+      highlight();
+      updateHud();
+    }
+
+    const keyColor = (n) => Object.values(pic.colors)[n - 1];
+    const remaining = (n) => target.reduce((acc, t, i) => acc + (t === n && !filled[i]), 0);
+
+    function renderNumberPalette() {
+      $("palette").innerHTML = Object.values(pic.colors).map((c, k) => {
+        const n = k + 1, left = remaining(n);
+        return `<button type="button" class="px-swatch${n === sel ? " active" : ""}${left ? "" : " complete"}" style="--sw:${c};--ink:${inkFor(c)}"
+          data-n="${n}" aria-pressed="${n === sel}" aria-label="Color ${n}${left ? `, ${left} pixels left` : ", complete"}">${n}</button>`;
+      }).join("");
+    }
+
+    function highlight() {
+      cellEls.forEach((el, i) => el.classList.toggle("hl", target[i] === sel && !filled[i]));
+    }
+
+    function selectNumber(n) {
+      sel = n;
+      renderNumberPalette();
+      highlight();
+    }
+
+    function fillAt(i, tapped) {
+      if (filled[i]) return;
+      if (target[i] !== sel) {
+        if (!tapped) return; // dragging across other numbers is harmless
+        mistakes++;
+        const el = cellEls[i];
+        el.classList.remove("wrong"); void el.offsetWidth; el.classList.add("wrong");
+        updateHud();
+        return;
+      }
+      if (!startTime) { startTime = Date.now(); timer = setInterval(updateHud, 500); }
+      filled[i] = true;
+      const el = cellEls[i];
+      el.classList.remove("hl");
+      el.classList.add("done");
+      if (!PG.reducedMotion) { el.classList.add("pop"); setTimeout(() => el.classList.remove("pop"), 260); }
+      el.style.background = keyColor(sel);
+      updateHud();
+      if (!remaining(sel)) {
+        renderNumberPalette();
+        // jump to the next colour that still has pixels left
+        const next = Object.keys(pic.colors).map((_, k) => k + 1).find((n) => remaining(n));
+        if (next) selectNumber(next);
+        else win();
+      }
+    }
+
+    function updateHud() {
+      const done = filled.filter(Boolean).length;
+      const pct = Math.round((done / target.length) * 100);
+      $("painted").textContent = pct + "%";
+      $("progressBar").style.width = pct + "%";
+      $("mistakes").textContent = mistakes;
+      $("time").textContent = startTime ? fmt(Math.floor((Date.now() - startTime) / 1000)) : "0:00";
+      const best = PG.get(`pixel-${pic.id}`);
+      $("best").textContent = best != null ? fmt(best) : "–";
+    }
+
+    function win() {
+      clearInterval(timer);
+      const secs = Math.max(1, Math.floor((Date.now() - startTime) / 1000));
+      const isBest = PG.record(`pixel-${pic.id}`, secs, true);
+      PG.set("pixel-done", PICTURES.filter((p) => PG.get(`pixel-${p.id}`) != null).length);
+      updateHud();
+      grid.classList.add("no-lines");
+      PG.confetti();
+      $("ovTitle").textContent = isBest ? "🏆 New Best Time!" : "🎉 Masterpiece!";
+      $("ovText").innerHTML = `${pic.emoji} <b>${pic.name}</b> painted in <b>${fmt(secs)}</b> with <b>${mistakes}</b> mistake${mistakes === 1 ? "" : "s"}.`;
+      setTimeout(() => $("overlay").classList.remove("hidden"), 900);
+    }
+
+    /* ============================================================ input */
+    const cellAt = (e) => {
+      const el = document.elementFromPoint(e.clientX, e.clientY);
+      return el && el.classList.contains("px-cell") && grid.contains(el) ? +el.dataset.i : -1;
+    };
+
+    grid.addEventListener("pointerdown", (e) => {
+      if (e.button > 0) return;
+      const i = cellAt(e);
+      if (i < 0) return;
+      e.preventDefault();
+      painting = true; lastCell = i;
+      if (mode === "draw") { snapshot(); drawAt(i); if (tool === "fill") painting = false; }
+      else fillAt(i, true);
+    });
+    grid.addEventListener("pointermove", (e) => {
+      if (!painting) return;
+      const i = cellAt(e);
+      if (i < 0 || i === lastCell) return;
+      lastCell = i;
+      if (mode === "draw") drawAt(i); else fillAt(i, false);
+    });
+    const stop = () => {
+      if (painting && mode === "draw") saveDrawing();
+      painting = false; lastCell = -1;
+    };
+    window.addEventListener("pointerup", stop);
+    window.addEventListener("pointercancel", stop);
+
+    $("palette").addEventListener("click", (e) => {
+      const b = e.target.closest("button.px-swatch");
+      if (!b) return;
+      if (mode === "draw") pickColor(b.dataset.color);
+      else selectNumber(+b.dataset.n);
+    });
+    $("palette").addEventListener("input", (e) => {
+      if (e.target.id !== "customColor") return;
+      color = e.target.value;
+      if (tool === "eraser") { tool = "pen"; setPressed($("toolSeg"), $("toolSeg").querySelector('[data-tool="pen"]')); }
+      const lbl = e.target.parentElement;
+      lbl.style.background = color;
+      $("palette").querySelectorAll(".px-swatch").forEach((s) => s.classList.toggle("active", s === lbl));
+    });
+
+    $("sizeSeg").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b || +b.dataset.size === size) return;
+      if (cells.some(Boolean) && !confirm("Changing the canvas size starts a new drawing. Continue?")) return;
+      startDraw(+b.dataset.size, false);
+    });
+    $("toolSeg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b) setTool(b.dataset.tool); });
+    $("undoBtn").addEventListener("click", undo);
+    $("clearBtn").addEventListener("click", () => {
+      if (!cells.some(Boolean)) return;
+      snapshot();
+      cells = cells.map(() => null);
+      cells.forEach((c, i) => paintEl(i, c));
+      saveDrawing();
+      PG.toast("Canvas cleared — Undo brings it back");
+    });
+    $("linesBtn").addEventListener("click", () => {
+      lines = !lines;
+      grid.classList.toggle("no-lines", !lines);
+      $("linesBtn").setAttribute("aria-pressed", String(lines));
+    });
+    $("saveBtn").addEventListener("click", downloadPng);
+
+    $("picSeg").innerHTML = PICTURES.map((p) => `<button type="button" data-pic="${p.id}" aria-pressed="false">${p.emoji} ${p.name}</button>`).join("");
+    $("picSeg").addEventListener("click", (e) => {
+      const b = e.target.closest("button"); if (!b) return;
+      startPicture(PICTURES.find((p) => p.id === b.dataset.pic));
+    });
+    $("restartBtn").addEventListener("click", () => startPicture(pic));
+    $("againBtn").addEventListener("click", () => startPicture(pic));
+    $("nextBtn").addEventListener("click", () => startPicture(PICTURES[(PICTURES.indexOf(pic) + 1) % PICTURES.length]));
+
+    document.addEventListener("keydown", (e) => {
+      if (e.target.closest("input, textarea")) return;
+      if ((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === "z" && mode === "draw") { e.preventDefault(); undo(); return; }
+      if (mode === "number" && /^[1-9]$/.test(e.key) && +e.key <= Object.keys(pic.colors).length) selectNumber(+e.key);
+    });
+
+    /* ============================================================ modes */
+    const HELP = {
+      draw: 'Pick a color and click or drag on the canvas to paint. Use <b>Fill</b> to flood an area, <b>Eraser</b> to remove pixels, and <kbd class="k">Ctrl</kbd>+<kbd class="k">Z</kbd> to undo. Your drawing is saved on this device.',
+      number: 'Choose a number from the palette (or press <kbd class="k">1</kbd>–<kbd class="k">9</kbd>) — matching squares light up. Click or drag across them to paint. Tapping the wrong number counts as a mistake!',
+    };
+
+    function setMode(m) {
+      mode = m;
+      setPressed($("modeSeg"), $("modeSeg").querySelector(`[data-mode="${m}"]`));
+      const draw = m === "draw";
+      ["drawControls", "drawActions"].forEach((id) => ($(id).hidden = !draw));
+      ["numberControls", "numberStats", "numberActions", "progress"].forEach((id) => ($(id).hidden = draw));
+      $("help").innerHTML = HELP[m];
+      $("overlay").classList.add("hidden");
+      clearInterval(timer);
+      if (draw) startDraw(size, true); else startPicture(pic);
+    }
+    $("modeSeg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b && b.dataset.mode !== mode) setMode(b.dataset.mode); });
+
+    setMode(new URLSearchParams(location.search).get("mode") === "number" ? "number" : "draw");
+  </script>
+</body>
+</html>
