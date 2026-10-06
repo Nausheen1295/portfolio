@@ -50,6 +50,12 @@ test.describe("products I sell (future enhancement)", () => {
       .toHaveAttribute("href", /^mailto:naus2005official@gmail\.com\?subject=Notify%20me%3A%20Figma%20UI%20Kit/);
   });
 
+  test("is reachable from the nav", async ({ page }) => {
+    await page.goto("./");
+    await page.getByRole("navigation", { name: "Primary" }).getByRole("link", { name: "Products" }).click();
+    await expect(page.locator("#store")).toBeInViewport();
+  });
+
   test("> show products works", async ({ page }) => {
     await page.goto("./");
     await ready(page);

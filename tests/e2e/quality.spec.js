@@ -104,5 +104,9 @@ test.describe("playground", () => {
     await expect(page.getByRole("link", { name: "Petal Snake" })).toHaveAttribute("href", "snake.html");
     await expect(page.getByRole("link", { name: "Memory Match" })).toHaveAttribute("href", "memory.html");
     await expect(page.getByRole("link", { name: "Pixel Studio" })).toHaveAttribute("href", "pixel.html");
+    await expect(page.getByRole("link", { name: "Certifications" })).toHaveAttribute("href", "../index.html#certifications");
+    await expect(page.getByRole("link", { name: "Products I sell" })).toHaveAttribute("href", "../index.html#store");
+    await expect(page.locator("#pgCerts")).toContainText("3 certifications");
+    await expect(page.locator("#pgProducts")).toContainText("not on sale yet");
   });
 });
