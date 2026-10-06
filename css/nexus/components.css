@@ -145,7 +145,14 @@ textarea.nx-input { resize: vertical; min-height: 120px; }
 .nx-nav-actions { display: flex; align-items: center; gap: var(--nx-space-2); }
 .nx-nav-toggle { display: none; }
 
-@media (max-width: 960px) {
+/* mid widths: the full link row + actions don't fit, so tighten links and show search as an icon */
+@media (min-width: 1021px) and (max-width: 1240px) {
+  .nx-nav-links { gap: 0; }
+  .nx-nav-links a { padding: var(--nx-space-2); }
+  .nx-cmd-trigger .nx-cmd-trigger-label, .nx-cmd-trigger kbd { display: none; }
+}
+
+@media (max-width: 1020px) {
   .nx-nav-toggle { display: inline-flex; }
   .nx-nav-links {
     position: fixed; inset: 64px var(--nx-space-3) auto; flex-direction: column; align-items: stretch; gap: 2px;

@@ -324,7 +324,7 @@ export const PROJECTS = [
     tagline: "Browser games & mini-apps, zero libraries",
     summary: "Small games and tools built from scratch in vanilla JavaScript — Canvas rendering, CSS 3D transforms and local high scores.",
     problem: null, solution: null,
-    features: ["Petal Snake (Canvas, swipe + keyboard)", "Memory Match (CSS 3D card flips, two difficulties)", "More experiments in progress"],
+    features: ["Petal Snake (Canvas, swipe + keyboard)", "Memory Match (CSS 3D card flips, two difficulties)", "Pixel Studio (free-draw pixel art + color-by-number pictures)", "More experiments in progress"],
     role: "Designed and built solo.",
     technologies: ["JavaScript", "HTML Canvas", "CSS"],
     technologiesPlanned: false,
@@ -332,7 +332,7 @@ export const PROJECTS = [
     security: [], database: null, architecture: null,
     challenges: [], decisions: [],
     timeline: [
-      { stage: "development", note: "Petal Snake (Canvas) and Memory Match (CSS 3D) built from scratch in vanilla JavaScript.",
+      { stage: "development", note: "Petal Snake (Canvas), Memory Match (CSS 3D) and Pixel Studio (CSS Grid pixel art) built from scratch in vanilla JavaScript.",
         artifacts: [{ type: "demo", label: "Play the games", url: "playground/" }] },
     ],
     results: null,

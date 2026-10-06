@@ -16,7 +16,7 @@ export const PROFILE = {
     {
       degree: "BSc (Hons) Computer Science",
       school: "University of West London (UWL)",
-      period: "2023 – 2026",
+      period: "Oct 2023 – May 2026",
       detail: "Software Engineering, AI & Automation, Databases, Computer Networks, App Development, UI/UX Design.",
     },
     {
@@ -31,7 +31,7 @@ export const PROFILE = {
     {
       title: "Rotational Intern",
       org: "Medulla",
-      period: null, // dates not documented yet
+      period: "2025",
       detail: "Rotated across Technical, Database, and CSR & Marketing functions — IT support, data management, and collaborating with multidisciplinary teams.",
     },
   ],

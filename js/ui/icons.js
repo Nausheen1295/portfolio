@@ -16,6 +16,8 @@ const PATHS = {
   pen:      '<path d="M12 20h9"/><path d="M16.5 3.5a2.1 2.1 0 0 1 3 3L7 19l-4 1 1-4 12.5-12.5z"/>',
   cloud:    '<path d="M7 18a5 5 0 0 1-.6-10 6 6 0 0 1 11.4 2A4 4 0 0 1 17 18H7z"/>',
   terminal: '<path d="M4 17l6-5-6-5M12 19h8"/>',
+  award:    '<circle cx="12" cy="9" r="6"/><path d="M8.5 13.9L7 22l5-3 5 3-1.5-8.1"/>',
+  bag:      '<path d="M6 7h12l1 14H5L6 7z"/><path d="M9 7a3 3 0 0 1 6 0"/>',
   search:   '<circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/>',
   sun:      '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>',
   moon:     '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>',

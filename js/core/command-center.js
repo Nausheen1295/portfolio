@@ -8,6 +8,7 @@
    ========================================================================== */
 import { LABS, PROJECTS, STATUS, getLab } from "../data/projects.js";
 import { SKILL_GROUPS, PROFILE } from "../data/profile.js";
+import { CERTIFICATIONS, formatMonth } from "../data/certificates.js";
 import { searchProjects } from "./search.js";
 import { esc } from "../ui/components.js";
 import { icon } from "../ui/icons.js";
@@ -75,6 +76,8 @@ export function initCommandCenter(ctx = {}) {
     { cmd: "start interview", desc: "Interview NEXA about the portfolio", run: startInterview },
     { cmd: "show engineering journey", desc: "Idea → iteration, with evidence", run: () => go("#journey") },
     { cmd: "show universe", desc: "The lab map", run: () => go("#universe") },
+    { cmd: "show certifications", desc: `${CERTIFICATIONS.length} certifications`, run: () => go("#certifications") },
+    { cmd: "show products", desc: "Products I sell — planned", run: () => go("#store") },
     ...LABS.map((l) => ({ cmd: `open ${labWord(l)} lab`, desc: l.tagline, run: () => openLab(l) })),
     ...PROJECTS.map((p) => ({ cmd: `open ${short(p)}`, desc: `${p.name} case study`, run: () => { close(); location.href = `project.html?id=${p.id}`; } })),
     ...PROJECTS.map((p) => ({ cmd: `explain ${short(p)}`, desc: `Ask NEXA about ${p.name}`,
@@ -153,6 +156,12 @@ export function initCommandCenter(ctx = {}) {
     }
     const nq = norm(q);
     const out = [];
+    // Certifications: an exact title/issuer match outranks fuzzy project matches ("LinkedIn Learning").
+    const certHits = CERTIFICATIONS
+      .filter((c) => norm(`${c.title} ${c.issuer} ${c.topics.join(" ")} certification certificate certified`).includes(nq))
+      .map((c) => item("Certifications", c.title, `${c.issuer} · ${formatMonth(c.date)}`, () => go(`#cert-${c.id}`), { icon: "award" }));
+    const strongCert = CERTIFICATIONS.some((c) => norm(`${c.title} ${c.issuer}`).includes(nq));
+    if (strongCert) out.push(...certHits);
     for (const { project: p } of searchProjects(q, { limit: 6 })) {
       out.push(item("Projects", p.name, `${STATUS[p.status].label} · ${getLab(p.lab).name}`,
         () => { close(); location.href = `project.html?id=${p.id}`; }, { icon: getLab(p.lab).icon, hue: `var(--nx-lab-${p.lab})` }));
@@ -162,12 +171,13 @@ export function initCommandCenter(ctx = {}) {
         out.push(item("Labs", l.name, l.code, () => openLab(l), { icon: l.icon, hue: `var(--nx-lab-${l.id})` }));
       }
     }
+    if (!strongCert) out.push(...certHits);
     const skills = SKILL_GROUPS.flatMap((g) => g.items.filter((s) => norm(s).includes(nq)).map((s) => ({ s, g })));
     for (const { s, g } of skills.slice(0, 4)) {
       out.push(item("Skills", s, g.name, () => go("#skills"), { icon: g.icon }));
     }
     const sections = [["Universe", "#universe"], ["Projects", "#projects"], ["Engineering Journey", "#journey"], ["NEXA", "#nexa"],
-      ["About", "#about"], ["Skills", "#skills"], ["Capabilities", "#capabilities"], ["Store", "#store"], ["Journal", "#journal"], ["Contact", "#contact"]];
+      ["About", "#about"], ["Certifications", "#certifications"], ["Skills", "#skills"], ["Capabilities", "#capabilities"], ["Products I sell", "#store"], ["Journal", "#journal"], ["Contact", "#contact"]];
     for (const [name, hash] of sections) if (norm(name).includes(nq)) out.push(item("Sections", name, "Jump to section", () => go(hash), { icon: "arrow" }));
     for (const c of COMMANDS) if (c.cmd.includes(nq) && out.length < 14) out.push(item("Commands", `> ${c.cmd}`, c.desc, c.run, { icon: "terminal" }));
     return out;
@@ -243,6 +253,7 @@ export function initCommandCenter(ctx = {}) {
       "<code>open &lt;lab&gt; lab</code> · <code>open &lt;project&gt;</code> · <code>explain &lt;project&gt;</code>",
       "<code>show &lt;lab&gt; projects</code> · <code>show ai projects</code> · <code>show engineering journey</code>",
       "<code>meet nexa</code> · <code>start interview</code> · <code>download resume</code> · <code>contact</code>",
+      "<code>show certifications</code> · <code>show products</code>",
       "<code>theme dark</code> / <code>theme light</code> · <code>achievements</code> · <code>clear</code>",
       "Without <code>&gt;</code>, just type to search projects, skills and labs.",
     ]);
