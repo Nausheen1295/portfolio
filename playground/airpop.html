@@ -1,0 +1,480 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Air Pop — pop bubbles with your hand in front of the webcam (hand tracking or motion detection), built in vanilla JavaScript by Nausheen Haleelur Rahman." />
+  <title>Air Pop — Nausheen's Playground</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- Fonts load without blocking first paint (system font shows briefly, then swaps) -->
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Space+Grotesk:wght@500;600;700&display=swap" /></noscript>
+  <link rel="stylesheet" href="../css/nexus/tokens.css" />
+  <link rel="stylesheet" href="../css/nexus/base.css" />
+  <link rel="stylesheet" href="../css/nexus/components.css" />
+  <link rel="stylesheet" href="play.css" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>✋</text></svg>" />
+  <script>
+    try { var t = localStorage.getItem("nx-theme"); if (t) document.documentElement.setAttribute("data-theme", t); } catch (e) {}
+  </script>
+  <style>
+    #stage {
+      display: block; width: min(760px, calc(100vw - 64px)); aspect-ratio: 4 / 3; border-radius: 12px;
+      background: var(--surface-2); touch-action: none; cursor: crosshair;
+    }
+    #video { position: absolute; width: 1px; height: 1px; opacity: 0; pointer-events: none; }
+    .ap-status { min-height: 1.5em; font-size: .9rem; color: var(--text-soft); text-align: center; }
+    .ap-status.err { color: #f87171; }
+    .ap-hold { width: 180px; height: 8px; border-radius: 8px; background: var(--surface-2); overflow: hidden; }
+    .ap-hold span { display: block; height: 100%; width: 0; background: var(--grad); }
+    #overlay.hidden { pointer-events: none; } /* stop catching the pointer as soon as it starts fading */
+    .ap-privacy { font-size: .78rem; color: var(--text-soft); max-width: 380px; }
+  </style>
+</head>
+<body class="pg-page">
+  <div class="nx-ambient" aria-hidden="true"></div>
+
+  <header class="pg-bar">
+    <a href="./" class="nx-btn nx-btn--sm">← <span class="pg-back-label">Playground</span></a>
+    <h1 class="pg-title">✋ <span>Air Pop</span></h1>
+    <button class="nx-btn nx-btn--icon nx-btn--sm pg-theme" id="themeToggle" type="button" aria-label="Switch theme"></button>
+  </header>
+
+  <main class="pg-main">
+    <div class="pg-controls">
+      <div class="seg" id="modeSeg" role="group" aria-label="Controls">
+        <button type="button" data-mode="hand" aria-pressed="false">✋ Hand tracking</button>
+        <button type="button" data-mode="motion" aria-pressed="false">🎥 Motion</button>
+        <button type="button" data-mode="mouse" class="active" aria-pressed="true">🖱️ Mouse / touch</button>
+      </div>
+    </div>
+    <p class="ap-status" id="camStatus" role="status" aria-live="polite"></p>
+
+    <div class="pg-stats">
+      <div class="pg-stat"><small>Score</small><b id="score">0</b></div>
+      <div class="pg-stat"><small>Time</small><b id="time">60</b></div>
+      <div class="pg-stat"><small>Combo</small><b id="combo">×1</b></div>
+      <div class="pg-stat"><small>Best</small><b id="best">–</b></div>
+    </div>
+
+    <div class="pg-board">
+      <canvas id="stage" role="img" aria-label="Air Pop play area: bubbles rise from the bottom"></canvas>
+      <video id="video" playsinline muted aria-hidden="true"></video>
+      <div class="pg-overlay" id="overlay">
+        <h2 id="ovTitle">✋ Air Pop</h2>
+        <p id="ovText"></p>
+        <div class="ap-hold" id="holdBar" hidden><span id="holdFill"></span></div>
+        <button type="button" class="nx-btn nx-btn--primary" id="startBtn">Start Game</button>
+        <p class="ap-privacy" id="privacy" hidden>🔒 The camera picture is processed on your device and never uploaded.</p>
+      </div>
+    </div>
+
+    <p class="pg-help">Pop as many bubbles as you can in 60 seconds. 🫧 = 1 point, ⭐ golden = 5, and keep a streak going for a combo
+      multiplier. Avoid 💣 bombs — they cost 10 points and break your combo. <kbd class="k">Space</kbd> pauses.</p>
+  </main>
+
+  <footer class="pg-foot">Built with vanilla JS, Canvas &amp; MediaPipe by <a href="../index.html">Nausheen Haleelur Rahman</a> · <a href="../project.html?id=playground">Case study</a></footer>
+
+  <script src="shared.js"></script>
+  <script>
+    const $ = (id) => document.getElementById(id);
+    const canvas = $("stage"), ctx = canvas.getContext("2d"), video = $("video");
+    const W = 800, H = 600, ROUND = 60;
+    const MP = "https://cdn.jsdelivr.net/npm/@mediapipe/tasks-vision@1.1.0";
+    const MODEL = "https://storage.googleapis.com/mediapipe-models/hand_landmarker/hand_landmarker/float16/1/hand_landmarker.task";
+
+    /* ------------------------------------------------------------ state */
+    let mode = "mouse", stream = null, landmarker = null, handLinks = [];
+    let hands = [], cursors = [], prevCursors = [], mouse = null;
+    let running = false, over = false, score = 0, combo = 0, timeLeft = ROUND, elapsed = 0, spawnIn = 0, shake = 0;
+    let bubbles = [], particles = [], palmHold = 0, lastVideoTime = -1;
+    let colors = {};
+
+    const readColors = () => { colors = { bg: PG.css("--nx-surface-2"), text: PG.css("--nx-text"), accent: PG.css("--nx-accent"), violet: PG.css("--nx-violet") }; };
+    readColors();
+    document.addEventListener("themechange", readColors);
+
+    /* ------------------------------------------------------------ canvas sizing */
+    function resize() {
+      const dpr = Math.min(window.devicePixelRatio || 1, 2), r = canvas.getBoundingClientRect();
+      canvas.width = Math.max(1, Math.round(r.width * dpr));
+      canvas.height = Math.max(1, Math.round(r.height * dpr));
+    }
+    new ResizeObserver(resize).observe(canvas);
+    resize();
+
+    /* ------------------------------------------------------------ camera */
+    // The video is drawn mirrored and "cover"-fitted into the 800×600 play area.
+    function cover() {
+      const vw = video.videoWidth || 4, vh = video.videoHeight || 3, s = Math.max(W / vw, H / vh);
+      const dw = vw * s, dh = vh * s;
+      return { dx: (W - dw) / 2, dy: (H - dh) / 2, dw, dh };
+    }
+    function drawVideo(c) {
+      const { dx, dy, dw, dh } = cover();
+      c.save(); c.translate(dx + dw, dy); c.scale(-1, 1); c.drawImage(video, 0, 0, dw, dh); c.restore();
+    }
+    // normalised landmark (0..1 of the raw video) → play-area point, mirrored like the picture
+    function toStage(p) { const { dx, dy, dw, dh } = cover(); return { x: dx + (1 - p.x) * dw, y: dy + p.y * dh }; }
+
+    let camPending = null;
+    async function startCamera() {
+      if (stream) return true;
+      if (!navigator.mediaDevices?.getUserMedia) { status("This browser can't use the camera here (it needs HTTPS).", true); return false; }
+      status("Waiting for camera permission…");
+      let s;
+      try {
+        s = await (camPending ||= navigator.mediaDevices.getUserMedia({ video: { width: 640, height: 480, facingMode: "user" }, audio: false }));
+      } catch (e) {
+        status(e.name === "NotAllowedError" ? "Camera permission was blocked — allow it in the address bar, or play with mouse/touch."
+          : "No camera found — play with mouse or touch instead.", true);
+        return false;
+      } finally {
+        camPending = null;
+      }
+      if (!stream) { stream = s; video.srcObject = s; video.play().catch(() => {}); }
+      return true;
+    }
+    function stopCamera() {
+      if (stream) stream.getTracks().forEach((t) => t.stop());
+      stream = null; video.srcObject = null; hands = []; prevGray = null;
+    }
+
+    async function loadHands() {
+      if (landmarker) return true;
+      status("Loading the hand-tracking model (about 20 MB, only the first time)…");
+      try {
+        const vision = await import(`${MP}/vision_bundle.mjs`);
+        const files = await vision.FilesetResolver.forVisionTasks(`${MP}/wasm`);
+        const opts = (delegate) => ({ baseOptions: { modelAssetPath: MODEL, delegate }, runningMode: "VIDEO", numHands: 2 });
+        try { landmarker = await vision.HandLandmarker.createFromOptions(files, opts("GPU")); }
+        catch { landmarker = await vision.HandLandmarker.createFromOptions(files, opts("CPU")); }
+        handLinks = vision.HandLandmarker.HAND_CONNECTIONS || [];
+        return true;
+      } catch {
+        status("Couldn't load hand tracking (offline?). Try Motion mode — it needs no download.", true);
+        return false;
+      }
+    }
+
+    function trackHands(now) {
+      if (video.readyState < 2 || video.currentTime === lastVideoTime) return;
+      lastVideoTime = video.currentTime;
+      const res = landmarker.detectForVideo(video, now);
+      hands = (res.landmarks || []).map((h) => h.map(toStage));
+    }
+
+    // Open palm = all four fingertips further from the wrist than their middle joints.
+    const dist = (a, b) => Math.hypot(a.x - b.x, a.y - b.y);
+    const isOpenPalm = (h) => [[8, 6], [12, 10], [16, 14], [20, 18]].every(([tip, pip]) => dist(h[tip], h[0]) > dist(h[pip], h[0]) * 1.15);
+
+    /* ------------------------------------------------------------ motion detection */
+    const GW = 80, GH = 60, CELL = W / GW;
+    const small = document.createElement("canvas");
+    small.width = GW; small.height = GH;
+    const sctx = small.getContext("2d", { willReadFrequently: true });
+    let prevGray = null;
+    const motion = new Uint8Array(GW * GH);
+
+    function senseMotion() {
+      if (video.readyState < 2) return;
+      sctx.setTransform(GW / W, 0, 0, GH / H, 0, 0);
+      drawVideo(sctx);
+      const d = sctx.getImageData(0, 0, GW, GH).data, gray = new Uint8Array(GW * GH);
+      for (let i = 0; i < gray.length; i++) gray[i] = (d[i * 4] * 77 + d[i * 4 + 1] * 150 + d[i * 4 + 2] * 29) >> 8;
+      if (prevGray) for (let i = 0; i < gray.length; i++) motion[i] = Math.abs(gray[i] - prevGray[i]) > 28 ? 1 : 0;
+      prevGray = gray;
+    }
+    function motionHits(b) {
+      let hits = 0, total = 0;
+      const x0 = Math.max(0, ((b.x - b.r) / CELL) | 0), x1 = Math.min(GW - 1, ((b.x + b.r) / CELL) | 0);
+      const y0 = Math.max(0, ((b.y - b.r) / CELL) | 0), y1 = Math.min(GH - 1, ((b.y + b.r) / CELL) | 0);
+      for (let gy = y0; gy <= y1; gy++) for (let gx = x0; gx <= x1; gx++) {
+        if (Math.hypot((gx + .5) * CELL - b.x, (gy + .5) * CELL - b.y) > b.r) continue;
+        total++; hits += motion[gy * GW + gx];
+      }
+      return total && hits >= Math.max(3, total * 0.15);
+    }
+
+    /* ------------------------------------------------------------ mouse / touch */
+    const toLocal = (e) => { const r = canvas.getBoundingClientRect(); return { x: (e.clientX - r.left) / r.width * W, y: (e.clientY - r.top) / r.height * H }; };
+    canvas.addEventListener("pointermove", (e) => { if (mode === "mouse") mouse = toLocal(e); });
+    canvas.addEventListener("pointerdown", (e) => { if (mode === "mouse") { mouse = toLocal(e); prevCursors = []; } });
+    canvas.addEventListener("pointerleave", () => { mouse = null; });
+
+    /* ------------------------------------------------------------ game */
+    function makeBubble(kind, x, y) {
+      const r = kind === "gold" ? 30 : kind === "bomb" ? 34 : 26 + Math.random() * 18;
+      return { kind, x: x ?? r + Math.random() * (W - 2 * r), y: y ?? H + r, r,
+        vy: -(70 + Math.random() * 60 + elapsed * 2.2), sway: 18 + Math.random() * 26, phase: Math.random() * 6.28, age: 0, base: 0 };
+    }
+
+    function spawn() {
+      const roll = Math.random();
+      const kind = elapsed > 5 && roll < 0.12 ? "bomb" : roll > 0.9 ? "gold" : "normal";
+      const b = makeBubble(kind);
+      b.base = b.x;
+      bubbles.push(b);
+    }
+
+    // distance from bubble centre to the path a cursor moved along this frame (so fast swipes still pop)
+    function segDist(p, a, b) {
+      const vx = b.x - a.x, vy = b.y - a.y, len = vx * vx + vy * vy;
+      const t = len ? Math.max(0, Math.min(1, ((p.x - a.x) * vx + (p.y - a.y) * vy) / len)) : 0;
+      return Math.hypot(p.x - (a.x + t * vx), p.y - (a.y + t * vy));
+    }
+    const touched = (b) => cursors.some((c, i) => segDist(b, prevCursors[i] || c, c) < b.r + 12);
+
+    function pop(b) {
+      const mult = 1 + Math.floor(combo / 5);
+      if (b.kind === "bomb") {
+        score = Math.max(0, score - 10); combo = 0;
+        if (!PG.reducedMotion) shake = 0.35;
+        burst(b, ["#f87171", "#fbbf24", "#1f2937"], 26);
+      } else {
+        combo++;
+        score += (b.kind === "gold" ? 5 : 1) * mult;
+        burst(b, b.kind === "gold" ? ["#facc15", "#fde68a", "#ffffff"] : [colors.accent, colors.violet, "#ffffff"], 14);
+        if (combo > 0 && combo % 5 === 0) floatText(b, `Combo ×${1 + combo / 5}!`);
+      }
+      bump("score");
+      updateHud();
+    }
+
+    function burst(b, palette, n) {
+      if (PG.reducedMotion) n = Math.min(n, 6);
+      for (let i = 0; i < n; i++) {
+        const a = Math.random() * 6.28, v = 80 + Math.random() * 220;
+        particles.push({ x: b.x, y: b.y, vx: Math.cos(a) * v, vy: Math.sin(a) * v, life: .6, max: .6, color: palette[i % palette.length], size: 3 + Math.random() * 4 });
+      }
+    }
+    function floatText(b, text) { particles.push({ x: b.x, y: b.y - b.r, vx: 0, vy: -60, life: 1, max: 1, text }); }
+
+    function update(dt) {
+      elapsed += dt;
+      timeLeft = Math.max(0, timeLeft - dt);
+      spawnIn -= dt;
+      if (spawnIn <= 0) { spawn(); spawnIn = Math.max(0.32, 0.85 - elapsed * 0.009); }
+
+      for (let i = bubbles.length - 1; i >= 0; i--) {
+        const b = bubbles[i];
+        b.age += dt;
+        b.y += b.vy * dt;
+        b.x = b.base + Math.sin(b.phase + b.age * 2) * b.sway;
+        const hit = mode === "motion" ? b.age > 0.3 && b.y < H - b.r * 0.5 && motionHits(b) : touched(b);
+        if (hit) { bubbles.splice(i, 1); pop(b); continue; }
+        if (b.y < -b.r) { bubbles.splice(i, 1); if (b.kind !== "bomb" && combo) { combo = 0; updateHud(); } }
+      }
+      if (timeLeft <= 0) end();
+    }
+
+    function updateParticles(dt) {
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.life -= dt; p.x += p.vx * dt; p.y += p.vy * dt;
+        if (!p.text) { p.vx *= 0.96; p.vy = p.vy * 0.96 + 300 * dt; }
+        if (p.life <= 0) particles.splice(i, 1);
+      }
+      shake = Math.max(0, shake - dt);
+    }
+
+    let shownTime = -1;
+    function updateHud() {
+      $("score").textContent = score;
+      $("combo").textContent = `×${1 + Math.floor(combo / 5)}`;
+      const t = Math.ceil(timeLeft);
+      if (t !== shownTime) { shownTime = t; $("time").textContent = t; }
+      $("best").textContent = PG.get("airpop") ?? "–";
+    }
+    function bump(id) { const el = $(id); el.classList.remove("bump"); void el.offsetWidth; el.classList.add("bump"); }
+
+    /* ------------------------------------------------------------ rendering */
+    function render() {
+      ctx.setTransform(canvas.width / W, 0, 0, canvas.height / H, 0, 0);
+      if (shake) ctx.translate((Math.random() - .5) * 16 * shake / .35, (Math.random() - .5) * 16 * shake / .35);
+      ctx.fillStyle = colors.bg;
+      ctx.fillRect(-20, -20, W + 40, H + 40);
+
+      if (stream && video.readyState >= 2) {
+        ctx.globalAlpha = 0.4; drawVideo(ctx); ctx.globalAlpha = 1;
+      }
+      if (mode === "motion" && stream) {
+        ctx.fillStyle = colors.accent; ctx.globalAlpha = 0.35;
+        for (let i = 0; i < motion.length; i++) if (motion[i]) ctx.fillRect((i % GW) * CELL, ((i / GW) | 0) * CELL, CELL, CELL);
+        ctx.globalAlpha = 1;
+      }
+
+      for (const b of bubbles) drawBubble(b);
+
+      for (const p of particles) {
+        ctx.globalAlpha = Math.max(0, p.life / p.max);
+        if (p.text) { ctx.fillStyle = colors.text; ctx.font = "700 28px 'Space Grotesk', system-ui, sans-serif"; ctx.textAlign = "center"; ctx.fillText(p.text, p.x, p.y); }
+        else { ctx.fillStyle = p.color; ctx.beginPath(); ctx.arc(p.x, p.y, p.size, 0, 6.28); ctx.fill(); }
+      }
+      ctx.globalAlpha = 1;
+
+      if (mode === "hand") for (const h of hands) drawHand(h);
+      for (const c of cursors) {
+        ctx.strokeStyle = colors.accent; ctx.lineWidth = 4; ctx.shadowColor = colors.accent; ctx.shadowBlur = 18;
+        ctx.beginPath(); ctx.arc(c.x, c.y, 14, 0, 6.28); ctx.stroke();
+        ctx.shadowBlur = 0;
+      }
+    }
+
+    function drawBubble(b) {
+      ctx.save();
+      ctx.translate(b.x, b.y);
+      if (b.kind === "bomb") {
+        ctx.font = `${b.r * 1.9}px serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle";
+        ctx.fillText("💣", 0, 4);
+      } else {
+        const gold = b.kind === "gold";
+        const g = ctx.createRadialGradient(-b.r * .35, -b.r * .35, b.r * .1, 0, 0, b.r);
+        g.addColorStop(0, "rgba(255,255,255,.9)");
+        g.addColorStop(.35, gold ? "rgba(250,204,21,.55)" : "rgba(103,232,249,.28)");
+        g.addColorStop(1, gold ? "rgba(234,179,8,.85)" : "rgba(139,123,255,.55)");
+        ctx.fillStyle = g;
+        ctx.beginPath(); ctx.arc(0, 0, b.r, 0, 6.28); ctx.fill();
+        ctx.lineWidth = 2; ctx.strokeStyle = gold ? "#facc15" : "rgba(255,255,255,.7)"; ctx.stroke();
+        if (gold) { ctx.font = `${b.r}px serif`; ctx.textAlign = "center"; ctx.textBaseline = "middle"; ctx.fillText("⭐", 0, 2); }
+      }
+      ctx.restore();
+    }
+
+    function drawHand(h) {
+      ctx.strokeStyle = "rgba(255,255,255,.55)"; ctx.lineWidth = 3;
+      for (const { start, end } of handLinks) { ctx.beginPath(); ctx.moveTo(h[start].x, h[start].y); ctx.lineTo(h[end].x, h[end].y); ctx.stroke(); }
+      ctx.fillStyle = colors.violet;
+      for (const p of h) { ctx.beginPath(); ctx.arc(p.x, p.y, 4, 0, 6.28); ctx.fill(); }
+    }
+
+    /* ------------------------------------------------------------ main loop */
+    let last = performance.now();
+    function frame(now) {
+      const dt = Math.min(0.05, (now - last) / 1000);
+      last = now;
+      if (stream) {
+        if (mode === "hand" && landmarker) trackHands(now);
+        else if (mode === "motion") senseMotion();
+      }
+      prevCursors = cursors;
+      cursors = mode === "hand" ? hands.map((h) => h[8]) : mode === "mouse" && mouse ? [mouse] : [];
+      if (running) update(dt);
+      else if (mode === "hand" && !$("startBtn").hidden && !$("overlay").classList.contains("hidden")) palmToStart(dt);
+      updateParticles(dt);
+      render();
+      requestAnimationFrame(frame);
+    }
+
+    function palmToStart(dt) {
+      const open = hands.some(isOpenPalm);
+      palmHold = open ? palmHold + dt : Math.max(Math.min(palmHold, 0), palmHold - dt * 2);
+      $("holdFill").style.width = Math.max(0, Math.min(100, palmHold * 100)) + "%";
+      if (palmHold >= 1) { palmHold = 0; start(); }
+    }
+
+    /* ------------------------------------------------------------ flow */
+    const MODE_TEXT = {
+      hand: "Point with your index finger to pop bubbles. Hold up an open hand ✋ for a second to start — or press the button.",
+      motion: "Wave your hands over the bubbles to pop them. Keep the background still so only you are moving.",
+      mouse: "Move your mouse or drag your finger across the bubbles to pop them.",
+    };
+
+    function showStart() {
+      running = false; over = false;
+      $("ovTitle").textContent = "✋ Air Pop";
+      $("ovText").textContent = MODE_TEXT[mode];
+      $("startBtn").textContent = "Start Game";
+      $("startBtn").hidden = false;
+      $("holdBar").hidden = !(mode === "hand" && landmarker);
+      $("privacy").hidden = mode === "mouse";
+      $("overlay").classList.remove("hidden");
+    }
+
+    function start() {
+      if (over || !timeLeft) reset();
+      running = true;
+      $("overlay").classList.add("hidden");
+      last = performance.now();
+    }
+    function reset() {
+      score = 0; combo = 0; timeLeft = ROUND; elapsed = 0; spawnIn = 0; over = false;
+      bubbles = []; particles = [];
+      updateHud();
+    }
+
+    function pause() {
+      if (!running) return;
+      running = false; palmHold = -1; // a hand that's already open shouldn't resume instantly
+      $("ovTitle").textContent = "⏸ Paused";
+      $("ovText").textContent = mode === "hand" ? "Hold up an open hand ✋ or press Resume." : "Press Resume or Space to carry on.";
+      $("startBtn").textContent = "Resume";
+      $("holdBar").hidden = mode !== "hand";
+      $("privacy").hidden = true;
+      $("overlay").classList.remove("hidden");
+    }
+
+    function end() {
+      running = false; over = true; palmHold = -1.5;
+      bubbles = [];
+      const isBest = score > 0 && PG.record("airpop", score);
+      updateHud();
+      if (isBest) PG.confetti();
+      $("ovTitle").textContent = isBest ? "🏆 New High Score!" : "⏱ Time's up!";
+      $("ovText").innerHTML = `You scored <b>${score}</b> points.` + (isBest ? " That's your best yet!" : ` Your best is ${PG.get("airpop") ?? 0}.`);
+      $("startBtn").textContent = "Play Again";
+      $("holdBar").hidden = mode !== "hand";
+      $("privacy").hidden = true;
+      $("overlay").classList.remove("hidden");
+    }
+
+    function status(msg, err = false) {
+      $("camStatus").textContent = msg;
+      $("camStatus").classList.toggle("err", err);
+    }
+
+    // Each mode switch gets a ticket; if the player switches again while the camera or model is
+    // still loading, the older switch quietly gives up (and never leaves the camera running).
+    let wanted = mode, ticket = 0;
+    const press = (x) => $("modeSeg").querySelectorAll("button").forEach((b) => {
+      b.classList.toggle("active", b.dataset.mode === x); b.setAttribute("aria-pressed", String(b.dataset.mode === x));
+    });
+
+    async function setMode(m) {
+      const my = ++ticket;
+      wanted = m;
+      press(m);
+      if (running) pause();
+      const stale = () => { if (my === ticket) return false; if (wanted === "mouse") stopCamera(); return true; };
+
+      if (m === "mouse") {
+        stopCamera(); mode = "mouse"; status("");
+      } else {
+        const camOk = await startCamera();
+        if (stale()) return;
+        const handOk = camOk && (m !== "hand" || (await loadHands()));
+        if (stale()) return;
+        if (!camOk) { stopCamera(); mode = wanted = "mouse"; press("mouse"); }
+        else if (!handOk) { mode = wanted = "motion"; press("motion"); status($("camStatus").textContent + " Switched to Motion mode.", true); }
+        else { mode = m; status(m === "hand" ? "Camera on · hand tracking ready ✋" : "Camera on · motion detection ready 🎥"); }
+      }
+      prevGray = null; mouse = null; hands = [];
+      showStart();
+    }
+
+    $("modeSeg").addEventListener("click", (e) => { const b = e.target.closest("button"); if (b && b.dataset.mode !== wanted) setMode(b.dataset.mode); });
+    $("startBtn").addEventListener("click", start);
+    document.addEventListener("keydown", (e) => {
+      if (e.code !== "Space" || e.target.closest("button, a, input")) return;
+      e.preventDefault();
+      if (running) pause(); else start();
+    });
+    document.addEventListener("visibilitychange", () => { if (document.hidden) pause(); });
+
+    updateHud();
+    showStart();
+    requestAnimationFrame(frame);
+  </script>
+</body>
+</html>
