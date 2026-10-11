@@ -22,6 +22,7 @@ const urls = [
   { loc: `${SITE}playground/snake.html`, priority: "0.3" },
   { loc: `${SITE}playground/memory.html`, priority: "0.3" },
   { loc: `${SITE}playground/pixel.html`, priority: "0.3" },
+  { loc: `${SITE}playground/airpop.html`, priority: "0.3" },
 ];
 
 const xml = `<?xml version="1.0" encoding="UTF-8"?>

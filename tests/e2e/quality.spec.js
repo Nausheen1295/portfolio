@@ -99,6 +99,32 @@ test.describe("playground", () => {
     expect(done).toBe(1);
   });
 
+  test("air pop: mouse pops bubbles, bombs cost points, and the round ends", async ({ page }) => {
+    await page.goto("playground/airpop.html");
+    await page.getByRole("button", { name: "Start Game" }).click();
+    await expect(page.locator("#overlay")).toHaveClass(/hidden/);
+    const box = await page.locator("#stage").boundingBox();
+    const at = (x, y) => [box.x + (x / 800) * box.width, box.y + (y / 600) * box.height];
+    // place a still bubble, then sweep the mouse through it
+    const place = (kind, x, y) => page.evaluate(([k, x, y]) => {
+      spawnIn = 99; bubbles = [Object.assign(makeBubble(k, x, y), { vy: 0, sway: 0, base: x })];
+    }, [kind, x, y]);
+    // the game samples the pointer once per animation frame, so let a frame pass between moves
+    const nextFrame = () => page.evaluate(() => new Promise((r) => requestAnimationFrame(() => requestAnimationFrame(r))));
+    await place("gold", 400, 300);
+    await page.mouse.move(...at(100, 300));
+    await nextFrame();
+    await page.mouse.move(...at(700, 300), { steps: 4 });
+    await expect(page.locator("#score")).toHaveText("5");
+    await place("bomb", 200, 450);
+    await nextFrame();
+    await page.mouse.move(...at(200, 450), { steps: 4 });
+    await expect(page.locator("#score")).toHaveText("0");
+    await page.evaluate(() => { timeLeft = 0.01; });
+    await expect(page.locator("#ovTitle")).toHaveText(/Time's up/);
+    await expect(page.getByRole("button", { name: "Play Again" })).toBeVisible();
+  });
+
   test("hub links to every game and shows best scores", async ({ page }) => {
     await page.goto("playground/");
     await expect(page.getByRole("link", { name: "Petal Snake" })).toHaveAttribute("href", "snake.html");
