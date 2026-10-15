@@ -43,6 +43,7 @@ js/
   core/search.js         Deterministic knowledge search over projects.js
   core/command-center.js ⌘K / Ctrl+K / "/" — search + "> commands" (all pages)
   core/achievements.js   Lab exploration achievements (localStorage)
+  core/handsfree.js      Hands-free scrolling: webcam hand gestures via MediaPipe (loaded on demand)
   nexa/config.js         NEXA endpoint (null = offline). Never put secrets here.
   nexa/client.js         The only module that calls the NEXA API (contract documented inside)
   nexa/ui.js             Chat interface: modes, context, suggestions, doc-search fallback

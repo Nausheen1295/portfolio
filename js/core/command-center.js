@@ -13,6 +13,7 @@ import { searchProjects } from "./search.js";
 import { esc } from "../ui/components.js";
 import { icon } from "../ui/icons.js";
 import { ACHIEVEMENTS, unlocked, unlock, labProgress } from "./achievements.js";
+import { toggle as toggleHandsFree } from "./handsfree.js";
 
 const PENDING_ASK = "nx-pending-ask";
 const onHome = () => !!document.getElementById("universe");
@@ -90,6 +91,7 @@ export function initCommandCenter(ctx = {}) {
     { cmd: "contact", desc: "Email, LinkedIn, GitHub", run: () => go("#contact") },
     { cmd: "theme dark", desc: "Dark theme", run: () => setTheme("dark") },
     { cmd: "theme light", desc: "Light theme", run: () => setTheme("light") },
+    { cmd: "hands free", desc: "Scroll with hand gestures (camera)", run: () => { close(); toggleHandsFree(); } },
     { cmd: "achievements", desc: "Your exploration progress", run: showAchievements },
     { cmd: "help", desc: "List commands", run: showHelp },
     { cmd: "clear", desc: "Clear the output", run: () => { output.innerHTML = ""; } },
