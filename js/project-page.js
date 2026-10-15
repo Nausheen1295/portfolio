@@ -11,13 +11,11 @@ import { renderArchitecture } from "./ui/architecture.js";
 import { initTheme } from "./core/theme.js";
 import { initNav } from "./core/nav.js";
 import { initCommandCenter } from "./core/command-center.js";
-import { initHandsFree } from "./core/handsfree.js";
 import { exploreLab } from "./core/achievements.js";
 
 document.documentElement.classList.add("nx-ready");
 initTheme(document.getElementById("themeBtn"));
 initNav();
-initHandsFree();
 initCommandCenter();
 document.querySelectorAll("span[data-icon]:empty").forEach((el) => { el.innerHTML = icon(el.dataset.icon, { size: 18 }); });
 
