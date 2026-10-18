@@ -17,7 +17,7 @@ from app.ratelimit import RateLimiter
 from app.retrieval import BM25Retriever
 from app.schemas import HistoryTurn
 
-SETTINGS = Settings()
+SETTINGS = Settings(model="test-model")
 CHUNKS = load_chunks(SETTINGS.knowledge_path)
 
 
@@ -160,7 +160,7 @@ async def test_llm_request_uses_model_effort_schema_and_fallbacks():
     out = await gen.generate(question="q", mode="recruiter", chunks=CHUNKS[:2], history=[])
     assert out == Generation(answer="A", cited_ids=["x"], grounded=True)
     sent = fake.sent
-    assert sent["model"] == "claude-opus-5-5"
+    assert sent["model"] == SETTINGS.model
     assert sent["output_config"]["effort"] == "low"
     assert sent["output_config"]["format"]["type"] == "json_schema"
     assert sent["betas"] == ["server-side-fallback-2026-07-01"] and sent["fallbacks"] == "default"
