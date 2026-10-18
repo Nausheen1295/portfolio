@@ -16,7 +16,7 @@ js/nexa/ui.js ── js/nexa/client.js ──HTTPS──►  FastAPI  /health ·
                                                Retriever (BM25 today → vector DB later)
                                                │  searches knowledge/portfolio.json
                                                ▼
-                                               Generator → Claude (Anthropic SDK)
+                                               Generator → LLM (provider SDK)    
                                                │  grounded system prompt · JSON answer + cited ids
                                                ▼
                                                {answer, sources[], grounded}
@@ -26,15 +26,15 @@ js/nexa/ui.js ── js/nexa/client.js ──HTTPS──►  FastAPI  /health ·
 1. **Validate.** The question is 1–500 characters, `mode` is one of five values, `projectId` is a slug, and history holds at most 8 turns.
 2. **Retrieve.** The service finds the most relevant knowledge chunks. A project named in the question, or picked as context, gets priority. That project's *"not yet documented"* chunk is always included, so NEXA can say "that isn't documented" and cite it.
 3. **Short-circuit.** If nothing relevant is found, the service returns an honest "not documented" reply **without calling the model** (no cost, no hallucination).
-4. **Generate.** Claude gets the static system prompt (grounding rules) plus the retrieved documents and the question, then returns structured JSON with `answer`, `cited_ids` and `grounded`.
+4. **Generate.** The LLM gets the static system prompt (grounding rules) plus the retrieved documents and the question, then returns structured JSON with `answer`, `cited_ids` and `grounded`.
 5. **Verify citations.** Only ids that were actually retrieved become sources, so the model can't invent a source. An answer with no valid sources is marked `grounded: false`.
 
 ### Model settings
 | Setting | Default | Why |
 |---|---|---|
-| `NEXA_MODEL` | `claude-opus-5-5` | Most capable default model. |
+| `NEXA_MODEL` | provider model id (see `.env.example`) | Most capable default model. |
 | `NEXA_EFFORT` | `low` | Short, grounded chat answers don't need deep reasoning. Raise it if answers feel thin. |
-| `NEXA_FALLBACKS` | `true` | Server-side refusal fallback (`fallbacks: "default"`). If a safety classifier declines, the API retries on Anthropic's recommended fallback model. |
+| `NEXA_FALLBACKS` | `true` | Server-side refusal fallback (`fallbacks: "default"`). If a safety classifier declines, the API retries on the provider's recommended fallback model. |
 
 `stop_reason` is checked before any content is read. A refusal returns a polite, ungrounded reply, and a truncated answer returns a 502.
 
@@ -57,7 +57,7 @@ python -m venv .venv
 .venv\Scripts\activate            # macOS/Linux: source .venv/bin/activate
 pip install -r requirements-dev.txt
 pytest                            # 34 tests, no API key or network needed
-copy .env.example .env            # then set ANTHROPIC_API_KEY (or run `ant auth login`)
+copy .env.example .env            # then set the API key in .env
 uvicorn app.main:app --reload --port 8787
 ```
 Without credentials, `/health` returns **503** and the website stays in its labelled documentation-search mode.
@@ -84,7 +84,7 @@ app/schemas.py     request/response models (the API contract)
 app/knowledge.py   loads knowledge/portfolio.json
 app/retrieval.py   Retriever interface + BM25 implementation
 app/prompts.py     system prompt, mode instructions, answer JSON schema
-app/generator.py   Claude call (structured output, fallbacks, stop-reason handling)
+app/generator.py   LLM call (structured output, fallbacks, stop-reason handling)
 app/ratelimit.py   sliding-window rate limiter
 app/main.py        FastAPI app: /health, /chat
 tests/             API, safety and retrieval tests

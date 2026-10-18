@@ -16,7 +16,7 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
 from .config import Settings
-from .generator import ClaudeGenerator, GenerationFailed, GenerationRefused, Generator
+from .generator import LLMGenerator, GenerationFailed, GenerationRefused, Generator
 from .knowledge import load_chunks
 from .ratelimit import RateLimiter
 from .retrieval import BM25Retriever, Retriever
@@ -35,7 +35,7 @@ def create_app(settings: Settings | None = None, *, retriever: Retriever | None 
     chunks = load_chunks(settings.knowledge_path) if retriever is None else []
     retriever = retriever or BM25Retriever(chunks)
     if generator is None and settings.llm_configured:
-        generator = ClaudeGenerator(settings)
+        generator = LLMGenerator(settings)
     limiter = RateLimiter(settings.rate_limit_per_minute, settings.rate_limit_per_day)
 
     app = FastAPI(title="NEXA API", version="1.0.0", docs_url=None, redoc_url=None)

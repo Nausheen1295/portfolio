@@ -53,7 +53,7 @@ sitemap.xml              Generated — submit in Google Search Console
 tools/export-knowledge.mjs  Builds NEXA's knowledge file from the site data (+ GitHub READMEs)
 tools/update-preloads.mjs   Adds <link rel="modulepreload"> for every JS module (re-run after adding modules)
 tools/build-sitemap.mjs     Regenerates sitemap.xml from the project data
-nexa-backend/            NEXA API (FastAPI + Claude). Deployed separately — see nexa-backend/README.md
+nexa-backend/            NEXA API (FastAPI + LLM). Deployed separately — see nexa-backend/README.md
 ```
 
 ## Editing content

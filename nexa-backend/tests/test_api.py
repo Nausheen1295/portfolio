@@ -1,4 +1,4 @@
-"""API contract + safety tests. No network, no API key: a fake generator stands in for Claude."""
+"""API contract + safety tests. No network, no API key: a fake generator stands in for the LLM."""
 from __future__ import annotations
 
 import json
@@ -10,7 +10,7 @@ import pytest
 from fastapi.testclient import TestClient
 
 from app.config import Settings
-from app.generator import ClaudeGenerator, Generation, GenerationFailed, GenerationRefused, build_messages
+from app.generator import LLMGenerator, Generation, GenerationFailed, GenerationRefused, build_messages
 from app.knowledge import load_chunks
 from app.main import NOT_DOCUMENTED, create_app
 from app.ratelimit import RateLimiter
@@ -134,8 +134,8 @@ def test_rate_limiter_window_resets():
     assert rl.check("a") is None
 
 
-# ---------------------------------------------------------------- Claude request shape (fake SDK client)
-class FakeAnthropic:
+# ---------------------------------------------------------------- LLM request shape (fake SDK client)
+class FakeLLMClient:
     def __init__(self, response):
         self.sent = None
         outer = self
@@ -154,9 +154,9 @@ def _resp(stop="end_turn", payload=None):
 
 
 @pytest.mark.anyio
-async def test_claude_request_uses_model_effort_schema_and_fallbacks():
-    fake = FakeAnthropic(_resp())
-    gen = ClaudeGenerator(SETTINGS, client=fake)
+async def test_llm_request_uses_model_effort_schema_and_fallbacks():
+    fake = FakeLLMClient(_resp())
+    gen = LLMGenerator(SETTINGS, client=fake)
     out = await gen.generate(question="q", mode="recruiter", chunks=CHUNKS[:2], history=[])
     assert out == Generation(answer="A", cited_ids=["x"], grounded=True)
     sent = fake.sent
@@ -170,9 +170,9 @@ async def test_claude_request_uses_model_effort_schema_and_fallbacks():
 
 @pytest.mark.anyio
 @pytest.mark.parametrize("stop,exc", [("refusal", GenerationRefused), ("max_tokens", GenerationFailed)])
-async def test_claude_stop_reasons(stop, exc):
+async def test_llm_stop_reasons(stop, exc):
     with pytest.raises(exc):
-        await ClaudeGenerator(SETTINGS, client=FakeAnthropic(_resp(stop))).generate(question="q", mode="simple", chunks=CHUNKS[:1], history=[])
+        await LLMGenerator(SETTINGS, client=FakeLLMClient(_resp(stop))).generate(question="q", mode="simple", chunks=CHUNKS[:1], history=[])
 
 
 def test_history_never_starts_with_assistant():
