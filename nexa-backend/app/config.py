@@ -19,7 +19,7 @@ def _list(name: str, default: str) -> list[str]:
 @dataclass(frozen=True)
 class Settings:
     # Model + generation
-    model: str = field(default_factory=lambda: os.getenv("NEXA_MODEL", "claude-opus-5-5"))
+    model: str = field(default_factory=lambda: os.getenv("NEXA_MODEL", ""))  # set in the host environment
     effort: str = field(default_factory=lambda: os.getenv("NEXA_EFFORT", "low"))  # chat → low effort
     max_tokens: int = field(default_factory=lambda: int(os.getenv("NEXA_MAX_TOKENS", "2048")))
     use_fallbacks: bool = field(default_factory=lambda: os.getenv("NEXA_FALLBACKS", "true").lower() == "true")
@@ -37,4 +37,4 @@ class Settings:
 
     @property
     def llm_configured(self) -> bool:
-        return bool(os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN"))
+        return bool(self.model and (os.getenv("ANTHROPIC_API_KEY") or os.getenv("ANTHROPIC_AUTH_TOKEN")))
