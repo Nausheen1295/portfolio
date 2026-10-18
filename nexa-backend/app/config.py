@@ -1,6 +1,6 @@
 """NEXA backend configuration — read once from environment variables.
 
-Secrets (ANTHROPIC_API_KEY) are read by the Anthropic SDK from the environment
+Secrets (the LLM provider API key) are read by the provider SDK from the environment
 and never logged, returned, or written anywhere by this service.
 """
 from __future__ import annotations

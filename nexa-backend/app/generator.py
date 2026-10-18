@@ -44,8 +44,8 @@ def build_messages(question: str, mode: str, chunks: list[Chunk], history: list[
     return messages
 
 
-class ClaudeGenerator:
-    """Claude via the official Anthropic SDK. Credentials come from the environment."""
+class LLMGenerator:
+    """LLM answer generation via the provider's official SDK. Credentials come from the environment."""
 
     def __init__(self, settings: Settings, client: anthropic.AsyncAnthropic | None = None):
         self.settings = settings
@@ -62,7 +62,7 @@ class ClaudeGenerator:
             output_config={"effort": s.effort, "format": {"type": "json_schema", "schema": ANSWER_SCHEMA}},
         )
         if s.use_fallbacks:
-            # On a safety-classifier decline the API re-runs the request on Anthropic's recommended fallback model.
+            # On a safety-classifier decline the API re-runs the request on the provider's recommended fallback model.
             response = await self.client.beta.messages.create(
                 betas=["server-side-fallback-2026-07-01"], fallbacks="default", **params
             )
