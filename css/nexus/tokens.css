@@ -63,15 +63,15 @@
 [data-theme="light"] {
   color-scheme: light;
 
-  --nx-bg:          #f6f7fb;
-  --nx-bg-elev:     #eef0f6;
+  --nx-bg:          #eef6ff; /* very light blue */
+  --nx-bg-elev:     #e4effd;
   --nx-surface:     #ffffff;
-  --nx-surface-2:   #f1f3f9;
-  --nx-surface-3:   #e6e9f2;
+  --nx-surface-2:   #eef4fd;
+  --nx-surface-3:   #e1ebf9;
   --nx-overlay:     rgba(15, 18, 32, .45);
 
-  --nx-line:        rgba(13, 17, 32, .10);
-  --nx-line-strong: rgba(13, 17, 32, .20);
+  --nx-line:        rgba(30, 64, 130, .12);
+  --nx-line-strong: rgba(30, 64, 130, .22);
 
   --nx-text:        #0d1120;
   --nx-text-soft:   #46506b;

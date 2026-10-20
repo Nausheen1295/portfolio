@@ -55,8 +55,9 @@ add({
 });
 add({
   id: "profile:certifications", title: "Certifications", section: "certifications", url: `${SITE}#certifications`,
-  text: "Certifications (source: résumé):\n" + CERTIFICATIONS.map((c) =>
-    `- ${c.title} — ${c.issuer}, ${formatMonth(c.date)}. Topics: ${c.topics.join(", ")}.${c.credentialUrl ? ` Verify: ${c.credentialUrl}` : ""}`).join("\n"),
+  text: `Certifications (${CERTIFICATIONS.length}, from the certificates themselves):\n` + CERTIFICATIONS.map((c) =>
+    `- ${c.title} — ${[c.issuer, c.partner].filter(Boolean).join(" × ")}, ${c.dateLabel}. Topics: ${c.topics.join(", ")}.` +
+    `${c.highlights?.length ? ` Covered: ${c.highlights.join("; ")}.` : ""}${c.credentialId ? ` Credential ID: ${c.credentialId}.` : ""}`).join("\n"),
 });
 add({
   id: "profile:products", title: "Products I sell (future enhancement)", section: "store", url: `${SITE}#store`,

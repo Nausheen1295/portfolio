@@ -61,7 +61,7 @@ export function renderProjects() {
 const certs = (groupId) => {
   const list = CERTIFICATIONS.filter((c) => c.relatedSkills.includes(groupId));
   return list.length
-    ? `<div class="nx-evidence"><span>Certified:</span>${list.map((c) => `<a href="#cert-${esc(c.id)}">${esc(c.issuer)}</a>`).join("<span aria-hidden='true'>·</span>")}</div>`
+    ? `<div class="nx-evidence"><span>Certified:</span>${list.map((c) => `<button type="button" data-view-cert="${esc(c.id)}">${esc(c.title)}</button>`).join("<span aria-hidden='true'>·</span>")}</div>`
     : "";
 };
 export function renderSkills() {
@@ -85,16 +85,18 @@ export function renderCertifications() {
   const grid = document.getElementById("certGrid");
   grid.innerHTML = CERTIFICATIONS.map((c, i) => `
     <article class="nx-card nx-cert nx-reveal" id="cert-${esc(c.id)}" style="--nx-delay:${(i % 3) * 70}ms">
+      <button type="button" class="nx-cert-thumb" data-view-cert="${esc(c.id)}" tabindex="-1" aria-hidden="true">
+        <img src="${esc(c.image.src)}" alt="" width="${c.image.width}" height="${c.image.height}" loading="lazy" decoding="async">
+      </button>
       <div class="nx-cert-top">
         <span class="nx-cert-icon" aria-hidden="true">${icon("award")}</span>
-        <time class="nx-cert-date" datetime="${esc(c.date)}">${esc(formatMonth(c.date))}</time>
+        <span class="nx-cert-date">${esc(c.dateLabel.split(" · ")[0])}</span>
       </div>
       <h3>${esc(c.title)}</h3>
-      <p class="nx-cert-issuer">${esc(c.issuer)}</p>
+      <p class="nx-cert-issuer">${esc([c.issuer, c.partner].filter(Boolean).join(" × "))}</p>
       <div class="nx-tags">${c.topics.map((t) => `<span class="nx-tag">${esc(t)}</span>`).join("")}</div>
-      ${c.credentialUrl
-        ? `<a class="nx-cert-verify" href="${esc(c.credentialUrl)}" target="_blank" rel="noopener">Verify credential ${icon("external", { size: 14 })}</a>`
-        : ""}
+      <button type="button" class="nx-btn nx-btn--sm nx-cert-view" data-view-cert="${esc(c.id)}"
+              aria-label="View certificate: ${esc(c.title)}">${icon("award", { size: 16 })} View certificate</button>
     </article>`).join("");
   const facts = document.getElementById("factsCertCount");
   if (facts) facts.textContent = `${CERTIFICATIONS.length} — see all`;

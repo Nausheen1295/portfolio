@@ -218,3 +218,30 @@ span[data-icon] svg { width: 18px; height: 18px; }
 .nx-store-step { font-family: var(--nx-font-mono); font-size: 10px; letter-spacing: .14em; text-transform: uppercase; color: var(--nx-accent); }
 .nx-price { font-family: var(--nx-font-display); font-size: var(--nx-text-xl); font-weight: 600; }
 @media (max-width: 720px) { .nx-store-roadmap { grid-template-columns: minmax(0, 1fr); } }
+
+/* certificate card: preview + view button */
+.nx-cert-thumb {
+  display: block; width: 100%; padding: 0; border: 1px solid var(--nx-line); border-radius: var(--nx-radius-md);
+  overflow: hidden; background: var(--nx-surface-2); cursor: zoom-in;
+}
+.nx-cert-thumb img { width: 100%; height: auto; aspect-ratio: 16 / 10; object-fit: cover; object-position: top; transition: transform var(--nx-dur-slow) var(--nx-ease); }
+.nx-cert:hover .nx-cert-thumb img { transform: scale(1.04); }
+.nx-cert-view { margin-top: auto; align-self: flex-start; }
+
+/* certificate viewer */
+.nx-cert-viewer { width: min(1040px, calc(100% - 2 * var(--nx-gutter))); }
+.nx-cert-viewer h2 { font-size: var(--nx-text-xl); margin-top: 6px; }
+.nx-cv-body { display: grid; grid-template-columns: minmax(0, 1.7fr) minmax(240px, 1fr); gap: var(--nx-space-6); align-items: start; }
+.nx-cv-figure { border-radius: var(--nx-radius-md); overflow: hidden; border: 1px solid var(--nx-line-strong); background: #fff; }
+.nx-cv-figure img { width: 100%; height: auto; max-height: 64vh; object-fit: contain; }
+.nx-cv-details { display: grid; gap: var(--nx-space-4); }
+.nx-cv-meta { display: grid; gap: var(--nx-space-3); }
+.nx-cv-meta dt { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); letter-spacing: .1em; text-transform: uppercase; color: var(--nx-text-mute); }
+.nx-cv-meta dd { display: flex; align-items: center; gap: var(--nx-space-2); flex-wrap: wrap; margin-top: 2px; font-weight: 600; }
+.nx-cv-id { font-size: 11px; font-weight: 500; word-break: break-all; color: var(--nx-text-soft); }
+.nx-cv-highlights { padding-left: 1.1em; display: grid; gap: 6px; font-size: var(--nx-text-sm); color: var(--nx-text-soft); }
+.nx-cv-highlights li::marker { color: var(--nx-accent); }
+.nx-cv-foot { display: flex; justify-content: space-between; align-items: center; gap: var(--nx-space-3); padding: var(--nx-space-4) var(--nx-space-6); border-top: 1px solid var(--nx-line); }
+.nx-cv-count { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); color: var(--nx-text-mute); }
+@media (max-width: 760px) { .nx-cv-body { grid-template-columns: minmax(0, 1fr); } .nx-cv-figure img { max-height: 46vh; } }
+@media (prefers-reduced-motion: reduce) { .nx-cert:hover .nx-cert-thumb img { transform: none; } }
