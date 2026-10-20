@@ -160,7 +160,9 @@ export function initCommandCenter(ctx = {}) {
     const certHits = CERTIFICATIONS
       .filter((c) => norm(`${c.title} ${c.issuer} ${c.topics.join(" ")} certification certificate certified`).includes(nq))
       .map((c) => item("Certifications", c.title, `${c.issuer} · ${formatMonth(c.date)}`, () => go(`#cert-${c.id}`), { icon: "award" }));
-    const strongCert = CERTIFICATIONS.some((c) => norm(`${c.title} ${c.issuer}`).includes(nq));
+    // …unless the query is also a project topic ("cybersecurity" should lead with SecureVault AI, not a course).
+    const projectTopic = PROJECTS.some((p) => norm(`${p.name} ${p.keywords.join(" ")} ${p.technologies.join(" ")}`).includes(nq));
+    const strongCert = !projectTopic && CERTIFICATIONS.some((c) => norm(`${c.title} ${c.issuer}`).includes(nq));
     if (strongCert) out.push(...certHits);
     for (const { project: p } of searchProjects(q, { limit: 6 })) {
       out.push(item("Projects", p.name, `${STATUS[p.status].label} · ${getLab(p.lab).name}`,

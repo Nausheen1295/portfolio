@@ -9,7 +9,7 @@ export function initTheme(button) {
     const dark = root.dataset.theme !== "light";
     button.innerHTML = icon(dark ? "sun" : "moon", { size: 18 });
     button.setAttribute("aria-label", dark ? "Switch to light theme" : "Switch to dark theme");
-    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#07080d" : "#f6f7fb");
+    document.querySelector('meta[name="theme-color"]')?.setAttribute("content", dark ? "#07080d" : "#eef6ff");
   };
   button.addEventListener("click", () => {
     root.dataset.theme = root.dataset.theme === "light" ? "dark" : "light";

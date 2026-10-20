@@ -13,6 +13,7 @@ import { initUniverse } from "./sections/universe.js";
 import { initJourney } from "./sections/journey.js";
 import { initNexa } from "./nexa/ui.js";
 import { initCommandCenter } from "./core/command-center.js";
+import { initCertViewer } from "./ui/cert-viewer.js";
 
 document.documentElement.classList.add("nx-ready");
 
@@ -36,6 +37,7 @@ renderStore();
 hydrateIcons();
 
 initProjectModal();
+initCertViewer();
 initCommandCenter({ nexa, projects, universe });
 initContact();
 reveal();

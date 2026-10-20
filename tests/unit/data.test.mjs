@@ -157,6 +157,10 @@ test("certifications are sourced, dated and well-formed (newest first)", () => {
     assert.ok(c.credentialUrl === null || /^https:\/\//.test(c.credentialUrl), `${c.id}: credential link must be https`);
     for (const s of c.relatedSkills) assert.ok(SKILL_GROUPS.some((g) => g.id === s), `${c.id}: unknown skill group ${s}`);
   }
+  for (const c of CERTIFICATIONS) {
+    assert.match(c.image.src, /^assets\/certificates\/.+\.webp$/);
+    assert.ok(c.image.width > 0 && c.image.height > 0, `${c.id}: image needs dimensions`);
+  }
   const dates = CERTIFICATIONS.map((c) => c.date);
   assert.deepEqual(dates, [...dates].sort().reverse(), "keep newest first");
   assert.equal(formatMonth("2025-11"), "Nov 2025");
@@ -169,4 +173,12 @@ test("products stay a future enhancement until they're genuinely on sale", () =>
     if (p.status === "available") assert.match(p.buyUrl || "", /^https:\/\//, `${p.id}: available products need an https buy link`);
   }
   assert.ok(STORE_ROADMAP.length >= 1);
+});
+
+test("every certificate image and PDF exists", async () => {
+  for (const c of CERTIFICATIONS) {
+    assert.ok(await exists(c.image.src), `${c.id}: ${c.image.src} missing`);
+    if (c.pdf) assert.ok(await exists(c.pdf), `${c.id}: ${c.pdf} missing`);
+    assert.ok(c.dateLabel, `${c.id}: needs the date as printed on the certificate`);
+  }
 });
