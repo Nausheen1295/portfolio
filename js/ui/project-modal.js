@@ -20,7 +20,7 @@ export function initProjectModal() {
     document.getElementById("pmLab").textContent = `${lab?.code ?? ""} · ${lab?.name ?? ""}`;
     document.getElementById("pmTitle").textContent = p.name;
 
-    const isPlan = p.status === "concept" || p.status === "in-development";
+    const isPlan = p.status === "concept"; // not built yet — everything shown is a plan
     const undocumented = [!p.role && "my role", !p.challenges.length && "challenges", !p.decisions.length && "engineering decisions",
       !p.results && "results"].filter(Boolean);
 
@@ -38,6 +38,8 @@ export function initProjectModal() {
           <p class="nx-pm-lead">${esc(p.summary)}</p>
           <div class="nx-row">${links}</div>
         </div>
+        ${p.status === "in-development" ? `<div class="nx-notice"><span aria-hidden="true">ⓘ</span><span><strong>In active development.</strong>
+          The core of this project works and is live; features are still being added, so details may change.</span></div>` : ""}
         ${isPlan ? `<div class="nx-notice"><span aria-hidden="true">ⓘ</span><span><strong>This project hasn't been built yet.</strong>
           Features and stack below are the plan, and will be updated with real details as development happens.</span></div>` : ""}
         ${block("Problem", p.problem && `<p class="nx-soft">${esc(p.problem)}</p>`)}

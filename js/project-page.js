@@ -41,7 +41,7 @@ const para = (text) => `<p class="nx-cs-text">${esc(text)}</p>`;
 
 function renderCaseStudy(p) {
   const lab = getLab(p.lab);
-  const isPlan = p.status === "concept" || p.status === "in-development";
+  const isPlan = p.status === "concept"; // not built yet — everything shown is a plan
   const hue = `var(--nx-lab-${lab.id})`;
 
   setMeta(p, lab);
@@ -110,6 +110,8 @@ function renderCaseStudy(p) {
       </nav>
 
       <article class="nx-cs-body">
+        ${p.status === "in-development" ? `<div class="nx-notice"><span aria-hidden="true">ⓘ</span><span><strong>In active development.</strong>
+          The core of this project works and is live; features are still being added, so details may change.</span></div>` : ""}
         ${isPlan ? `<div class="nx-notice"><span aria-hidden="true">ⓘ</span><span><strong>This project hasn't been built yet.</strong>
           Everything below is the plan — it will be replaced with real details, decisions and results as development happens.</span></div>` : ""}
 

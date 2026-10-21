@@ -81,10 +81,11 @@ add({
 for (const p of PROJECTS) {
   const lab = LABS.find((l) => l.id === p.lab);
   const status = STATUS[p.status];
-  const planned = p.status === "concept" || p.status === "in-development";
+  const planned = p.status === "concept";
   // Every chunk starts with this header so status survives retrieval in isolation.
   const head = `Project: ${p.name} (${lab.name}). Status: ${status.label} — ${status.description}` +
-    (planned ? " Everything below is a PLAN, not a built feature." : "");
+    (planned ? " Everything below is a PLAN, not a built feature." : "") +
+    (p.status === "in-development" ? " The project works and is live, but is still being extended." : "");
   const base = { projectId: p.id };
 
   add({ ...base, id: `${p.id}:overview`, title: `${p.name} — overview`, section: "overview", url: caseUrl(p),

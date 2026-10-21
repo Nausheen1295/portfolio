@@ -1,7 +1,8 @@
 import { test, expect } from "./fixtures.js";
 
 const IDS = ["securevault-ai", "nexa", "mindscape-ai", "insightforge", "earthpulse", "floramind-ai",
-  "playground", "playfair-cipher", "packet-sniffer", "northstar-analysis"];
+  "playground", "playfair-cipher", "packet-sniffer", "northstar-analysis",
+  "corizo-ecommerce", "corizo-student-management", "stock-price-prediction"];
 
 test.describe("case studies", () => {
   for (const id of IDS) {
@@ -55,6 +56,40 @@ test.describe("case studies", () => {
   test("pager moves between projects", async ({ page }) => {
     await page.goto("project.html?id=securevault-ai");
     await page.getByRole("link", { name: /Next/ }).click();
-    await expect(page).toHaveURL(/id=nexa/);
+    await expect(page).toHaveURL(/id=corizo-ecommerce/);
+  });
+});
+
+test.describe("Corizo work", () => {
+  test("experience timeline lists both Corizo internships with project links", async ({ page }) => {
+    await page.goto("./#about");
+    const tl = page.getByLabel("Education and experience");
+    await expect(tl).toContainText("Web Development Trainee & Intern · Corizo");
+    await expect(tl).toContainText("Machine Learning Trainee & Intern · Corizo");
+    await tl.getByRole("link", { name: "Stock Price Prediction" }).click();
+    await expect(page).toHaveURL(/project\.html\?id=stock-price-prediction$/);
+  });
+
+  test("Web Lab holds both Corizo web apps", async ({ page }) => {
+    await page.goto("./#lab-web");
+    const panel = page.locator("#uniPanel");
+    await expect(panel.getByRole("heading", { name: "Web Lab" })).toBeVisible();
+    await expect(panel).toContainText("Tech World E-Commerce");
+    await expect(panel).toContainText("Student Management App");
+  });
+
+  test("in-development project is live and not described as unbuilt", async ({ page }) => {
+    await page.goto("project.html?id=corizo-ecommerce");
+    await expect(page.getByText("In active development.")).toBeVisible();
+    await expect(page.getByText("This project hasn't been built yet.")).toHaveCount(0);
+    await expect(page.getByRole("link", { name: /Live demo/ })).toHaveAttribute("href", "https://corizo-store.onrender.com");
+    await expect(page.getByRole("heading", { level: 2, name: "Features" })).toBeVisible();
+  });
+
+  test("stock prediction case study reports its honest results", async ({ page }) => {
+    await page.goto("project.html?id=stock-price-prediction");
+    await expect(page.getByRole("heading", { level: 2, name: "Results" })).toBeVisible();
+    await expect(page.locator("#results")).toContainText("no model beat the naive baseline");
+    await expect(page.getByRole("link", { name: /Source code/ })).toHaveAttribute("href", /projects\/stock-price-prediction$/);
   });
 });

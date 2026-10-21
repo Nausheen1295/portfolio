@@ -29,7 +29,7 @@
       "title": "Experience",
       "section": "about",
       "url": "https://nausheen1295.github.io/portfolio/#about",
-      "text": "Rotational Intern at Medulla (2025). Rotated across Technical, Database, and CSR & Marketing functions — IT support, data management, and collaborating with multidisciplinary teams."
+      "text": "Web Development Trainee & Intern at Corizo (with IIT Bombay's Mood Indigo) (Sep 2026 – present). Certified training in web development (5 Sep – 5 Oct 2026), then the internship phase: built and deployed a Student Management CRUD app (minor project) and a full-stack e-commerce store (major project, ongoing).\nMachine Learning Trainee & Intern at Corizo (with IIT Bombay's Mood Indigo) (Sep 2026 – present). Certified training in machine learning (5 Sep – 5 Oct 2026), then the internship phase: completed a Stock Price Prediction minor project comparing Ridge Regression, Random Forest and LSTM models.\nRotational Intern at Medulla (2025). Rotated across Technical, Database, and CSR & Marketing functions — IT support, data management, and collaborating with multidisciplinary teams."
     },
     {
       "projectId": null,
@@ -37,7 +37,7 @@
       "title": "Skills",
       "section": "skills",
       "url": "https://nausheen1295.github.io/portfolio/#skills",
-      "text": "AI & Machine Learning: AI Agents, Workflow Automation, Prompt Engineering, AI threat detection. Evidence: SecureVault AI, NEXA.\nSoftware Development: Python, Java, JavaScript, TypeScript, REST APIs, Android Studio. Evidence: SecureVault AI, NR Playfair Cipher, NEXUS Playground.\nWeb Development: React, Vite, HTML, CSS, Canvas, Responsive design. Evidence: SecureVault AI, NEXUS Playground.\nCybersecurity: AES-256-GCM, PBKDF2, WebAuthn, Cryptography, Packet analysis (Scapy), Phishing awareness. Evidence: SecureVault AI, NR Playfair Cipher, Packet Sniffer.\nDatabases & Data: Oracle SQL, Database design, Data analysis, Jupyter. Evidence: NorthStar Mobility Analysis.\nUI / UX: Figma, Wireframing, Prototyping, User-centered design. Evidence: SecureVault AI.\nCloud & Deployment: Vercel, GitHub Pages, Ethereum testnet (Sepolia). Evidence: SecureVault AI.\nDeveloper Tools: Git & GitHub, VS Code, Linux, Cisco Packet Tracer."
+      "text": "AI & Machine Learning: Machine learning (scikit-learn), Deep learning (LSTM, Keras), AI Agents, Workflow Automation, Prompt Engineering, AI threat detection. Evidence: Stock Price Prediction, SecureVault AI, NEXA.\nSoftware Development: Python, Java, JavaScript, TypeScript, REST APIs, Android Studio. Evidence: SecureVault AI, NR Playfair Cipher, NEXUS Playground.\nWeb Development: Node.js, Express.js, REST APIs, Bootstrap, React, Vite, HTML, CSS, Canvas, Responsive design. Evidence: Tech World E-Commerce, Student Management App, SecureVault AI, NEXUS Playground.\nCybersecurity: AES-256-GCM, PBKDF2, WebAuthn, Cryptography, Packet analysis (Scapy), Phishing awareness. Evidence: SecureVault AI, NR Playfair Cipher, Packet Sniffer.\nDatabases & Data: MongoDB Atlas, Mongoose, Oracle SQL, Database design, Data analysis, pandas, Jupyter. Evidence: Tech World E-Commerce, Stock Price Prediction, NorthStar Mobility Analysis.\nUI / UX: Figma, Wireframing, Prototyping, User-centered design. Evidence: SecureVault AI.\nCloud & Deployment: Render, Vercel, GitHub Pages, Ethereum testnet (Sepolia). Evidence: Tech World E-Commerce, SecureVault AI.\nDeveloper Tools: Git & GitHub, VS Code, Linux, Cisco Packet Tracer."
     },
     {
       "projectId": null,
@@ -69,7 +69,7 @@
       "title": "NEXUS research labs",
       "section": "universe",
       "url": "https://nausheen1295.github.io/portfolio/#universe",
-      "text": "LAB-01 Security Lab: Encryption, threat detection and privacy-first software. Projects: SecureVault AI (Live), NR Playfair Cipher (Completed), Packet Sniffer (Completed).\nLAB-02 AI Lab: Assistants and agents grounded in real knowledge. Projects: NEXA (Concept).\nLAB-03 Knowledge Lab: Tools for thinking, remembering and connecting ideas. Projects: MindScape AI (Concept).\nLAB-04 Data Lab: Turning raw data into decisions and clear visuals. Projects: InsightForge (Concept), NorthStar Mobility Analysis (Completed).\nLAB-05 Earth Lab: Climate and geospatial intelligence from live data. Projects: EarthPulse (Concept).\nLAB-06 Bio Lab: Computer vision for the living world. Projects: FloraMind AI (Concept).\nLAB-07 Experimental Lab: Games, mini-apps and ideas that don't fit anywhere else — yet. Projects: NEXUS Playground (Experimental)."
+      "text": "LAB-01 Security Lab: Encryption, threat detection and privacy-first software. Projects: SecureVault AI (Live), NR Playfair Cipher (Completed), Packet Sniffer (Completed).\nLAB-02 AI Lab: Assistants and agents grounded in real knowledge. Projects: Stock Price Prediction (Completed), NEXA (Concept).\nLAB-03 Knowledge Lab: Tools for thinking, remembering and connecting ideas. Projects: MindScape AI (Concept).\nLAB-04 Data Lab: Turning raw data into decisions and clear visuals. Projects: InsightForge (Concept), NorthStar Mobility Analysis (Completed).\nLAB-05 Earth Lab: Climate and geospatial intelligence from live data. Projects: EarthPulse (Concept).\nLAB-06 Bio Lab: Computer vision for the living world. Projects: FloraMind AI (Concept).\nLAB-07 Experimental Lab: Games, mini-apps and ideas that don't fit anywhere else — yet. Projects: NEXUS Playground (Experimental).\nLAB-08 Web Lab: Full-stack web applications — from REST APIs to deployed products. Projects: Tech World E-Commerce (In development), Student Management App (Completed)."
     },
     {
       "projectId": "securevault-ai",
@@ -142,6 +142,214 @@
       "section": "undocumented",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai",
       "text": "Project: SecureVault AI (Security Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for SecureVault AI: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:overview",
+      "title": "Tech World E-Commerce — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nFull-stack electronics store — Corizo web development major project. A full-stack e-commerce website for electronics. Customers browse products, manage a cart and place cash-on-delivery orders; administrators manage products, stock, orders and customers from a dashboard.\nSource code: https://github.com/Nausheen1295/corizo-ecommerce-website\nLive demo: https://corizo-store.onrender.com"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:features",
+      "title": "Tech World E-Commerce — features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce#features",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nFeatures:\n- Product catalogue with live search, category filters and sort options\n- Customer accounts: register, log in and log out securely\n- Shopping cart with quantity changes, stock availability and live totals\n- Checkout with a shipping address and cash-on-delivery orders\n- Order history with order and payment status\n- Admin dashboard: active products, total orders, orders to process and revenue\n- Admins add, edit, hide and restore products, and upload product images\n- Order status workflow (Pending → Confirmed → Shipped → Delivered, or Cancelled); stock returns automatically on cancellation\n- Role-based access control for customer and admin accounts"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:stack",
+      "title": "Tech World E-Commerce — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce#stack",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nTechnologies used: HTML5, CSS3, JavaScript, Bootstrap 5, Node.js, Express.js, MongoDB Atlas, Mongoose, express-session, connect-mongo, bcryptjs, Cloudinary, Multer, Render."
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:security",
+      "title": "Tech World E-Commerce — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce#security",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nSecurity:\n- Passwords hashed with bcrypt, never stored in plain text\n- Login sessions stored in the database with secure, HTTP-only cookies\n- Admin pages and actions protected on the server\n- Prices and stock always checked on the server, never trusted from the browser"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:architecture",
+      "title": "Tech World E-Commerce — architecture",
+      "section": "architecture",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce#architecture",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nArchitecture components:\n- Customer / Admin (client): Customers shop from the catalogue, cart and checkout pages; administrators use the dashboard to manage products, orders and customers.\n- Bootstrap web pages (frontend): Responsive HTML, CSS and JavaScript pages built with Bootstrap 5: home catalogue, register/log in, cart, checkout, my orders and the admin dashboard.\n- Express.js API (api): Node.js + Express server with routes for auth, products, cart, orders and uploads. Middleware checks login and admin access on the server.\n- Sessions & auth (api): express-session with connect-mongo stores login sessions in the database using secure, HTTP-only cookies; passwords are hashed with bcrypt.\n- MongoDB Atlas (data): Mongoose models for Users, Products and Orders. Prices and stock are validated on the server before any order is saved.\n- Cloudinary (external): Product images uploaded from the admin dashboard (via Multer) are stored on Cloudinary.\nData flow: browser → frontend; frontend → api; api → sessions; api → db; sessions → db; api → images."
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:database",
+      "title": "Tech World E-Commerce — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce#database",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nDatabase: MongoDB Atlas via Mongoose, with User, Product and Order models; sessions stored in MongoDB (connect-mongo)."
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:timeline",
+      "title": "Tech World E-Commerce — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce#timeline",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nDocumented development stages:\n- Development (2026-10): Built during the Corizo Web Development internship as the major project; work is ongoing.\n- Testing: Automated end-to-end test of the full shopping flow (Node.js).\n- Deployment: Deployed on Render (free plan — the first load can take up to a minute while the server wakes)."
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:undocumented",
+      "title": "Tech World E-Commerce — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce",
+      "text": "Project: Tech World E-Commerce (Web Lab). Status: In development — Actively being built — not yet released. The project works and is live, but is still being extended.\nNOT YET DOCUMENTED for Tech World E-Commerce: the problem it solves; Nausheen's role; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:overview",
+      "title": "Student Management App — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nFull-stack CRUD application — Corizo web development minor project. A responsive full-stack student management application with a REST API for creating, viewing, updating, deleting and searching student records, backed by MongoDB Atlas and deployed on Render.\nSource code: https://github.com/Nausheen1295/Corizo-CRUD-Application\nLive demo: https://corizo-student-management.onrender.com/"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:features",
+      "title": "Student Management App — features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management#features",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nFeatures:\n- Create, view, update and delete student records (delete asks for confirmation)\n- Search by student name, email, phone number or course\n- Required-field validation and duplicate-email prevention\n- Records stored in MongoDB Atlas\n- Responsive interface built with Bootstrap\n- REST API built with Express.js: GET/POST/PUT/DELETE /api/students, plus a status check"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:stack",
+      "title": "Student Management App — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management#stack",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nTechnologies used: HTML5, CSS3, JavaScript, Bootstrap 5, Node.js, Express.js, MongoDB Atlas, Mongoose, Render."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:security",
+      "title": "Student Management App — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management#security",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nSecurity:\n- Database credentials kept in environment variables; the .env file is never committed"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:architecture",
+      "title": "Student Management App — architecture",
+      "section": "architecture",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management#architecture",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nArchitecture components:\n- User (client): Manages student records from a single dashboard: add, edit, delete and search.\n- Bootstrap dashboard (frontend): HTML, CSS and JavaScript front end (Bootstrap 5) that calls the API with the Fetch API.\n- Express REST API (api): Node.js + Express routes: GET /api/students (with ?search=), GET/PUT/DELETE /api/students/:id, POST /api/students, GET /api/test.\n- MongoDB Atlas (data): Student records stored through a Mongoose model, with validation and unique email addresses.\nData flow: browser → frontend; frontend → api; api → db."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:database",
+      "title": "Student Management App — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management#database",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nDatabase: MongoDB Atlas via Mongoose (Student model)."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:timeline",
+      "title": "Student Management App — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management#timeline",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nDocumented development stages:\n- Development (2026-10): Built during the Corizo Web Development internship as the individual minor project.\n- Deployment: Deployed on Render."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:undocumented",
+      "title": "Student Management App — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management",
+      "text": "Project: Student Management App (Web Lab). Status: Completed — Finished project with public source code.\nNOT YET DOCUMENTED for Student Management App: the problem it solves; Nausheen's role; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:overview",
+      "title": "Stock Price Prediction — overview",
+      "section": "overview",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nML & deep learning for next-day forecasting — Corizo machine learning minor project. Forecasts Apple (AAPL) next-day closing prices with Ridge Regression, Random Forest and an LSTM network, and tests honestly whether the forecasts beat simple baselines.\nSource code: https://github.com/Nausheen1295/portfolio/tree/main/projects/stock-price-prediction"
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:problem-solution",
+      "title": "Stock Price Prediction — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#problem",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nProblem: Investors want to know where the market is heading, but forecasting stock prices is notoriously hard.\nSolution: Predict the next-day return from engineered price features, compare against naive and drift baselines, and check statistical significance and a simple trading simulation before trusting any model."
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:features",
+      "title": "Stock Price Prediction — features",
+      "section": "features",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#features",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nFeatures:\n- Exploratory analysis: trends, return distribution, volatility, correlations and autocorrelation\n- 20 engineered features: lagged returns, moving-average gaps, momentum, volatility, RSI and S&P 500 returns\n- Chronological split: train 70% (2007–2013), validation 15%, test 15% (Oct 2014 – Feb 2016)\n- Models: Naive and Drift baselines, Ridge Regression, Random Forest and an LSTM (Keras)\n- Metrics: RMSE, MAE, MAPE, R², directional accuracy, a binomial significance test and a trading simulation"
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:stack",
+      "title": "Stock Price Prediction — technologies",
+      "section": "stack",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#stack",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nTechnologies used: Python, pandas, NumPy, scikit-learn, TensorFlow / Keras, SciPy, Matplotlib, seaborn, Jupyter."
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:ai",
+      "title": "Stock Price Prediction — AI components",
+      "section": "ai",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#ai",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nAI / ML components:\n- Supervised regression: Ridge Regression and Random Forest Regressor\n- Deep learning: LSTM (Long Short-Term Memory) neural network\n- Hyper-parameter tuning on a held-out validation set"
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:decisions",
+      "title": "Stock Price Prediction — engineering decisions",
+      "section": "decisions",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#decisions",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nEngineering decisions:\n- Predict next-day return rather than price, then convert back: price = today's close × (1 + predicted return)\n- Split the data chronologically (no shuffling) so the test set is genuinely in the future"
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:database",
+      "title": "Stock Price Prediction — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#database",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nDatabase: Public Yahoo Finance daily adjusted closing prices, 3 Jan 2007 – 1 Mar 2016 (2,306 trading days) for AAPL, MSFT, IBM, SBUX and the S&P 500."
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:results",
+      "title": "Stock Price Prediction — results",
+      "section": "results",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#results",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nResults: On the 339-day test set no model beat the naive baseline on RMSE (naive 1.903 vs Random Forest 1.911, LSTM 1.923). Random Forest predicted direction best at 53.4%, but this is not statistically significant (p ≈ 0.12) — consistent with the Efficient Market Hypothesis. Educational project only, not financial advice."
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:timeline",
+      "title": "Stock Price Prediction — development timeline",
+      "section": "timeline",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction#timeline",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nDocumented development stages:\n- Development (2026-10): Completed as the Corizo Machine Learning minor project.\n- Testing: Evaluated on a 339-day test set against naive and drift baselines, with a significance test."
+    },
+    {
+      "projectId": "stock-price-prediction",
+      "id": "stock-price-prediction:undocumented",
+      "title": "Stock Price Prediction — not yet documented",
+      "section": "undocumented",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction",
+      "text": "Project: Stock Price Prediction (AI Lab). Status: Completed — Finished project with public source code.\nNOT YET DOCUMENTED for Stock Price Prediction: Nausheen's role; technical challenges. Do not guess these — say they are not documented yet."
     },
     {
       "projectId": "nexa",
@@ -606,6 +814,150 @@
       "section": "readme",
       "url": "https://github.com/Nausheen1295/securevault-ai#readme",
       "text": "Project: SecureVault AI. Status: Live. Source: project README.\n## 🚀 Live Demo\n> 🌐 **[https://securevaultai-brown.vercel.app](https://securevaultai-brown.vercel.app)**"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:0",
+      "title": "Tech World E-Commerce — README: Tech World",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n# Tech World\n**Live website:** https://corizo-store.onrender.com\nTech World is a full-stack e-commerce website for electronics: phones, laptops,\ntablets, wearables and accessories. Customers can browse products, manage a\nshopping cart and place cash-on-delivery orders. Store administrators manage\nproducts, stock, orders and customers from a dashboard.\n> The site is hosted on Render's free plan. If it has been idle, the first page\n> load can take up to a minute while the server wakes up."
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:1",
+      "title": "Tech World E-Commerce — README: For customers",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n### For customers\n- Browse the product catalogue with live search and category filters\n- Create an account, log in and log out securely\n- Add products to the cart, change quantities and remove items\n- See stock availability and cart totals update instantly\n- Check out with a shipping address and pay by cash on delivery\n- View order history with order status and payment status"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:2",
+      "title": "Tech World E-Commerce — README: For administrators",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n### For administrators\n- Dashboard with active products, total orders, orders to process and revenue\n- Add, edit, hide and restore products\n- Upload product images straight from the dashboard\n- Update order status (Pending → Confirmed → Shipped → Delivered, or Cancelled)\n- Stock is returned automatically when an order is cancelled\n- View all registered customers"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:3",
+      "title": "Tech World E-Commerce — README: Security",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n### Security\n- Passwords are hashed with bcrypt and never stored in plain text\n- Login sessions are stored in the database with secure, HTTP-only cookies\n- Admin pages and actions are protected on the server\n- Prices and stock are always checked on the server, never trusted from the browser"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:4",
+      "title": "Tech World E-Commerce — README: Tools and technologies",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n## Tools and technologies\n| Area | Tools |\n|---|---|\n| Frontend | HTML5, CSS3, JavaScript, Bootstrap 5 |\n| Backend | Node.js, Express.js |\n| Database | MongoDB Atlas, Mongoose |\n| Authentication | express-session, connect-mongo, bcryptjs |\n| Image uploads | Cloudinary, Multer |\n| Testing | Automated end-to-end test of the full shopping flow (Node.js) |\n| Version control | Git, GitHub |\n| Hosting | Render |\n| Code editor | Visual Studio Code |"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:5",
+      "title": "Tech World E-Commerce — README: Pages",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n## Pages\n| Page | Description |\n|---|---|\n| Home | Product catalogue with search and filters |\n| Register / Log in | Customer accounts |\n| Cart | Review items, change quantities and see totals |\n| Checkout | Shipping details and cash-on-delivery order |\n| My orders | Order history and status tracking |\n| Admin dashboard | Manage products, orders and customers |"
+    },
+    {
+      "projectId": "corizo-ecommerce",
+      "id": "corizo-ecommerce:readme:6",
+      "title": "Tech World E-Commerce — README: Project structure",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/corizo-ecommerce-website#readme",
+      "text": "Project: Tech World E-Commerce. Status: In development. Source: project README.\n## Project structure\n```\n├── models/        Database schemas (User, Product, Order)\n├── routes/        API routes (auth, products, cart, orders, uploads)\n├── middleware/    Login and admin access checks\n├── public/        Website pages, styles, scripts and product images\n├── test/          End-to-end shopping flow test\n├── server.js      Express server\n└── seed.js        Loads the starting product catalogue\n```\n---\nNausheen's e-commerce project, built with HTML, Bootstrap, Node.js and MongoDB."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:0",
+      "title": "Student Management App — README: Corizo Student Management CRUD Application",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n# Corizo Student Management CRUD Application\nA responsive full-stack Student Management application developed as part of my Corizo Web Development training."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:1",
+      "title": "Student Management App — README: Live Demo",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Live Demo\n**Live Application:** https://corizo-student-management.onrender.com/\n**GitHub Repository:** https://github.com/Nausheen1295/Corizo-CRUD-Application"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:2",
+      "title": "Student Management App — README: Overview",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Overview\nThe application allows users to manage student records through a simple dashboard. It supports creating, viewing, updating, deleting, and searching student information."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:3",
+      "title": "Student Management App — README: Features",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Features\n- Create new student records\n- View all registered students\n- Update existing student details\n- Delete student records with confirmation\n- Search by student name, email, phone number, or course\n- Validate required form fields\n- Prevent duplicate email addresses\n- Store records in MongoDB Atlas\n- Responsive interface built with Bootstrap\n- REST API built with Express.js"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:4",
+      "title": "Student Management App — README: Technology Stack",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Technology Stack\n**Frontend:** HTML5, CSS3, JavaScript, Bootstrap 5\n**Backend:** Node.js, Express.js\n**Database:** MongoDB Atlas, Mongoose\n**Tools:** Visual Studio Code, Git, GitHub, Render"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:5",
+      "title": "Student Management App — README: Project Structure",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Project Structure\n```text\nCorizo-CRUD-Application/\n├── models/\n│   └── Student.js\n├── routes/\n│   └── studentRoutes.js\n├── public/\n│   ├── index.html\n│   ├── style.css\n│   └── script.js\n├── .env\n├── .gitignore\n├── server.js\n├── package.json\n└── package-lock.json\n```"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:6",
+      "title": "Student Management App — README: Run Locally",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Run Locally\n1. Install Node.js.\n2. Clone this repository.\n3. Install the dependencies:\n   ```bash\n   npm install\n   ```\n4. Create a `.env` file in the project root:\n   ```env\n   MONGO_URI=YOUR_MONGODB_ATLAS_CONNECTION_STRING\n   PORT=5000\n   ```\n5. Replace the placeholder with your own MongoDB Atlas connection string.\n6. Start the development server:\n   ```bash\n   npm run dev\n   ```\n7. Open `http://localhost:5000` in your browser."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:7",
+      "title": "Student Management App — README: API Endpoints",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## API Endpoints\n| Method | Endpoint | Description |\n|---|---|---|\n| GET | `/api/students` | Retrieve all students |\n| GET | `/api/students/:id` | Retrieve one student |\n| POST | `/api/students` | Create a student |\n| PUT | `/api/students/:id` | Update a student |\n| DELETE | `/api/students/:id` | Delete a student |\n| GET | `/api/test` | Check API status |\nSearch example: `/api/students?search=Computer`"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:8",
+      "title": "Student Management App — README: Learning Outcomes",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Learning Outcomes\n- Understanding CRUD operations and REST APIs\n- Connecting a Node.js backend to MongoDB Atlas\n- Implementing frontend/backend communication with Fetch API\n- Organizing an application using models and routes\n- Using Git and GitHub for version control\n- Deploying a full-stack application to a cloud hosting platform"
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:9",
+      "title": "Student Management App — README: Security Notes",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Security Notes\n- Database credentials must remain in environment variables.\n- The `.env` file must not be committed to GitHub.\n- Demo data should be fictional.\n- Production deployments should use appropriate database access restrictions."
+    },
+    {
+      "projectId": "corizo-student-management",
+      "id": "corizo-student-management:readme:10",
+      "title": "Student Management App — README: Credits",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
+      "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Credits\nDeveloped as part of Corizo Web Development training."
     },
     {
       "projectId": "packet-sniffer",

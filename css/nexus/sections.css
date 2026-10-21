@@ -124,6 +124,7 @@ span[data-icon] svg { width: 18px; height: 18px; }
 .nx-tl-when { font-family: var(--nx-font-mono); font-size: var(--nx-text-xs); color: var(--nx-accent); letter-spacing: .08em; text-transform: uppercase; }
 .nx-tl h3 { font-size: var(--nx-text-lg); margin: 4px 0; }
 .nx-tl p { font-size: var(--nx-text-sm); }
+.nx-tl a { color: var(--nx-accent); text-decoration: underline; text-underline-offset: 3px; }
 .nx-facts { position: sticky; top: 96px; gap: var(--nx-space-5); }
 .nx-facts h3 { font-size: var(--nx-text-xl); }
 .nx-facts dl > div { display: flex; justify-content: space-between; gap: var(--nx-space-4); padding: var(--nx-space-3) 0; border-bottom: 1px solid var(--nx-line); font-size: var(--nx-text-sm); }

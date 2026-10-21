@@ -29,6 +29,20 @@ export const PROFILE = {
 
   experience: [
     {
+      title: "Web Development Trainee & Intern",
+      org: "Corizo (with IIT Bombay's Mood Indigo)",
+      period: "Sep 2026 – present",
+      detail: "Certified training in web development (5 Sep – 5 Oct 2026), then the internship phase: built and deployed a " +
+        "Student Management CRUD app (minor project) and a full-stack e-commerce store (major project, ongoing).",
+    },
+    {
+      title: "Machine Learning Trainee & Intern",
+      org: "Corizo (with IIT Bombay's Mood Indigo)",
+      period: "Sep 2026 – present",
+      detail: "Certified training in machine learning (5 Sep – 5 Oct 2026), then the internship phase: completed a Stock Price " +
+        "Prediction minor project comparing Ridge Regression, Random Forest and LSTM models.",
+    },
+    {
       title: "Rotational Intern",
       org: "Medulla",
       period: "2025",
@@ -54,26 +68,26 @@ export const PROFILE = {
  */
 export const SKILL_GROUPS = [
   { id: "ai",       name: "AI & Machine Learning", icon: "cpu",
-    items: ["AI Agents", "Workflow Automation", "Prompt Engineering", "AI threat detection"],
-    evidence: ["securevault-ai", "nexa"] },
+    items: ["Machine learning (scikit-learn)", "Deep learning (LSTM, Keras)", "AI Agents", "Workflow Automation", "Prompt Engineering", "AI threat detection"],
+    evidence: ["stock-price-prediction", "securevault-ai", "nexa"] },
   { id: "software", name: "Software Development",  icon: "code",
     items: ["Python", "Java", "JavaScript", "TypeScript", "REST APIs", "Android Studio"],
     evidence: ["securevault-ai", "playfair-cipher", "playground"] },
   { id: "web",      name: "Web Development",       icon: "globe",
-    items: ["React", "Vite", "HTML", "CSS", "Canvas", "Responsive design"],
-    evidence: ["securevault-ai", "playground"] },
+    items: ["Node.js", "Express.js", "REST APIs", "Bootstrap", "React", "Vite", "HTML", "CSS", "Canvas", "Responsive design"],
+    evidence: ["corizo-ecommerce", "corizo-student-management", "securevault-ai", "playground"] },
   { id: "security", name: "Cybersecurity",         icon: "shield",
     items: ["AES-256-GCM", "PBKDF2", "WebAuthn", "Cryptography", "Packet analysis (Scapy)", "Phishing awareness"],
     evidence: ["securevault-ai", "playfair-cipher", "packet-sniffer"] },
   { id: "data",     name: "Databases & Data",      icon: "database",
-    items: ["Oracle SQL", "Database design", "Data analysis", "Jupyter"],
-    evidence: ["northstar-analysis"] },
+    items: ["MongoDB Atlas", "Mongoose", "Oracle SQL", "Database design", "Data analysis", "pandas", "Jupyter"],
+    evidence: ["corizo-ecommerce", "stock-price-prediction", "northstar-analysis"] },
   { id: "design",   name: "UI / UX",               icon: "pen",
     items: ["Figma", "Wireframing", "Prototyping", "User-centered design"],
     evidence: ["securevault-ai"] },
   { id: "cloud",    name: "Cloud & Deployment",    icon: "cloud",
-    items: ["Vercel", "GitHub Pages", "Ethereum testnet (Sepolia)"],
-    evidence: ["securevault-ai"] },
+    items: ["Render", "Vercel", "GitHub Pages", "Ethereum testnet (Sepolia)"],
+    evidence: ["corizo-ecommerce", "securevault-ai"] },
   { id: "tools",    name: "Developer Tools",       icon: "terminal",
     items: ["Git & GitHub", "VS Code", "Linux", "Cisco Packet Tracer"],
     evidence: [] },

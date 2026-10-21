@@ -20,16 +20,22 @@
 ## About me
 I'm an aspiring AI & Software Developer and a Computer Science (Hons) student at the University of West London
 (Oct 2023 – May 2026), dedicated to building intelligent, secure and user-centered software. I have hands-on
-experience across software development, databases, UI/UX design and cybersecurity. As a **Rotational Intern at
-Medulla (2025)** I worked across the Technical, Database, and CSR & Marketing functions.
+experience across software development, databases, UI/UX design and cybersecurity.
+
+### Experience
+| When | Role | What I did |
+|---|---|---|
+| Sep 2026 – present | **Web Development Trainee & Intern · Corizo** (with IIT Bombay's Mood Indigo) | Certified web development training (5 Sep – 5 Oct 2026), then the internship phase: built and deployed a [Student Management CRUD app](https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management) (minor project) and a full-stack [e-commerce store](https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce) (major project, ongoing). |
+| Sep 2026 – present | **Machine Learning Trainee & Intern · Corizo** (with IIT Bombay's Mood Indigo) | Certified machine learning training (5 Sep – 5 Oct 2026), then the internship phase: a [Stock Price Prediction](https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction) minor project comparing Ridge Regression, Random Forest and LSTM models. |
+| 2025 | **Rotational Intern · Medulla** | Rotated across Technical, Database, and CSR & Marketing functions: IT support, data management and cross-team collaboration. |
 
 ---
 
 ## What's in the portfolio
 
-### 🌌 The NEXUS Universe: seven research labs
+### 🌌 The NEXUS Universe: eight research labs
 The home page opens with a short "INITIALIZING NEXUS…" intro, which you can skip, followed by an interactive map. **NEXUS Core**
-sits at the centre, connected to seven labs. Select a lab to see its projects (on phones, swipe through them).
+sits at the centre, connected to eight labs. Select a lab to see its projects (on phones, swipe through them).
 
 | Lab | Focus | Flagship |
 |---|---|---|
@@ -40,6 +46,7 @@ sits at the centre, connected to seven labs. Select a lab to see its projects (o
 | LAB-05 · Earth Lab | Climate and geospatial intelligence | EarthPulse |
 | LAB-06 · Bio Lab | Computer vision for the living world | FloraMind AI |
 | LAB-07 · Experimental Lab | Games, mini-apps and experiments | NEXUS Playground |
+| LAB-08 · Web Lab | Full-stack web applications, from REST APIs to deployed products | Tech World E-Commerce |
 
 ### 🧪 Projects
 Every project is labelled honestly. **Live** and **Completed** projects are real and public; **Concept** projects
@@ -48,6 +55,9 @@ are designed but not built yet.
 | Project | Lab | Status | What it is |
 |---|---|---|---|
 | **[SecureVault AI](https://nausheen1295.github.io/portfolio/project.html?id=securevault-ai)** · [live demo](https://securevaultai-brown.vercel.app) · [code](https://github.com/Nausheen1295/securevault-ai) | Security | **Live** | File encryption meets AI-powered threat detection: AES-256-GCM encryption that runs locally (PBKDF2, 310k iterations), an AI threat scanner, WebAuthn biometric login, a blockchain key vault on Ethereum Sepolia, and zero-knowledge sharing. |
+| **[Tech World E-Commerce](https://nausheen1295.github.io/portfolio/project.html?id=corizo-ecommerce)** · [live store](https://corizo-store.onrender.com) · [code](https://github.com/Nausheen1295/corizo-ecommerce-website) | Web | In development | Corizo major project: a full-stack electronics store with customer accounts, cart, cash-on-delivery checkout, order tracking, and an admin dashboard for products, stock and orders. Node.js, Express, MongoDB Atlas, bcrypt and secure sessions, deployed on Render. |
+| **[Student Management App](https://nausheen1295.github.io/portfolio/project.html?id=corizo-student-management)** · [live app](https://corizo-student-management.onrender.com/) · [code](https://github.com/Nausheen1295/Corizo-CRUD-Application) | Web | Completed | Corizo minor project: a full-stack CRUD app with a REST API to create, view, update, delete and search student records. Bootstrap, Express and MongoDB Atlas, deployed on Render. |
+| **[Stock Price Prediction](https://nausheen1295.github.io/portfolio/project.html?id=stock-price-prediction)** · [notebook](projects/stock-price-prediction) | AI | Completed | Corizo ML minor project: forecasts Apple's next-day close with Ridge Regression, Random Forest and an LSTM, then tests honestly against baselines. No model beat the naive baseline, and Random Forest's 53.4% directional accuracy wasn't statistically significant. |
 | [NR Playfair Cipher](https://github.com/Nausheen1295/NR-Playfair-Cipher) | Security | Completed | A modified Playfair cipher supporting upper- and lowercase letters, numbers and special characters (Python). |
 | [Packet Sniffer](https://github.com/Nausheen1295/CodeAlpha_CyberSecurity) | Security | Completed | A network packet sniffer built with Python and Scapy, plus a phishing-awareness video. |
 | [NorthStar Mobility Analysis](https://github.com/Nausheen1295/NorthStar-Coursework) | Data | Completed | Coursework analysing urban mobility and logistics data in Jupyter. |
@@ -124,7 +134,7 @@ Small games and tools built from scratch in vanilla JavaScript, with no librarie
 ### ⌨️ Extras
 - **Command Center:** press **Ctrl + K** (⌘K on Mac) or **/** to search projects, skills, labs and certifications, or type
   commands like `> open security lab`, `> explain securevault`, `> show certifications`, `> start interview`.
-- **Exploration achievements:** subtle badges for exploring each lab, plus a NEXUS Explorer badge for visiting all seven.
+- **Exploration achievements:** subtle badges for exploring each lab, plus a NEXUS Explorer badge for visiting all of them.
 - **Themes:** dark and light (very light blue) modes, remembered between visits.
 - A few hidden surprises for curious visitors.
 
@@ -141,7 +151,7 @@ Small games and tools built from scratch in vanilla JavaScript, with no librarie
   metadata, Open Graph previews, structured data, a sitemap and a custom 404 page.
 - **NEXA backend** (`nexa-backend/`): a FastAPI service with retrieval over the portfolio's knowledge base and an LLM provider,
   deployed separately. It has validation, rate limiting, CORS and citation checks, and keeps its API key server-side only.
-- **Tested:** 104 end-to-end browser tests (Playwright), 18 content guardrail tests and 34 backend tests.
+- **Tested:** 111 end-to-end browser tests (Playwright), 18 content guardrail tests and 34 backend tests.
 
 <details>
 <summary><strong>Developer notes</strong> (structure, running locally, tests, editing content)</summary>
@@ -160,6 +170,7 @@ js/sections/          universe map, journey, data-driven sections
 js/ui/                components, icons, project dialog, architecture diagram, certificate viewer
 js/nexa/              NEXA client + chat interface (config.js holds the backend URL; never secrets)
 playground/           Games: Snake, Memory Match, Pixel Studio, Air Pop
+projects/             Project source that isn't in its own repo (Stock Price Prediction notebook)
 assets/               Social preview image, project screenshots, certificates
 tools/                Knowledge export, sitemap and module-preload generators
 tests/                Content guardrails + Playwright end-to-end tests

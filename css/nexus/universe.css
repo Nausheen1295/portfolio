@@ -129,6 +129,7 @@
   .nx-uni-slide[data-lab="earth"]        { --_hue: var(--nx-lab-earth); }
   .nx-uni-slide[data-lab="bio"]          { --_hue: var(--nx-lab-bio); }
   .nx-uni-slide[data-lab="experimental"] { --_hue: var(--nx-lab-experimental); }
+  .nx-uni-slide[data-lab="web"]          { --_hue: var(--nx-lab-web); }
   .nx-uni-slide .nx-btn { margin-top: auto; align-self: flex-start; }
 
   .nx-uni-dots { display: flex; justify-content: center; gap: var(--nx-space-2); margin-top: var(--nx-space-2); }

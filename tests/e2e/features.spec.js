@@ -188,11 +188,11 @@ test.describe("command center", () => {
 
 /* ---------------------------------------------------------------- Achievements & easter eggs */
 test.describe("achievements", () => {
-  test("exploring a lab unlocks it; all seven unlock NEXUS Explorer", async ({ page }) => {
+  test("exploring a lab unlocks it; all labs unlock NEXUS Explorer", async ({ page }) => {
     await page.goto("./#universe");
     await page.locator('.nx-uni-node[data-lab="earth"]').click();
     await expect(page.locator(".nx-achv")).toContainText("Earth Explorer");
-    for (const lab of ["security", "ai", "knowledge", "data", "bio", "experimental"]) await page.locator(`.nx-uni-node[data-lab="${lab}"]`).click();
+    for (const lab of ["security", "ai", "knowledge", "data", "bio", "experimental", "web"]) await page.locator(`.nx-uni-node[data-lab="${lab}"]`).click();
     await expect(page.locator(".nx-achv", { hasText: "NEXUS Explorer" })).toBeVisible({ timeout: 5_000 });
     const stored = await page.evaluate(() => JSON.parse(localStorage.getItem("nx-achievements")));
     expect(stored).toContain("nexus");
