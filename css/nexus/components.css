@@ -217,6 +217,7 @@ textarea.nx-input { resize: vertical; min-height: 120px; }
 .nx-lab[data-lab="earth"]        { --_hue: var(--nx-lab-earth); }
 .nx-lab[data-lab="bio"]          { --_hue: var(--nx-lab-bio); }
 .nx-lab[data-lab="experimental"] { --_hue: var(--nx-lab-experimental); }
+.nx-lab[data-lab="web"]          { --_hue: var(--nx-lab-web); }
 
 /* --------------------------------------------------------------------------
    Project card

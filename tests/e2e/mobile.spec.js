@@ -18,7 +18,7 @@ test("mobile menu opens, navigates, and closes with Escape", async ({ page }) =>
 test("universe becomes a swipeable carousel with lab dots", async ({ page }) => {
   await page.goto("./#universe");
   await expect(page.locator(".nx-uni-map")).toBeHidden();
-  await expect(page.locator(".nx-uni-slide")).toHaveCount(7);
+  await expect(page.locator(".nx-uni-slide")).toHaveCount(8);
   await page.getByRole("group", { name: "Jump to lab" }).getByRole("button", { name: "Earth Lab" }).click();
   await expect(page.locator('.nx-uni-dots [data-goto="earth"]')).toHaveAttribute("aria-current", "true");
   await expect(page.locator('.nx-uni-slide[data-lab="earth"]')).toBeInViewport();

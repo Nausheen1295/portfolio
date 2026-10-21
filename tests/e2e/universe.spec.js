@@ -20,7 +20,7 @@ test.describe("universe map", () => {
     await expect(page.locator('.nx-uni-node[data-lab="ai"]')).toBeFocused();
     await expect(page.locator('.nx-uni-node[data-lab="ai"]')).toHaveAttribute("aria-pressed", "true");
     await page.keyboard.press("End");
-    await expect(page.locator('.nx-uni-node[data-lab="experimental"]')).toBeFocused();
+    await expect(page.locator('.nx-uni-node[data-lab="web"]')).toBeFocused();
     await page.keyboard.press("ArrowRight");
     await expect(page.locator('.nx-uni-node[data-lab="security"]')).toBeFocused();
   });
@@ -44,7 +44,7 @@ test.describe("projects", () => {
   test("all projects listed with honest status badges", async ({ page }) => {
     await page.goto("./#projects");
     const cards = page.locator("#projectGrid .nx-project");
-    await expect(cards).toHaveCount(10);
+    await expect(cards).toHaveCount(13);
     await expect(page.locator('[data-project="securevault-ai"] .nx-badge')).toHaveText("Live");
     for (const id of ["nexa", "mindscape-ai", "insightforge", "earthpulse", "floramind-ai"]) {
       await expect(page.locator(`[data-project="${id}"] .nx-badge`)).toHaveText("Concept");
@@ -57,7 +57,7 @@ test.describe("projects", () => {
     await page.locator("#projectFilter").getByRole("button", { name: "Data Lab" }).click();
     await expect(page.locator("#projectGrid .nx-project")).toHaveCount(2);
     await page.locator("#projectFilter").getByRole("button", { name: "All" }).click();
-    await expect(page.locator("#projectGrid .nx-project")).toHaveCount(10);
+    await expect(page.locator("#projectGrid .nx-project")).toHaveCount(13);
   });
 
   test("quick view opens, links to the case study, closes with Escape", async ({ page }) => {

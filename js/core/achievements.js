@@ -1,6 +1,6 @@
 /* ==========================================================================
    NEXUS — exploration achievements (subtle, local to this browser)
-   One per lab, "NEXUS Explorer" for all seven, plus a hidden one.
+   One per lab, "NEXUS Explorer" for exploring every lab, plus a hidden one.
    Stored in localStorage; announced with a small, polite notification.
    ========================================================================== */
 import { LABS } from "../data/projects.js";
@@ -9,7 +9,7 @@ const KEY = "nx-achievements";
 
 export const ACHIEVEMENTS = [
   ...LABS.map((l) => ({ id: `lab:${l.id}`, title: `${l.name.replace(" Lab", "")} Explorer`, hint: `Explore the ${l.name}`, hue: `var(--nx-lab-${l.id})` })),
-  { id: "nexus", title: "NEXUS Explorer", hint: "Explore all seven labs", hue: "var(--nx-accent)" },
+  { id: "nexus", title: "NEXUS Explorer", hint: `Explore all ${LABS.length} labs`, hue: "var(--nx-accent)" },
   { id: "secret", title: "Signal Found", hint: "Hidden", hue: "var(--nx-violet)", hidden: true },
 ];
 
