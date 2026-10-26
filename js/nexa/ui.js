@@ -14,8 +14,8 @@ import { NEXA_CONFIG } from "./config.js";
 const SUGGESTIONS = {
   recruiter:    ["Explain SecureVault AI like I'm a recruiter", "Which projects use AI?", "Show me Nausheen's cybersecurity work"],
   developer:    ["What technologies does SecureVault AI use?", "Why AES-256-GCM?", "How does the AI threat scanner work?"],
-  simple:       ["Explain SecureVault AI simply", "What is NEXA?", "What will FloraMind AI do?"],
-  architecture: ["Explain the architecture of SecureVault AI", "How will NEXA's RAG pipeline work?", "Where does encryption happen?"],
+  simple:       ["Explain SecureVault AI simply", "What is NEXA?", "What does FloraMind AI do?"],
+  architecture: ["Explain the architecture of SecureVault AI", "How does NEXA's RAG pipeline work?", "Where does encryption happen?"],
   interview:    ["Explain the architecture of SecureVault AI.", "What security mechanisms did you implement?",
                  "Why did you choose your database?", "What was the biggest technical challenge?", "How would you scale this system?"],
 };

@@ -69,7 +69,7 @@
       "title": "NEXUS research labs",
       "section": "universe",
       "url": "https://nausheen1295.github.io/portfolio/#universe",
-      "text": "LAB-01 Security Lab: Encryption, threat detection and privacy-first software. Projects: SecureVault AI (Live), NR Playfair Cipher (Completed), Packet Sniffer (Completed).\nLAB-02 AI Lab: Assistants and agents grounded in real knowledge. Projects: Stock Price Prediction (Completed), NEXA (Concept).\nLAB-03 Knowledge Lab: Tools for thinking, remembering and connecting ideas. Projects: MindScape AI (Concept).\nLAB-04 Data Lab: Turning raw data into decisions and clear visuals. Projects: InsightForge (Concept), NorthStar Mobility Analysis (Completed).\nLAB-05 Earth Lab: Climate and geospatial intelligence from live data. Projects: EarthPulse (Concept).\nLAB-06 Bio Lab: Computer vision for the living world. Projects: FloraMind AI (Concept).\nLAB-07 Experimental Lab: Games, mini-apps and ideas that don't fit anywhere else — yet. Projects: NEXUS Playground (Experimental).\nLAB-08 Web Lab: Full-stack web applications — from REST APIs to deployed products. Projects: Tech World E-Commerce (In development), Student Management App (Completed)."
+      "text": "LAB-01 Security Lab: Encryption, threat detection and privacy-first software. Projects: SecureVault AI (Live), NR Playfair Cipher (Completed), Packet Sniffer (Completed).\nLAB-02 AI Lab: Assistants and agents grounded in real knowledge. Projects: Stock Price Prediction (Completed), NEXA (Live).\nLAB-03 Knowledge Lab: Tools for thinking, remembering and connecting ideas. Projects: MindScape AI (Live).\nLAB-04 Data Lab: Turning raw data into decisions and clear visuals. Projects: InsightForge (Live), NorthStar Mobility Analysis (Completed).\nLAB-05 Earth Lab: Climate and geospatial intelligence from live data. Projects: EarthPulse (Live).\nLAB-06 Bio Lab: Computer vision for the living world. Projects: FloraMind AI (Live).\nLAB-07 Experimental Lab: Games, mini-apps and ideas that don't fit anywhere else — yet. Projects: NEXUS Playground (Experimental).\nLAB-08 Web Lab: Full-stack web applications — from REST APIs to deployed products. Projects: Tech World E-Commerce (In development), Student Management App (Completed)."
     },
     {
       "projectId": "securevault-ai",
@@ -357,7 +357,7 @@
       "title": "NEXA — overview",
       "section": "overview",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI portfolio assistant & digital twin. An assistant that answers questions about Nausheen's projects using retrieval over real project documentation — with recruiter, developer, architecture and interview modes. It must never invent facts."
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nAI portfolio assistant & digital twin. An assistant that answers questions about Nausheen's projects using retrieval over real project documentation, with recruiter, developer, simple, architecture and interview modes. It never invents facts: the website works now as a grounded documentation search, and AI answers switch on once the API is hosted.\nSource code: https://github.com/Nausheen1295/nexa\nLive demo: https://nausheen1295.github.io/nexa/"
     },
     {
       "projectId": "nexa",
@@ -365,15 +365,15 @@
       "title": "NEXA — problem & solution",
       "section": "problem",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#problem",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nProblem: Portfolios are static: visitors can't ask follow-up questions about how or why something was built.\nSolution: Retrieval-augmented generation over READMEs, architecture notes and decisions, answering only from documented sources."
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nProblem: Portfolios are static: visitors can't ask follow-up questions about how or why something was built.\nSolution: Retrieval-augmented generation over READMEs, architecture notes and project data, answering only from retrieved documents and citing them. When nothing relevant is found, NEXA says so without calling the model."
     },
     {
       "projectId": "nexa",
       "id": "nexa:features",
-      "title": "NEXA — planned features",
+      "title": "NEXA — features",
       "section": "features",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#features",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Modes: Recruiter, Developer, Simple, Architecture, Interview\n- Answers grounded in indexed project documentation, with sources\n- Says when information isn't documented instead of guessing\n- Mock technical interview about the portfolio"
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nFeatures:\n- Five answer modes: Recruiter, Developer, Simple, Architecture and Interview\n- Answers grounded in the portfolio's knowledge base, with sources verified server-side\n- Says when something isn't documented instead of guessing\n- Focus on a single project, with follow-up context from the last few turns\n- Documentation-search mode that uses the same BM25 ranking as the API when the AI backend is offline"
     },
     {
       "projectId": "nexa",
@@ -381,7 +381,7 @@
       "title": "NEXA — technologies",
       "section": "stack",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#stack",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, FastAPI, RAG, Vector database, LLM API."
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nTechnologies used: Python, FastAPI, BM25 retrieval, LLM API, Pydantic, Docker, Render, JavaScript, pytest."
     },
     {
       "projectId": "nexa",
@@ -389,7 +389,7 @@
       "title": "NEXA — AI components",
       "section": "ai",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#ai",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Retrieval-augmented generation\n- Persona / mode-conditioned answers\n- Interview simulation"
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nAI / ML components:\n- Retrieval-augmented generation\n- Mode-conditioned answers\n- Structured output with citation checks"
     },
     {
       "projectId": "nexa",
@@ -397,7 +397,7 @@
       "title": "NEXA — security",
       "section": "security",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#security",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nSecurity:\n- API keys kept server-side only\n- Rate limiting and input validation on the API"
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nSecurity:\n- API key kept server-side only (host environment variables); nothing secret in the website\n- CORS allow-list, strict input validation, a 32 KB body cap and per-visitor rate limits\n- Retrieved documents and questions treated as data, never as instructions\n- Logs record counts and latency, never question text"
     },
     {
       "projectId": "nexa",
@@ -405,7 +405,31 @@
       "title": "NEXA — architecture",
       "section": "architecture",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#architecture",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned architecture components:\n- NEXA chat UI (frontend): The chat interface on this portfolio (GitHub Pages). It only talks to the NEXA API.\n- NEXA API (api): Planned separately-hosted backend (GitHub Pages can't run servers). Handles auth, validation and rate limiting.\n- RAG pipeline (ai): Embeds the question, retrieves the most relevant documentation chunks and builds a grounded prompt.\n- Project knowledge base (data): Indexed READMEs, architecture docs, decisions and project metadata — including this site's project data file.\n- LLM (external): Generates the final answer from retrieved context only, citing sources.\nData flow: ui → api; api → rag; rag → kb; rag → llm."
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nArchitecture components:\n- NEXA website (frontend): Static chat site on GitHub Pages (and the NEXA panel in this portfolio). Talks only to the NEXA API; falls back to in-browser BM25 documentation search.\n- NEXA API (api): FastAPI service in Docker on Render. Validates input, enforces CORS and rate limits, and exposes /health and /chat.\n- Retrieval (ai): BM25 with title boosting, synonym expansion and project focus. Always adds a project's 'not yet documented' note so gaps can be cited.\n- Knowledge base (data): Chunks generated from projects.js, profile.js and each project's GitHub README, published by the portfolio and loaded at startup.\n- LLM (external): Writes the answer from the retrieved chunks only, returning JSON with the ids it cited; the API keeps only ids it actually retrieved.\nData flow: ui → api; api → rag; rag → kb; rag → llm."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:challenges",
+      "title": "NEXA — challenges",
+      "section": "challenges",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#challenges",
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nChallenges:\n- Keeping the website's offline search identical to the API's ranking: the BM25 retriever was ported line-for-line from Python to JavaScript\n- Free hosting sleeps when idle, so the site waits up to 70 seconds for the API to wake and answers from documentation meanwhile\n- Host health checks would fail before an API key is set, so liveness (/healthz) and readiness (/health) are separate endpoints"
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:decisions",
+      "title": "NEXA — engineering decisions",
+      "section": "decisions",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#decisions",
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nEngineering decisions:\n- Short-circuit with an honest 'not documented' reply when retrieval finds nothing, without calling the model\n- Only cite documents that were actually retrieved, so the model can't invent a source\n- Publish the knowledge base from the portfolio so the API and website always read the same facts"
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:database",
+      "title": "NEXA — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#database",
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nDatabase: No database: a JSON knowledge base exported from the portfolio's project data and READMEs, published at /knowledge/portfolio.json."
     },
     {
       "projectId": "nexa",
@@ -413,7 +437,7 @@
       "title": "NEXA — development timeline",
       "section": "timeline",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa#timeline",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined: purpose, modes and a planned RAG architecture."
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nDocumented development stages:\n- Idea: Concept defined: purpose, modes and a RAG architecture.\n- Development (2026-10): API (FastAPI, BM25, grounded generation with citation checks) and standalone website built.\n- Testing: 37 backend tests (API contract, safety, retrieval quality) run without network or API key; browser checks of the website.\n- Deployment: Website live on GitHub Pages. The API ships with a Render blueprint and answers with AI once it is hosted with an API key."
     },
     {
       "projectId": "nexa",
@@ -421,7 +445,7 @@
       "title": "NEXA — not yet documented",
       "section": "undocumented",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=nexa",
-      "text": "Project: NEXA (AI Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for NEXA: Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+      "text": "Project: NEXA (AI Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for NEXA: Nausheen's role; results or metrics. Do not guess these — say they are not documented yet."
     },
     {
       "projectId": "mindscape-ai",
@@ -429,15 +453,23 @@
       "title": "MindScape AI — overview",
       "section": "overview",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai",
-      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI-powered second brain. A knowledge-management platform that captures notes, links related ideas automatically and lets you query your own knowledge."
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nAI-powered second brain. A private knowledge-management app: write Markdown notes, and an on-device AI model links related ideas, maps them as a graph and answers questions with passages from your own notes.\nSource code: https://github.com/Nausheen1295/mindscape-ai\nLive demo: https://nausheen1295.github.io/mindscape-ai/"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:problem-solution",
+      "title": "MindScape AI — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#problem",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nProblem: Notes pile up in folders, and the connections between ideas get lost unless you remember to link them yourself.\nSolution: Turn every note into a sentence embedding on the device, then use similarity to suggest related notes, power search by meaning, draw a knowledge graph and find the passages that answer a question."
     },
     {
       "projectId": "mindscape-ai",
       "id": "mindscape-ai:features",
-      "title": "MindScape AI — planned features",
+      "title": "MindScape AI — features",
       "section": "features",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#features",
-      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Note capture\n- Automatic linking of related ideas\n- Semantic search across your knowledge"
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nFeatures:\n- Markdown notes with live preview, #tags, [[wiki links]] and backlinks; autosave\n- Related-by-meaning panel with one-click linking\n- Semantic search that blends meaning and keywords\n- Interactive force-directed knowledge graph with an adjustable similarity threshold\n- Ask your notes: extractive answers with their source notes\n- JSON export/import, Markdown download, sample notebook"
     },
     {
       "projectId": "mindscape-ai",
@@ -445,7 +477,7 @@
       "title": "MindScape AI — technologies",
       "section": "stack",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#stack",
-      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, Embeddings, Graph visualisation."
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nTechnologies used: JavaScript, Transformers.js, all-MiniLM-L6-v2, Web Workers, IndexedDB, D3, marked, DOMPurify."
     },
     {
       "projectId": "mindscape-ai",
@@ -453,7 +485,47 @@
       "title": "MindScape AI — AI components",
       "section": "ai",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#ai",
-      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Semantic search\n- Idea linking"
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nAI / ML components:\n- Sentence embeddings (all-MiniLM-L6-v2, 384 dimensions) computed on-device\n- Semantic search and related-note linking by cosine similarity\n- Extractive question answering over note passages\n- TF-IDF keyword fallback while the model loads"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:security",
+      "title": "MindScape AI — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#security",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nSecurity:\n- Notes and embeddings stay in the browser (IndexedDB); nothing is sent to a server\n- Rendered Markdown is sanitised with DOMPurify"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:architecture",
+      "title": "MindScape AI — architecture",
+      "section": "architecture",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#architecture",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nArchitecture components:\n- Notes app (frontend): Editor, note list, connections panel, graph and Ask views. Static site on GitHub Pages.\n- Embedding worker (ai): Web Worker running all-MiniLM-L6-v2 with Transformers.js, so typing never stutters.\n- Similarity engine (ai): Cosine similarity for related notes, search and graph links; TF-IDF fallback; passage chunking for Ask.\n- IndexedDB (data): Notes and cached embeddings, stored only in this browser.\n- Model files (external): The ~23 MB model downloads once from Hugging Face and is cached by the browser.\nData flow: ui → worker; worker → hub; ui → sim; ui → db; sim → db."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:challenges",
+      "title": "MindScape AI — challenges",
+      "section": "challenges",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#challenges",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nChallenges:\n- A new note waited for its database write before opening, so fast typing was overwritten; it now opens first and saves in the background\n- Embedding similarity and TF-IDF overlap run in different ranges, so thresholds are tuned per engine\n- The model is ~23 MB, so it loads in a Web Worker while the app works in keyword mode"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:decisions",
+      "title": "MindScape AI — engineering decisions",
+      "section": "decisions",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#decisions",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nEngineering decisions:\n- Extractive answers only: no generative model, so it can't invent facts about your notes\n- Each note keeps at most its strongest few semantic partners, so a general note can't link to everything"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:database",
+      "title": "MindScape AI — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#database",
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nDatabase: IndexedDB in the browser: notes, plus an embedding cache keyed by a hash of each note's text."
     },
     {
       "projectId": "mindscape-ai",
@@ -461,7 +533,7 @@
       "title": "MindScape AI — development timeline",
       "section": "timeline",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai#timeline",
-      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nDocumented development stages:\n- Idea: Concept defined: note capture, automatic linking and semantic search.\n- Development (2026-10): Built and published as a standalone app.\n- Testing: Unit tests for parsing, TF-IDF, similarity and chunking; browser checks of the AI model, search, graph, Ask and persistence.\n- Deployment: Deployed on GitHub Pages."
     },
     {
       "projectId": "mindscape-ai",
@@ -469,7 +541,7 @@
       "title": "MindScape AI — not yet documented",
       "section": "undocumented",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai",
-      "text": "Project: MindScape AI (Knowledge Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for MindScape AI: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+      "text": "Project: MindScape AI (Knowledge Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for MindScape AI: Nausheen's role; results or metrics. Do not guess these — say they are not documented yet."
     },
     {
       "projectId": "insightforge",
@@ -477,15 +549,23 @@
       "title": "InsightForge — overview",
       "section": "overview",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge",
-      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI data analytics & visualisation. Upload a dataset, get automatic profiling, charts and plain-language insights."
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nData analytics & visualisation. Drop in a CSV and get automatic profiling, recommended charts and plain-language insights, all processed in the browser.\nSource code: https://github.com/Nausheen1295/insightforge\nLive demo: https://nausheen1295.github.io/insightforge/"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:problem-solution",
+      "title": "InsightForge — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#problem",
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nProblem: Exploring a new dataset means writing the same profiling code and charts every time before you learn anything.\nSolution: Infer each column's type, compute its statistics, rank the strongest patterns as plain-language findings with their evidence, and pick the charts that suit the data."
     },
     {
       "projectId": "insightforge",
       "id": "insightforge:features",
-      "title": "InsightForge — planned features",
+      "title": "InsightForge — features",
       "section": "features",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#features",
-      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Dataset upload & profiling\n- Automatic chart suggestions\n- Natural-language insights"
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nFeatures:\n- CSV, TSV, delimited text and JSON: drag and drop, file picker or paste (up to 50 MB)\n- Column profiling: type, missing values, distinct counts, summary statistics, outliers and mini histograms\n- Ranked insights: trends, correlations, group differences, skew, outliers, imbalance and data-quality issues\n- Recommended charts plus a chart builder (bar, line, scatter, histogram)\n- Correlation heatmap, filterable and sortable data table, Markdown report download"
     },
     {
       "projectId": "insightforge",
@@ -493,7 +573,7 @@
       "title": "InsightForge — technologies",
       "section": "stack",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#stack",
-      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, Pandas, SQL, Data visualisation."
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nTechnologies used: JavaScript, Chart.js, PapaParse, Node test runner."
     },
     {
       "projectId": "insightforge",
@@ -501,7 +581,39 @@
       "title": "InsightForge — AI components",
       "section": "ai",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#ai",
-      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Insight generation\n- Chart recommendation"
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nAI / ML components:\n- Rule-based insight engine: trends, Pearson correlations, group effects (η²), skew and outliers\n- Automatic chart recommendation from column types and relationships"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:security",
+      "title": "InsightForge — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#security",
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nSecurity:\n- Files are processed in the browser and never uploaded\n- All cell values are escaped before display"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:challenges",
+      "title": "InsightForge — challenges",
+      "section": "challenges",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#challenges",
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nChallenges:\n- Prices that rise together correlate strongly just because they share a trend, so insights add that caveat when a date column is present\n- Trend findings were ranked unfairly (+741% below +115%) until their scores were log-scaled\n- Type inference had to handle currency symbols, thousands separators, percentages, missing-value markers and day-first dates"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:decisions",
+      "title": "InsightForge — engineering decisions",
+      "section": "decisions",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#decisions",
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nEngineering decisions:\n- Statistics rather than a language model: private, instant, reproducible, and every sentence traceable to a number\n- Colour-blind-checked palettes in both themes, and a table view for every chart"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:database",
+      "title": "InsightForge — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#database",
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nDatabase: None: files are parsed in the browser and kept only in memory."
     },
     {
       "projectId": "insightforge",
@@ -509,7 +621,7 @@
       "title": "InsightForge — development timeline",
       "section": "timeline",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge#timeline",
-      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nDocumented development stages:\n- Idea: Concept defined: upload, profiling, chart suggestions and plain-language insights.\n- Development (2026-10): Built and published as a standalone app.\n- Testing: Unit tests for parsing, type inference, statistics and insights on the sample datasets; browser and accessibility checks.\n- Deployment: Deployed on GitHub Pages."
     },
     {
       "projectId": "insightforge",
@@ -517,7 +629,7 @@
       "title": "InsightForge — not yet documented",
       "section": "undocumented",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=insightforge",
-      "text": "Project: InsightForge (Data Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for InsightForge: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+      "text": "Project: InsightForge (Data Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for InsightForge: Nausheen's role; results or metrics. Do not guess these — say they are not documented yet."
     },
     {
       "projectId": "earthpulse",
@@ -525,15 +637,23 @@
       "title": "EarthPulse — overview",
       "section": "overview",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse",
-      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nClimate & geospatial intelligence. A platform that brings real-time earth and climate data together on interactive maps."
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nClimate & geospatial intelligence. A live world map of earthquakes and natural events, with weather, air quality and a climate trend since 1950 for any place you pick.\nSource code: https://github.com/Nausheen1295/earthpulse\nLive demo: https://nausheen1295.github.io/earthpulse/"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:problem-solution",
+      "title": "EarthPulse — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#problem",
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nProblem: Earth data is scattered across agencies and formats, so seeing what's happening now, and how a place's climate has changed, takes several sites.\nSolution: One map pulls live feeds from USGS, NASA EONET and Open-Meteo directly in the browser, and turns any clicked point into weather, air quality and warming stripes."
     },
     {
       "projectId": "earthpulse",
       "id": "earthpulse:features",
-      "title": "EarthPulse — planned features",
+      "title": "EarthPulse — features",
       "section": "features",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#features",
-      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Real-time climate data feeds\n- Geospatial map visualisation\n- Trend and anomaly views"
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nFeatures:\n- Live USGS earthquakes (past day, week or month), sized by magnitude and coloured by depth\n- Open NASA EONET natural events: wildfires, storms, volcanoes and more\n- Current weather and 7-day forecast for any point, search or your location\n- Air quality: US AQI, PM2.5, PM10, ozone and NO₂\n- Warming stripes and yearly anomalies since 1950 against the 1991–2020 average, with trend per decade\n- Shareable links and auto-refresh every 5 minutes"
     },
     {
       "projectId": "earthpulse",
@@ -541,7 +661,47 @@
       "title": "EarthPulse — technologies",
       "section": "stack",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#stack",
-      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): JavaScript, Mapping library, Public climate APIs."
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nTechnologies used: JavaScript, Leaflet, OpenStreetMap, USGS Earthquake API, NASA EONET API, Open-Meteo APIs, SVG charts."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:security",
+      "title": "EarthPulse — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#security",
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nSecurity:\n- No backend and no API keys: every data source is public\n- All text from external feeds is escaped before display"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:architecture",
+      "title": "EarthPulse — architecture",
+      "section": "architecture",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#architecture",
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nArchitecture components:\n- Map app (frontend): Leaflet map with layers, tabs and the place panel. Static site on GitHub Pages.\n- Climate engine (ai): Turns ~27,000 daily ERA5 values into yearly anomalies, a trend per decade and a 12-month anomaly, in the browser.\n- USGS & NASA EONET (external): Live earthquake GeoJSON feeds and open natural events.\n- Open-Meteo (external): Forecast, air-quality, geocoding and ERA5 archive APIs.\n- OpenStreetMap (external): Map tiles and reverse geocoding for clicked points.\nData flow: ui → usgs; ui → meteo; ui → osm; ui → climate."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:challenges",
+      "title": "EarthPulse — challenges",
+      "section": "challenges",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#challenges",
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nChallenges:\n- The planned basemap provider started requiring an API key, so the map moved to OpenStreetMap tiles, darkened with a CSS filter in dark mode\n- Partial years made the climate trend look artificially warm or cold, so only years with at least 360 days of data count\n- Fast clicks raced several requests at once; a request token makes sure only the newest place renders"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:decisions",
+      "title": "EarthPulse — engineering decisions",
+      "section": "decisions",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#decisions",
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nEngineering decisions:\n- No backend: every source is keyless and allows browser requests, so the app is a static site\n- Each panel fails on its own, so one slow source never blanks the page"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:database",
+      "title": "EarthPulse — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#database",
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nDatabase: None: live public APIs; the selected place is kept in the URL."
     },
     {
       "projectId": "earthpulse",
@@ -549,7 +709,7 @@
       "title": "EarthPulse — development timeline",
       "section": "timeline",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse#timeline",
-      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nDocumented development stages:\n- Idea: Concept defined: real-time climate feeds, maps and trend views.\n- Development (2026-10): Built and published as a standalone app.\n- Testing: Unit tests for the climate maths; browser checks in dark, light and mobile with automated accessibility scans.\n- Deployment: Deployed on GitHub Pages."
     },
     {
       "projectId": "earthpulse",
@@ -557,7 +717,7 @@
       "title": "EarthPulse — not yet documented",
       "section": "undocumented",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=earthpulse",
-      "text": "Project: EarthPulse (Earth Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for EarthPulse: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+      "text": "Project: EarthPulse (Earth Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for EarthPulse: Nausheen's role; results or metrics. Do not guess these — say they are not documented yet."
     },
     {
       "projectId": "floramind-ai",
@@ -565,15 +725,23 @@
       "title": "FloraMind AI — overview",
       "section": "overview",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai",
-      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nComputer-vision plant intelligence. Identify plants and spot signs of plant disease from a photo using computer vision."
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nComputer-vision plant intelligence. Snap a leaf to check it for common crop diseases, or identify a house plant with care and pet-safety notes, using computer-vision models that run on the device.\nSource code: https://github.com/Nausheen1295/floramind-ai\nLive demo: https://nausheen1295.github.io/floramind-ai/"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:problem-solution",
+      "title": "FloraMind AI — problem & solution",
+      "section": "problem",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#problem",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nProblem: Spotting plant disease early, or knowing how to care for a plant you can't name, usually means asking an expert.\nSolution: Run two image classifiers in the browser, rate how much each result can be trusted, and pair it with care guidance and a leaf-colour check."
     },
     {
       "projectId": "floramind-ai",
       "id": "floramind-ai:features",
-      "title": "FloraMind AI — planned features",
+      "title": "FloraMind AI — features",
       "section": "features",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#features",
-      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned features:\n- Plant identification from photos\n- Plant-health / disease indicators\n- Care guidance"
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nFeatures:\n- Crop health: 38 healthy and diseased classes across 14 crops, with cause, signs and what to do\n- House plants: 47 species with light, water and pet-toxicity notes (ASPCA listings)\n- Calibrated High / Moderate / Low confidence, with alternatives and photo tips when unsure\n- Leaf-aware colour check that ignores pots, soil and skin, with a discoloured-area overlay\n- Upload, drag and drop, paste, phone camera or sample photos; photos never leave the device"
     },
     {
       "projectId": "floramind-ai",
@@ -581,7 +749,7 @@
       "title": "FloraMind AI — technologies",
       "section": "stack",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#stack",
-      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nPlanned technologies (not final): Python, Computer vision, Image classification."
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nTechnologies used: JavaScript, Transformers.js, ONNX Runtime Web, MobileNet-v2, Vision Transformer, Web Workers, Canvas."
     },
     {
       "projectId": "floramind-ai",
@@ -589,7 +757,47 @@
       "title": "FloraMind AI — AI components",
       "section": "ai",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#ai",
-      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nAI / ML components:\n- Image classification"
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nAI / ML components:\n- Plant-disease image classification (MobileNet-v2, 38 classes)\n- House-plant identification (Vision Transformer, 47 classes)\n- Confidence tiers calibrated on real photos"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:security",
+      "title": "FloraMind AI — security",
+      "section": "security",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#security",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nSecurity:\n- Photos are processed on-device and never uploaded"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:challenges",
+      "title": "FloraMind AI — challenges",
+      "section": "challenges",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#challenges",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nChallenges:\n- The int8 disease model uses an operator (ConvInteger) that the browser runtime doesn't support, so the app uses the 9 MB fp32 build\n- The house-plant model spreads its scores thinly (~13% for correct answers), so confidence is judged by the margin over the runner-up\n- Pots, skin and sunlit leaves skewed the colour check, so discolouration now only counts inside leaf tissue, with recalibrated hue bands"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:decisions",
+      "title": "FloraMind AI — engineering decisions",
+      "section": "decisions",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#decisions",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nEngineering decisions:\n- On-device models so photos stay private and the app works without a server\n- Show 'Not sure' with photo tips rather than a confident-looking wrong answer"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:database",
+      "title": "FloraMind AI — database",
+      "section": "database",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#database",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nDatabase: None."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:results",
+      "title": "FloraMind AI — results",
+      "section": "results",
+      "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#results",
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nResults: On 25 Wikimedia Commons disease photos the crop model named the exact crop and disease for 10 (all 6 tomato Septoria photos), and often confused potato with tomato late blight. On 23 house-plant photos the plant model named 16 correctly."
     },
     {
       "projectId": "floramind-ai",
@@ -597,7 +805,7 @@
       "title": "FloraMind AI — development timeline",
       "section": "timeline",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai#timeline",
-      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nDocumented development stages:\n- Idea: Concept defined — features and stack planned, build not started."
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nDocumented development stages:\n- Idea: Concept defined: plant identification, plant-health indicators and care guidance.\n- Development (2026-10): Built and published as a standalone app.\n- Testing: Unit tests for colour analysis, confidence tiers and care-data coverage; models evaluated on openly licensed Wikimedia Commons photos.\n- Deployment: Deployed on GitHub Pages."
     },
     {
       "projectId": "floramind-ai",
@@ -605,7 +813,7 @@
       "title": "FloraMind AI — not yet documented",
       "section": "undocumented",
       "url": "https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai",
-      "text": "Project: FloraMind AI (Bio Lab). Status: Concept — Designed and planned. Build not started yet. Everything below is a PLAN, not a built feature.\nNOT YET DOCUMENTED for FloraMind AI: the problem it solves; Nausheen's role; database choice; technical challenges; engineering decisions / why choices were made; results or metrics. Do not guess these — say they are not documented yet."
+      "text": "Project: FloraMind AI (Bio Lab). Status: Live — Shipped and publicly available.\nNOT YET DOCUMENTED for FloraMind AI: Nausheen's role. Do not guess these — say they are not documented yet."
     },
     {
       "projectId": "playground",
@@ -958,6 +1166,278 @@
       "section": "readme",
       "url": "https://github.com/Nausheen1295/Corizo-CRUD-Application#readme",
       "text": "Project: Student Management App. Status: Completed. Source: project README.\n## Credits\nDeveloped as part of Corizo Web Development training."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:readme:0",
+      "title": "NEXA — README: NEXA",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/nexa#readme",
+      "text": "Project: NEXA. Status: Live. Source: project README.\n# NEXA\n**An AI assistant that answers questions about my work, and only from my documented work.**\n💬 **Live site:** https://nausheen1295.github.io/nexa/\nNEXA answers questions about my projects, skills and experience, in the style you need: recruiter, developer, simple, architecture or interview. It uses retrieval-augmented generation over my portfolio's documentation, cites its sources, and says so when something isn't documented instead of guessing.\nPart of the AI Lab in my portfolio, [NEXUS](https://nausheen1295.github.io/portfolio/), where NEXA also has its own panel."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:readme:1",
+      "title": "NEXA — README: Two ways it answers",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/nexa#readme",
+      "text": "Project: NEXA. Status: Live. Source: project README.\n## Two ways it answers\n| | Documentation search (works now) | AI answers (once the API is hosted) |\n|---|---|---|\n| How | BM25 search in the browser over the knowledge base | NEXA API: retrieval → LLM → citation check |\n| Output | The best-matching passages, with links | A written answer in the chosen mode, with verified sources |\n| Never | Imitates AI | Cites a document it didn't retrieve |\nBoth modes say plainly when a detail isn't documented. The site checks the API on load and switches modes automatically, and it falls back to documentation search if the API is asleep or unreachable."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:readme:2",
+      "title": "NEXA — README: Repository",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/nexa#readme",
+      "text": "Project: NEXA. Status: Live. Source: project README.\n## Repository\n```\nindex.html, css/, js/     the NEXA website (static, GitHub Pages)\n  js/retrieval.js         BM25, ported line-for-line from the API so rankings match (parity-tested)\n  js/config.js            API endpoint (null = documentation search) and knowledge URLs\nknowledge/portfolio.json  bundled knowledge base (fallback)\nbackend/                  NEXA API: FastAPI, BM25 retrieval, grounded generation (see backend/README.md)\nrender.yaml               one-click Render deployment of backend/\n```\nThe knowledge base is generated by the portfolio from its project data and each project's README, and published at `https://nausheen1295.github.io/portfolio/knowledge/portfolio.json`. Both the website and the API load that live copy, and fall back to the bundled one."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:readme:3",
+      "title": "NEXA — README: Turn on AI answers",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/nexa#readme",
+      "text": "Project: NEXA. Status: Live. Source: project README.\n## Turn on AI answers\n1. **Deploy:** go to https://render.com/deploy?repo=https://github.com/Nausheen1295/nexa and enter `ANTHROPIC_API_KEY` and `NEXA_MODEL` when asked. They are stored only in Render.\n2. **Check:** `https:// .onrender.com/health` should return `{\"status\":\"ok\"}`.\n3. **Connect:** set `endpoint` to that address in `js/config.js` here and in `js/nexa/config.js` in the portfolio repo, then push.\nFull details, settings and the security checklist are in [backend/README.md](backend/README.md)."
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:readme:4",
+      "title": "NEXA — README: Tests",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/nexa#readme",
+      "text": "Project: NEXA. Status: Live. Source: project README.\n## Tests\n```bash\nnpm test                 # website retrieval: tokenizer, parity with the Python ranking, offline answers\ncd backend && pip install -r requirements-dev.txt && pytest   # 39 API, safety and retrieval tests; no key or network needed\n```"
+    },
+    {
+      "projectId": "nexa",
+      "id": "nexa:readme:5",
+      "title": "NEXA — README: Security",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/nexa#readme",
+      "text": "Project: NEXA. Status: Live. Source: project README.\n## Security\n- **Secrets:** the API key lives only in the host's environment variables. Nothing secret is in this repo or the website.\n- **Request limits:** CORS allow-list, strict validation, a 32 KB body cap, and per-visitor rate limits per minute and per day.\n- **Prompt injection:** documents and questions are treated as data, never as instructions, and citations are checked server-side.\n- **Logging:** logs record counts and latency, never question text.\n---\nBuilt by **Nausheen Haleelur Rahman**. [Portfolio](https://nausheen1295.github.io/portfolio/) · [GitHub](https://github.com/Nausheen1295)"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:readme:0",
+      "title": "MindScape AI — README: MindScape AI",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/mindscape-ai#readme",
+      "text": "Project: MindScape AI. Status: Live. Source: project README.\n# MindScape AI\n**A private, AI-powered second brain.** Write notes and MindScape links related ideas, maps your knowledge as a graph and answers questions from what you've written.\n🧠 **Live site:** https://nausheen1295.github.io/mindscape-ai/\nThe AI runs **on your device**. Notes are stored in your browser and never sent to a server.\nPart of the Knowledge Lab in my portfolio, [NEXUS](https://nausheen1295.github.io/portfolio/)."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:readme:1",
+      "title": "MindScape AI — README: Features",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/mindscape-ai#readme",
+      "text": "Project: MindScape AI. Status: Live. Source: project README.\n## Features\n- **Notes:**\n  - Markdown with a live preview.\n  - Tag with `#tag` and link with `[[Note title]]`; clicking a link to a note that doesn't exist yet creates it.\n  - Notes autosave, and you can download any note as a `.md` file.\n- **Related by meaning:** every note is turned into a 384-dimension sentence embedding.\n  - MindScape lists the notes closest in meaning, even with no words in common (e.g. *AES-GCM* ↔ *Password hashing*).\n  - One click links a related note into the one you're writing.\n- **Semantic search:** search \"keeping my secrets safe\" and you get the security notes. Results are ranked by a blend of meaning and keywords.\n- **Knowledge graph:** an interactive force-directed map.\n  - Solid lines are your links, and dashed lines are connections found by meaning, with an adjustable similarity threshold.\n  - Drag, zoom, hover to highlight neighbours, and click to open a note. It also works with the keyboard.\n- **Ask your notes:** ask a question in plain words.\n  - Every passage in your notebook is scored against the question, and the best matches are shown with their source note.\n  - It is extractive: MindScape never writes text that isn't in your notes, and it says so when nothing matches.\n- **Tags, links and backlinks:** filter by tag, and see which notes link here.\n- **Backups:** export and import JSON, add the sample notes, or start empty.\n- **Fallback:** keyword (TF-IDF) matching is used until the model loads, or if it can't."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:readme:2",
+      "title": "MindScape AI — README: How it works",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/mindscape-ai#readme",
+      "text": "Project: MindScape AI. Status: Live. Source: project README.\n## How it works\n```\nNotes (IndexedDB, this browser only)\n   │\n   ├── js/semantic.js        parse [[links]] / #tags, TF-IDF fallback, cosine similarity,\n   │                         semantic link selection, passage chunking   (unit-tested)\n   ├── js/embed-worker.js    Web Worker running all-MiniLM-L6-v2 (quantised ONNX, ~23 MB)\n   │                         via Transformers.js; mean-pooled, L2-normalised embeddings\n   ├── js/store.js           IndexedDB: notes + embedding cache keyed by content hash\n   └── js/app.js             editor, related notes, search, D3 force graph, Ask\n```\n- **Off the main thread:** the model runs in a Web Worker, so typing never stutters. It downloads once and is then cached by the browser.\n- **Embedding cache:** embeddings are cached by a hash of each note's text, so only notes that change are re-embedded.\n- **Link selection:** each note keeps at most its strongest few semantic partners, so a general note can't link to everything."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:readme:3",
+      "title": "MindScape AI — README: Tech",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/mindscape-ai#readme",
+      "text": "Project: MindScape AI. Status: Live. Source: project README.\n## Tech\nJavaScript (ES modules), [Transformers.js](https://huggingface.co/docs/transformers.js) with [all-MiniLM-L6-v2](https://huggingface.co/sentence-transformers/all-MiniLM-L6-v2), [D3](https://d3js.org/) force simulation, [marked](https://marked.js.org/) + [DOMPurify](https://github.com/cure53/DOMPurify), IndexedDB and Web Workers. There is no build step and no backend."
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:readme:4",
+      "title": "MindScape AI — README: Run locally",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/mindscape-ai#readme",
+      "text": "Project: MindScape AI. Status: Live. Source: project README.\n## Run locally\n```bash\ngit clone https://github.com/Nausheen1295/mindscape-ai.git\ncd mindscape-ai\nnpx serve .          # or: python -m http.server  (workers need http://, not file://)\nnpm test             # unit tests for the text & similarity helpers (Node 20+)\n```"
+    },
+    {
+      "projectId": "mindscape-ai",
+      "id": "mindscape-ai:readme:5",
+      "title": "MindScape AI — README: Privacy and limits",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/mindscape-ai#readme",
+      "text": "Project: MindScape AI. Status: Live. Source: project README.\n## Privacy and limits\n- **Privacy:** notes and embeddings stay in your browser's IndexedDB. Clearing site data deletes them, so use **Settings → Export** for backups.\n- **First load:** the model (~23 MB) downloads on first use, and keyword matching is used until then.\n- **Language:** the model is English-focused.\n---\nBuilt by **Nausheen Haleelur Rahman**. [Portfolio](https://nausheen1295.github.io/portfolio/) · [GitHub](https://github.com/Nausheen1295)"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:0",
+      "title": "InsightForge — README: InsightForge",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n# InsightForge\n**Drop in a dataset and get the story.** Automatic profiling, recommended charts and plain-language insights.\n📊 **Live site:** https://nausheen1295.github.io/insightforge/\nInsightForge turns a raw CSV into answers in seconds. It works out what each column is, measures it, picks the charts that suit the data, and writes up what stands out, with the numbers behind every finding. Everything runs in your browser tab, so your file is never uploaded.\nPart of the Data Lab in my portfolio, [NEXUS](https://nausheen1295.github.io/portfolio/)."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:1",
+      "title": "InsightForge — README: Features",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n## Features\n- **Load anything tabular:** CSV, TSV, semicolon- or pipe-separated text, or JSON arrays.\n  - Drag and drop, choose a file, or paste data. Files can be up to 50 MB (200,000 rows).\n- **Automatic profiling:** each column is classified as number, category, date, yes/no, ID or text.\n  - Shows missing values, distinct counts, mean, median, standard deviation, range and outliers (1.5 × IQR).\n  - Each column also gets a mini histogram or its top values.\n- **Plain-language insights,** ranked by strength:\n  - trends over time (start vs end, peak)\n  - strong correlations (Pearson r)\n  - which category explains the most variation in a measure (η²)\n  - skewed distributions, outliers, dominant categories\n  - data-quality issues: gaps, duplicate rows, constant columns\n  - Every finding shows its evidence, and none claims cause and effect.\n- **Recommended charts:**\n  - a line chart for date columns, plus several measures indexed to 100 so they compare on one axis\n  - a scatter plot of the strongest relationship, coloured by group\n  - average by the most influential category, category counts, and histograms\n- **Chart builder:** bar, line, scatter or histogram, with count, sum, mean, median, min or max and colour-by. It explains why when a combination doesn't make sense.\n- **Correlation heatmap** across numeric columns.\n- **Data table** with filtering and sorting.\n- **Downloadable report:** a Markdown summary of findings and column profiles.\n- **Accessible charts:** every chart has a table view, and colour palettes are colour-blind-checked in both light and dark themes."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:2",
+      "title": "InsightForge — README: Try it with the samples",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n## Try it with the samples\n| Sample | What InsightForge finds |\n|---|---|\n| Palmer Penguins | Flipper length and body mass are strongly correlated (r = 0.87). Species explains 78% of the variation in flipper length. |\n| Stock prices 2007–2016 | AAPL rose about 740% over the period. Prices correlate strongly, but all are trending over time, and the app says so. |\n| Restaurant tips | Tip tracks the total bill (r = 0.68). Bills are right-skewed, and 72% of rows are dinner. |"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:3",
+      "title": "InsightForge — README: How it works",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n## How it works\n```\nFile / paste / sample\n      │  PapaParse (delimiter sniffing) or JSON.parse\n      ▼\njs/profile.js   pure analysis engine (unit-tested)\n      │  type inference → column stats → correlations, η², skew, outliers, trends\n      ├──► insights()      ranked plain-language findings with evidence\n      └──► suggestCharts() chart specs chosen from column types and relationships\n      ▼\njs/charts.js    Chart.js rendering; colours read from CSS tokens per theme\njs/app.js       tabs, builder, columns, heatmap, table, report export\n```\n- **Rule-based insights:** findings come from a statistical engine, not a language model. That makes them fast, private and reproducible, and every sentence can be traced to a number.\n- **Type inference:** detection is tolerant of currency symbols, thousands separators, percentages, common \"missing\" markers (`NA`, `null`, `-`, …) and several date formats.\n- **Large files:** long series are evenly thinned for drawing, but all statistics use every row."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:4",
+      "title": "InsightForge — README: Tech",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n## Tech\nHTML, CSS and JavaScript (ES modules), [Chart.js](https://www.chartjs.org/) and [PapaParse](https://www.papaparse.com/). There is no build step and no backend."
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:5",
+      "title": "InsightForge — README: Run locally",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n## Run locally\n```bash\ngit clone https://github.com/Nausheen1295/insightforge.git\ncd insightforge\nnpx serve .          # or: python -m http.server\nnpm test             # unit tests for the analysis engine (Node 20+)\n```"
+    },
+    {
+      "projectId": "insightforge",
+      "id": "insightforge:readme:6",
+      "title": "InsightForge — README: Sample data credits",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/insightforge#readme",
+      "text": "Project: InsightForge. Status: Live. Source: project README.\n## Sample data credits\n- **Palmer Penguins:** Gorman, Williams & Fraser (2014), via [palmerpenguins](https://allisonhorst.github.io/palmerpenguins/). CC0.\n- **Tips:** Bryant & Smith (1995), via [seaborn-data](https://github.com/mwaskom/seaborn-data).\n- **Stock prices:** Yahoo Finance daily adjusted closes, via [plotly/datasets](https://github.com/plotly/datasets). This is the same data as my [Stock Price Prediction](https://github.com/Nausheen1295/portfolio/tree/main/projects/stock-price-prediction) project.\n---\nBuilt by **Nausheen Haleelur Rahman**. [Portfolio](https://nausheen1295.github.io/portfolio/) · [GitHub](https://github.com/Nausheen1295)"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:0",
+      "title": "EarthPulse — README: EarthPulse",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n# EarthPulse\n**Climate & geospatial intelligence on one live map.**\n🌍 **Live site:** https://nausheen1295.github.io/earthpulse/\nEarthPulse brings real-time earth data together in one place. See earthquakes and natural events as they happen, then click any point on the planet to get its weather, air quality and long-term climate trend.\nPart of the Earth Lab in my portfolio, [NEXUS](https://nausheen1295.github.io/portfolio/)."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:1",
+      "title": "EarthPulse — README: Features",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n## Features\n- **Live earthquakes:** USGS feeds for the past day, week or month.\n  - Marker size shows magnitude and colour shows depth.\n  - Tsunami flags are shown, and every quake links to its USGS event page.\n- **Natural events:** open NASA EONET events (wildfires, severe storms, volcanoes, sea ice and more), filterable by type.\n- **Any place on Earth:** click the map, search a city or use your location to see:\n  - current weather and a 7-day forecast\n  - air quality (US AQI, PM2.5, PM10, O₃, NO₂)\n  - the climate trend since 1950\n- **Climate trend:**\n  - Warming stripes and a yearly anomaly chart against the 1991–2020 average, built from ERA5 reanalysis.\n  - Also shows the trend in °C per decade, how the past 12 months compare, and the warmest year on record for that point.\n- **Shareable links:** the selected place is kept in the URL (`?lat=…&lon=…&name=…`).\n- **Auto-refresh:** feeds refresh every 5 minutes.\n- **Themes and devices:** dark and light themes, keyboard-friendly tabs and search, and a layout that works on phones."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:2",
+      "title": "EarthPulse — README: How it works",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n## How it works\n```\nBrowser (static site on GitHub Pages)\n│\n├── Leaflet map ◄── OpenStreetMap tiles\n├── js/api.js ──► USGS earthquake GeoJSON feeds\n│             ──► NASA EONET v3 events\n│             ──► Open-Meteo forecast, air-quality, geocoding and ERA5 archive APIs\n│             ──► Nominatim reverse geocoding (place names for clicked points)\n├── js/climate.js   pure functions: yearly anomalies, trend, 12-month anomaly, colour scales\n└── js/app.js       map layers, panels, search and URL state\n```\n- There is no backend and no API keys. Every data source is free, public and allows browser requests.\n- The climate maths runs in the browser on about 27,000 daily values per place.\n- Only complete years count, so a partial year never looks unusually warm or cold.\n- Each panel fails on its own. If one source is down, the rest of the page keeps working, and a newer selection always replaces an older one that is still loading."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:3",
+      "title": "EarthPulse — README: Tech",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n## Tech\nHTML, CSS and JavaScript (ES modules), [Leaflet](https://leafletjs.com/) and hand-drawn SVG charts. There is no build step."
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:4",
+      "title": "EarthPulse — README: Run locally",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n## Run locally\n```bash\ngit clone https://github.com/Nausheen1295/earthpulse.git\ncd earthpulse\nnpx serve .          # or: python -m http.server\nnpm test             # unit tests for the climate maths (Node 20+)\n```"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:5",
+      "title": "EarthPulse — README: Data sources",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n## Data sources\n| Data | Source |\n|---|---|\n| Earthquakes | [USGS Earthquake Hazards Program](https://earthquake.usgs.gov/earthquakes/feed/) |\n| Natural events | [NASA EONET](https://eonet.gsfc.nasa.gov/) |\n| Weather, air quality, geocoding, ERA5 climate archive | [Open-Meteo](https://open-meteo.com/) |\n| Map tiles, reverse geocoding | © [OpenStreetMap](https://www.openstreetmap.org/copyright) contributors |"
+    },
+    {
+      "projectId": "earthpulse",
+      "id": "earthpulse:readme:6",
+      "title": "EarthPulse — README: Limits",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/earthpulse#readme",
+      "text": "Project: EarthPulse. Status: Live. Source: project README.\n## Limits\n- **Grid resolution:** ERA5 is a reanalysis on a grid of about 25 km. The trend describes that grid cell, not a single weather station.\n- **Air quality:** the readings are modelled values from Open-Meteo, not sensor measurements.\n---\nBuilt by **Nausheen Haleelur Rahman**. [Portfolio](https://nausheen1295.github.io/portfolio/) · [GitHub](https://github.com/Nausheen1295)"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:0",
+      "title": "FloraMind AI — README: FloraMind AI",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n# FloraMind AI\n**Computer-vision plant intelligence that runs on your device.** Snap a leaf to check it for common crop diseases, or identify a house plant and get care and pet-safety notes.\n🌿 **Live site:** https://nausheen1295.github.io/floramind-ai/\nPhotos are never uploaded: both neural networks run in the browser with Transformers.js.\nPart of the Bio Lab in my portfolio, [NEXUS](https://nausheen1295.github.io/portfolio/)."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:1",
+      "title": "FloraMind AI — README: Features",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n## Features\n- **Check crop health:**\n  - 38 classes covering 14 crops (tomato, potato, apple, grape, maize, pepper, peach, strawberry and more), both healthy and diseased.\n  - Each diagnosis comes with its cause, what to look for, and what you can do.\n- **Identify a house plant:** 47 popular indoor plants, with light and water needs and pet toxicity based on ASPCA listings. Highly toxic plants such as lilies and sago palm are flagged.\n- **Leaf colour check:**\n  - Measures green, yellow and brown leaf tissue, ignoring pots, soil, skin and background.\n  - Can highlight discoloured areas on the photo.\n  - Clearly labelled as an *indicator*, not a diagnosis.\n- **Honest confidence:**\n  - Every result is rated High, Moderate or Low, with alternatives listed.\n  - Low-confidence results say so, and give tips for a better photo instead of guessing.\n- **Input options:** upload, drag and drop, paste, phone camera, or six sample photos."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:2",
+      "title": "FloraMind AI — README: How it works",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n## How it works\n```\nPhoto ─► canvas (≤ 900 px) ─┬─► js/analysis.js      leaf-aware colour classification (unit-tested)\n                            │\n                            └─► js/vision-worker.js  Web Worker + Transformers.js (ONNX Runtime Web)\n                                   ├─ crop health: MobileNet-v2, fine-tuned on New Plant Diseases (38 classes, 9 MB)\n                                   └─ house plants: ViT-Base, fine-tuned on 47 house plants (4-bit, ~57 MB, loaded on demand)\n                                         │ top-5 labels + scores\n                                         ▼\n                            rateResult() confidence tiers ─► js/care.js guidance ─► result card\n```"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:3",
+      "title": "FloraMind AI — README: Confidence calibration",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n### Confidence calibration\nThe two models behave very differently, so each gets its own rule. I tested them on openly licensed Wikimedia Commons photos before setting the thresholds.\n| Model | Behaviour on real photos | Rule |\n|---|---|---|\n| Crop health | Sharp: correct answers often score 35–98% | High ≥ 60% · Moderate ≥ 30% and 1.5× the runner-up |\n| House plants | Flat: correct answers score ~13% against ~3% for the next guess | High: ≥ 2.5× the runner-up · Moderate ≥ 1.6× |"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:4",
+      "title": "FloraMind AI — README: Field test",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n### Field test\nThe lab results don't carry over fully to real-world photos:\n| Model | Reported accuracy (own test set) | My test on Wikimedia Commons photos |\n|---|---|---|\n| Crop health | ~95% | 10 of 25 exactly right (crop + disease), 12 of 25 right disease. It was right on all 6 tomato Septoria photos and often mixed up potato and tomato late blight. Several test images were microscope shots or drawings. |\n| House plants | ~90% | 16 of 23 right (top answer) |\nThe crop model was trained on PlantVillage-style photos: single leaves on plain backgrounds. It does best on similar shots, which is why the app asks for one leaf filling the frame."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:5",
+      "title": "FloraMind AI — README: Tech",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n## Tech\nJavaScript (ES modules), [Transformers.js](https://huggingface.co/docs/transformers.js) (ONNX Runtime Web), Web Workers and Canvas. There is no build step and no backend."
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:6",
+      "title": "FloraMind AI — README: Run locally",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n## Run locally\n```bash\ngit clone https://github.com/Nausheen1295/floramind-ai.git\ncd floramind-ai\nnpx serve .          # or: python -m http.server  (workers need http://, not file://)\nnpm test             # unit tests: colour analysis, confidence tiers, care-data coverage (Node 20+)\n```"
+    },
+    {
+      "projectId": "floramind-ai",
+      "id": "floramind-ai:readme:7",
+      "title": "FloraMind AI — README: Credits",
+      "section": "readme",
+      "url": "https://github.com/Nausheen1295/floramind-ai#readme",
+      "text": "Project: FloraMind AI. Status: Live. Source: project README.\n## Credits\n- **Crop health model:** [linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification](https://huggingface.co/linkanjarad/mobilenet_v2_1.0_224-plant-disease-identification), using the ONNX conversion by onnx-community.\n- **House plant model:** [dima806/house-plant-image-detection](https://huggingface.co/dima806/house-plant-image-detection) (Apache-2.0), using the ONNX conversion by onnx-community.\n- **Sample photos:** from Wikimedia Commons. Authors and licences are listed in [`samples/credits.json`](samples/credits.json) and in the site footer.\n- **Guidance:** care and disease notes are general guidance written for this project. Confirm serious plant problems with a local plant clinic or agricultural extension service.\n---\nBuilt by **Nausheen Haleelur Rahman**. [Portfolio](https://nausheen1295.github.io/portfolio/) · [GitHub](https://github.com/Nausheen1295)"
     },
     {
       "projectId": "packet-sniffer",

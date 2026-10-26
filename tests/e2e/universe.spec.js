@@ -45,11 +45,11 @@ test.describe("projects", () => {
     await page.goto("./#projects");
     const cards = page.locator("#projectGrid .nx-project");
     await expect(cards).toHaveCount(13);
-    await expect(page.locator('[data-project="securevault-ai"] .nx-badge')).toHaveText("Live");
-    for (const id of ["nexa", "mindscape-ai", "insightforge", "earthpulse", "floramind-ai"]) {
-      await expect(page.locator(`[data-project="${id}"] .nx-badge`)).toHaveText("Concept");
-      await expect(page.locator(`[data-project="${id}"]`)).toContainText("planned");
+    for (const id of ["securevault-ai", "nexa", "mindscape-ai", "insightforge", "earthpulse", "floramind-ai"]) {
+      await expect(page.locator(`[data-project="${id}"] .nx-badge`)).toHaveText("Live");
+      await expect(page.locator(`[data-project="${id}"]`)).not.toContainText("planned");
     }
+    await expect(page.locator('[data-project="corizo-ecommerce"] .nx-badge')).toHaveText("In development");
   });
 
   test("filter chips narrow the grid", async ({ page }) => {
@@ -73,9 +73,11 @@ test.describe("projects", () => {
     await expect(page).not.toHaveURL(/#project-/);
   });
 
-  test("concept quick view says it isn't built", async ({ page }) => {
+  test("lab app quick view links to the live app", async ({ page }) => {
     await page.goto("./#project-earthpulse");
-    await expect(page.locator("#projectModal")).toContainText("This project hasn't been built yet");
+    const dialog = page.locator("#projectModal");
+    await expect(dialog).not.toContainText("This project hasn't been built yet");
+    await expect(dialog.getByRole("link", { name: /Live/ }).first()).toHaveAttribute("href", "https://nausheen1295.github.io/earthpulse/");
   });
 
   test("skills link to the projects that prove them", async ({ page }) => {

@@ -49,8 +49,8 @@ sits at the centre, connected to eight labs. Select a lab to see its projects (o
 | LAB-08 · Web Lab | Full-stack web applications, from REST APIs to deployed products | Tech World E-Commerce |
 
 ### 🧪 Projects
-Every project is labelled honestly. **Live** and **Completed** projects are real and public; **Concept** projects
-are designed but not built yet.
+Every project is labelled honestly. **Live** and **Completed** projects are real and public; **In development** work
+is still being built.
 
 | Project | Lab | Status | What it is |
 |---|---|---|---|
@@ -61,12 +61,12 @@ are designed but not built yet.
 | [NR Playfair Cipher](https://github.com/Nausheen1295/NR-Playfair-Cipher) | Security | Completed | A modified Playfair cipher supporting upper- and lowercase letters, numbers and special characters (Python). |
 | [Packet Sniffer](https://github.com/Nausheen1295/CodeAlpha_CyberSecurity) | Security | Completed | A network packet sniffer built with Python and Scapy, plus a phishing-awareness video. |
 | [NorthStar Mobility Analysis](https://github.com/Nausheen1295/NorthStar-Coursework) | Data | Completed | Coursework analysing urban mobility and logistics data in Jupyter. |
+| **[NEXA](https://nausheen1295.github.io/portfolio/project.html?id=nexa)** · [live site](https://nausheen1295.github.io/nexa/) · [code](https://github.com/Nausheen1295/nexa) | AI | **Live** | AI portfolio assistant that answers only from my documented work, with sources. Five answer modes; FastAPI RAG backend with citation checks (AI answers switch on once the API is hosted), plus a documentation-search mode that ranks exactly like the API. |
+| **[MindScape AI](https://nausheen1295.github.io/portfolio/project.html?id=mindscape-ai)** · [live app](https://nausheen1295.github.io/mindscape-ai/) · [code](https://github.com/Nausheen1295/mindscape-ai) | Knowledge | **Live** | A private second brain: an on-device embedding model (all-MiniLM-L6-v2) links related notes, powers search by meaning, draws a knowledge graph and answers questions from your notes. |
+| **[InsightForge](https://nausheen1295.github.io/portfolio/project.html?id=insightforge)** · [live app](https://nausheen1295.github.io/insightforge/) · [code](https://github.com/Nausheen1295/insightforge) | Data | **Live** | Drop in a CSV and get column profiling, recommended charts and plain-language insights with their evidence, all in the browser. |
+| **[EarthPulse](https://nausheen1295.github.io/portfolio/project.html?id=earthpulse)** · [live app](https://nausheen1295.github.io/earthpulse/) · [code](https://github.com/Nausheen1295/earthpulse) | Earth | **Live** | A live map of earthquakes (USGS) and natural events (NASA EONET), with weather, air quality and warming stripes since 1950 for any place. |
+| **[FloraMind AI](https://nausheen1295.github.io/portfolio/project.html?id=floramind-ai)** · [live app](https://nausheen1295.github.io/floramind-ai/) · [code](https://github.com/Nausheen1295/floramind-ai) | Bio | **Live** | On-device computer vision: checks crop leaves for 38 disease and healthy classes, or identifies 47 house plants with care and pet-safety notes. |
 | NEXUS Playground | Experimental | Experimental | Browser games built from scratch in vanilla JavaScript (see below). |
-| NEXA | AI | Concept | AI portfolio assistant that answers questions about my projects from their documentation. |
-| MindScape AI | Knowledge | Concept | AI-powered second brain and knowledge-management platform. |
-| InsightForge | Data | Concept | AI data analytics and visualisation platform. |
-| EarthPulse | Earth | Concept | Climate and geospatial intelligence from real-time data. |
-| FloraMind AI | Bio | Concept | Computer-vision plant identification and health indicators. |
 
 ### 📄 Case studies
 Every project has its own case-study page. Each one covers the overview, features, technologies, security and AI components, and a timeline. It also has a
@@ -82,8 +82,9 @@ project to see how far it has come.
 ### 🤖 Meet NEXA
 The portfolio's AI assistant interface. It has five answer modes (**Recruiter, Developer, Simple, Architecture, Interview**),
 a project-context picker, and suggested questions, including an "interview me" set. Until its backend is
-connected, NEXA runs in a clearly labelled **documentation-search mode**: it shows what the project documentation
-says, never generates answers, and states when something isn't documented.
+hosted, NEXA runs in a clearly labelled **documentation-search mode**: it shows what the project documentation
+says, never generates answers, and states when something isn't documented. NEXA also has its own site at
+[nausheen1295.github.io/nexa](https://nausheen1295.github.io/nexa/).
 
 ### 🎓 Certifications (8)
 Click **View certificate** on the site to open the real certificate, with its issue date, credential ID and PDF.
@@ -149,9 +150,9 @@ Small games and tools built from scratch in vanilla JavaScript, with no librarie
   reduced-motion support.
 - **Performance and SEO:** Lighthouse desktop scores 95–100 for performance and 100 for accessibility, best practices and SEO. The site has per-page
   metadata, Open Graph previews, structured data, a sitemap and a custom 404 page.
-- **NEXA backend** (`nexa-backend/`): a FastAPI service with retrieval over the portfolio's knowledge base and an LLM provider,
-  deployed separately. It has validation, rate limiting, CORS and citation checks, and keeps its API key server-side only.
-- **Tested:** 111 end-to-end browser tests (Playwright), 18 content guardrail tests and 34 backend tests.
+- **NEXA knowledge base:** `knowledge/portfolio.json` is generated from the project data and each project's README, and
+  published with the site. The [NEXA API](https://github.com/Nausheen1295/nexa) (FastAPI, in its own repo) loads it, so a content change reaches NEXA without a redeploy.
+- **Tested:** end-to-end browser tests (Playwright) and content guardrail tests; NEXA's 39 backend tests live in its repo.
 
 <details>
 <summary><strong>Developer notes</strong> (structure, running locally, tests, editing content)</summary>
@@ -174,7 +175,7 @@ projects/             Project source that isn't in its own repo (Stock Price Pre
 assets/               Social preview image, project screenshots, certificates
 tools/                Knowledge export, sitemap and module-preload generators
 tests/                Content guardrails + Playwright end-to-end tests
-nexa-backend/         NEXA API (deployed separately)
+knowledge/            NEXA knowledge base (generated by tools/export-knowledge.mjs)
 ```
 
 ### Run locally
@@ -187,7 +188,6 @@ npm run serve        # → http://localhost:4173/portfolio/
 ```bash
 npm run test:data                 # content guardrails (instant)
 cd tests && npm install && npm test   # + end-to-end browser tests, using your installed Chrome
-cd nexa-backend && pytest         # backend tests
 ```
 
 ### Editing content

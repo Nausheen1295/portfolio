@@ -8,7 +8,7 @@
      node tools/export-knowledge.mjs              # site data only
      node tools/export-knowledge.mjs --readmes    # + fetch README.md for projects with a GitHub link
 
-   Output: nexa-backend/knowledge/portfolio.json
+   Output: knowledge/portfolio.json (published on GitHub Pages; the NEXA API and site load it)
    Every chunk carries the project's STATUS in its text, so a model can never
    lose track of what's real (live/complete) versus planned (concept).
    ========================================================================== */
@@ -18,7 +18,7 @@ import path from "node:path";
 
 const ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
 const SITE = "https://nausheen1295.github.io/portfolio/";
-const OUT = path.join(ROOT, "nexa-backend", "knowledge", "portfolio.json");
+const OUT = path.join(ROOT, "knowledge", "portfolio.json");
 const withReadmes = process.argv.includes("--readmes");
 
 const load = (rel) => import(pathToFileURL(path.join(ROOT, rel)).href);

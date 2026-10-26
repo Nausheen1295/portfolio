@@ -36,18 +36,24 @@ test("every lab's flagship exists and lives in that lab", () => {
   }
 });
 
-test("only SecureVault AI is marked live (the one shipped product)", () => {
-  assert.deepEqual(PROJECTS.filter((p) => p.status === "live").map((p) => p.id), ["securevault-ai"]);
+test("live projects link to a public https site and their code", () => {
+  for (const p of PROJECTS.filter((x) => x.status === "live")) {
+    assert.match(p.links.live || "", /^https:\/\//, `${p.id}: live project needs a live https link`);
+    assert.ok(p.links.github, `${p.id}: live project needs a repo link`);
+  }
 });
 
-test("the five future projects are labelled as concepts with a planned stack", () => {
-  for (const id of ["nexa", "mindscape-ai", "insightforge", "earthpulse", "floramind-ai"]) {
-    const p = getProject(id);
-    assert.ok(p, `${id} missing`);
-    assert.ok(["concept", "in-development", "experimental"].includes(p.status), `${id} must not claim to be shipped`);
-    assert.equal(p.technologiesPlanned, true, `${id}: stack must be marked as planned`);
-    assert.equal(p.results, null, `${id}: unbuilt project can't have results`);
-    assert.ok(!p.links.live, `${id}: unbuilt project can't have a live demo`);
+test("concept projects stay clearly marked as plans", () => {
+  for (const p of PROJECTS.filter((x) => x.status === "concept")) {
+    assert.equal(p.technologiesPlanned, true, `${p.id}: stack must be marked as planned`);
+    assert.equal(p.results, null, `${p.id}: unbuilt project can't have results`);
+    assert.ok(!p.links.live, `${p.id}: unbuilt project can't have a live demo`);
+  }
+});
+
+test("built projects don't describe their stack as planned", () => {
+  for (const p of PROJECTS.filter((x) => x.status !== "concept")) {
+    assert.equal(p.technologiesPlanned, false, `${p.id}: built project's stack is a fact, not a plan`);
   }
 });
 
@@ -135,7 +141,7 @@ test("NEXA config never ships secrets and only allows https", async () => {
 });
 
 test("knowledge export is up to date with projects.js", async () => {
-  const kb = JSON.parse(await readFile(path.join(ROOT, "nexa-backend/knowledge/portfolio.json"), "utf8"));
+  const kb = JSON.parse(await readFile(path.join(ROOT, "knowledge/portfolio.json"), "utf8"));
   for (const p of PROJECTS) {
     const overview = kb.chunks.find((c) => c.id === `${p.id}:overview`);
     assert.ok(overview, `knowledge is missing ${p.id} — run: node tools/export-knowledge.mjs --readmes`);

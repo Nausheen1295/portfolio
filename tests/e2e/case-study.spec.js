@@ -40,11 +40,16 @@ test.describe("case studies", () => {
     await expect(detail.getByRole("heading", { name: "React + Vite app" })).toBeVisible();
   });
 
-  test("concept case study is clearly marked as a plan", async ({ page }) => {
-    await page.goto("project.html?id=nexa");
-    await expect(page.getByText("This project hasn't been built yet.")).toBeVisible();
-    await expect(page.getByRole("heading", { name: "Planned architecture" })).toBeVisible();
-    await expect(page.locator(".nx-cs-missing")).toHaveCount(0);
+  test("NEXUS lab apps show real case studies with live links", async ({ page }) => {
+    for (const [id, slug] of [["nexa", "nexa"], ["mindscape-ai", "mindscape-ai"], ["insightforge", "insightforge"], ["earthpulse", "earthpulse"], ["floramind-ai", "floramind-ai"]]) {
+      await page.goto(`project.html?id=${id}`);
+      await expect(page.getByText("This project hasn't been built yet.")).toHaveCount(0);
+      await expect(page.getByRole("link", { name: /Live demo/ })).toHaveAttribute("href", `https://nausheen1295.github.io/${slug}/`);
+      await expect(page.getByRole("link", { name: /Source code/ })).toHaveAttribute("href", `https://github.com/Nausheen1295/${slug}`);
+      await expect(page.getByRole("heading", { level: 2, name: "Challenges" })).toBeVisible();
+    }
+    await page.goto("project.html?id=floramind-ai");
+    await expect(page.locator("#results")).toContainText("16 correctly");
   });
 
   test("unknown id shows a friendly not-found state", async ({ page }) => {
